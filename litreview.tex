@@ -6,10 +6,13 @@
 \usepackage{graphicx}               % This is used to load the crest in the title page
 \usepackage{poltakmacros}           % Personal macros included in file 'poltakmacros.sty'
 \usepackage{enumitem}               % For nested enum lists
+\usepackage{apacite}
 \usepackage[font={small}]{caption}
 \usepackage[hidelinks]{hyperref}
 \usepackage{url}
 
+
+% Include the cover page
 \include{cover}
 
 
@@ -18,6 +21,11 @@
 \section{Introduction} % (fold)
 \label{sec:introduction}
 
+The realtime processing of big data processing is of great importance to both academia and industry. The modern economy
+is said to be built upon data, with those who control the data controlling the overall course of events of our society.
+This has been recognised by academia and industry alike, with the last decade seeing a major shift in research and development
+into new methods of handling and processing of data.
+
 
 
 % section introduction (end)
@@ -25,7 +33,7 @@
 
 \newpage
 
-\bibliographystyle{acm}
+\bibliographystyle{apacite}
 \bibliography{litreview}
 
 \end{document}
