@@ -12,8 +12,61 @@
 \usepackage{url}
 
 
-% Include the cover page
-\include{cover}
+\author{Jonathan Poltak Samosir}
+\title{Honours Research Proposal}
+
+\begin{document}
+
+% Set up a title page
+\thispagestyle{empty} % no page number on very first page
+% Use roman numerals for page numbers initially
+\renewcommand{\thepage}{\roman{page}}
+
+\begin{spacing}{1.5}
+\begin{center}
+{\Large \bfseries
+Clayton School of Information Technology\\
+Monash University}
+
+\vspace*{30mm}
+
+\includegraphics[width=5cm]{img/MonashCrest.pdf}
+
+\vspace*{15mm}
+
+{\large \bfseries
+Honours Literature Review --- Semester 2, 2014
+}
+
+\vspace*{10mm}
+
+{\LARGE \bfseries
+A study of the Hadoop ecosystem for pipelined realtime data stream processing
+}
+
+\vspace*{20mm}
+
+{\large \bfseries
+Jonathan Poltak Samosir
+
+[2271 3603]
+
+\vspace*{20mm}
+
+Supervisors: \parbox[t]{50mm}{\mbox{Dr Maria Indrawan-Santiago}\\Dr Pari Delir Haghighi}
+}
+
+\end{center}
+\end{spacing}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+% Now reset page number counter,and switch to arabic numerals for remaining page numbers
+\setcounter{page}{1}
+\renewcommand{\thepage}{\arabic{page}}
 
 
 % Start of content
@@ -21,15 +74,61 @@
 \section{Introduction} % (fold)
 \label{sec:introduction}
 
-The realtime processing of big data processing is of great importance to both academia and industry. The modern economy
-is said to be built upon data, with those who control the data controlling the overall course of events of our society.
-This has been recognised by academia and industry alike, with the last decade seeing a major shift in research and development
-into new methods of handling and processing of data.
+The realtime processing of big data is of great importance to both academia and industry. The modern economy is said to
+%TODO: get a quote for this from big data book
+be built upon such data, with those who control the data controlling the overall course of events in our society. This
+has been recognised by academics and organisations in industry alike, with the last decade seeing a major shift in research and
+development into new methods for the handling and processing of big data.
 
+This paper will give a background on the types and classes of big data, as well as the various methods employed to
+process those given classes of data. We will more specifically focussing on the methods that are involved with the
+analysis and processing of realtime data streams, as opposed to the batch processing of big data. This paper will look
+into detail at previous work that has been done in the field of big data, specifically those works that have had a
+greater influence on the field  as a whole. This includes both works looking specifically at the processing of streaming
+data, and works involving processed big data in batch mode, given that batch mode processing arguably led onto the
+current hot-topic of realtime stream processing.
 
+This paper will be structured in two main sections. In~\sectref{sec:big_data_types_background}, an overview of the different
+classes and types of big data will be presented. This includes an overview of the big data classes presented through others' findings
+as well as our own proposed classes for big data, based on the criticisms of those prior findings. In~\sectref{sec:big_data_processing_background},
+an overview will be given of the major open-source big data processing systems. A special emphasis will be given on data stream processing
+systems (DSPSs), given that the main area of this research is focusing on realtime data processing, or data stream processing.
+
+\sectref{sec:relationships_between_big_data_classes_and_big_data_processing} will then give a discussion relating to future work
+we have planned to form data processing recommendations based on the classification of specific data classes. All of the
+sections will then be summarised in the conclusion in~\sectref{sec:conclusion}.
+
+As a an outcome of this paper, we will identify a gap in previous research and development in the big data processing
+field, upon which our future work will attempt to work towards filling.
+
+\emph{Note that for the duration of this paper, the terms ``data'' and ``big data'' will be used interchangeably, and can
+be assumed to refer to the same idea.}
 
 % section introduction (end)
 
+
+\section{Big data types background} % (fold)
+\label{sec:big_data_types_background}
+
+The data underlying big data can be categorised into a number of different classes or types. Each class of data comes
+with their own characteristics and are often suitable for only certain types of processing. Furthermore, particular
+types of data are often only found in particular applications or use cases of big data processing.
+
+% section big_data_types_background (end)
+
+
+\section{Big data processing background} % (fold)
+\label{sec:big_data_processing_background}
+
+Much work has been done in the area of big data processing. As discussed in
+
+% section big_data_processing_background (end)
+
+
+\section{Conclusion and Discussion} % (fold)
+\label{sec:conclusion_and_discussion}
+
+% section conclusion_and_discussion (end)
 
 \newpage
 
