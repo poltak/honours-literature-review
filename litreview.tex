@@ -111,8 +111,13 @@ be assumed to refer to the same idea.}
 \label{sec:big_data_types_background}
 
 The data underlying big data can be categorised into a number of different classes or types. Each class of data comes
-with their own characteristics and are often suitable for only certain types of processing. Furthermore, particular
-types of data are often only found in particular applications or use cases of big data processing.
+with their own characteristics, and it is often possible to optimise the processing of each class of data by processing
+it in a specific way depending on those characteristics. For example, data that is expected to have highly iterative
+processing applied to it would benefit from a data processor that does not have to unnecessarily write to disk after
+every single iteration. The elimination of this I/O overhead is an example of the savings that could be gotten from
+correctly identifying the data class beforehand, and processing it accordingly. Furthermore, particular types of data
+are often only found in particular applications or use cases of big data processing. This will be elaborated on in
+later parts of this section.
 
 % section big_data_types_background (end)
 
@@ -125,10 +130,16 @@ Much work has been done in the area of big data processing. As discussed in
 % section big_data_processing_background (end)
 
 
-\section{Conclusion and Discussion} % (fold)
-\label{sec:conclusion_and_discussion}
+\section{Relationships between big data classes and big data processing} % (fold)
+\label{sec:relationships_between_big_data_classes_and_big_data_processing}
 
-% section conclusion_and_discussion (end)
+% section relationships_between_big_data_classes_and_big_data_processing (end)
+
+
+\section{Conclusion} % (fold)
+\label{sec:conclusion}
+
+% section conclusion (end)
 
 \newpage
 
