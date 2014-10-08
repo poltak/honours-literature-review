@@ -8,7 +8,6 @@
 \usepackage{enumitem}               % For nested enum lists
 \usepackage[font={small}]{caption}
 \usepackage[hidelinks]{hyperref}
-\usepackage{apacite}
 \usepackage{url}
 
 
@@ -116,12 +115,59 @@ be assumed to refer to the same idea.}
 
 The data underlying big data can be categorised into a number of different classes or types. Each class of data comes
 with their own characteristics, and it is often possible to optimise the processing of each class of data by processing
-it in a specific way depending on those characteristics. For example, data that is expected to have highly iterative
+it in a specific way depending on those characteristics.%TODO cite
+To give an example of this, data that is expected to have highly iterative
 processing applied to it would benefit from a data processor that does not have to unnecessarily write to disk after
 every single iteration. The elimination of this I/O overhead is an example of the savings that could be gotten from
-correctly identifying the data class beforehand, and processing it accordingly. Furthermore, particular types of data
-are often only found in particular applications or use cases of big data processing. This will be elaborated on in
+correctly identifying the data class beforehand, and processing it accordingly.
+
+Furthermore, particular types of data
+are generally only found in particular applications or use cases of big data processing.%TODO cite
+As this is the case, it narrows
+amount of classification needed, depending on the application that is being looked at. This will be elaborated on in
 later parts of this section.
+
+From preliminary research on looking at past work and literature in this area, it must be noted that in the subtopic
+of data classes and types for big data processing, there is a significant lack of research. Because of this, it was
+difficult to find conclusive information to base our research on, although it also highlights a further related area
+of research that may prove to be of benefit to look into.
+
+The main piece of literature that this section sources is a white paper, from IBM Architects Mysore, Khupat, and Jain,
+published by IBM in 2013~\cite{ibm_big_2013}. The white paper is targeted towards beginners in the area of big data
+processing; much like the set of recommendations we intend to produce from this research project. It looks at identifying
+the different classes, or ``formats'' as it was labelled in the paper, that are commonly encountered in big data. For
+each of these formats what was identified was the underlying characteristics of the data, and it was noted that
+depending on those characteristics, the type of processing needed would vary.
+
+The following subsections will highlight the different types or classes of big data, and give examples of their use in
+applications of big data processing.
+
+\subsection{Machine generated data} % (fold)
+\label{sub:machine_generated_data}
+
+% subsection machine_generated_data (end)
+
+\subsection{Web and social data} % (fold)
+\label{sub:web_and_social_data}
+
+% subsection web_and_social_data (end)
+
+\subsection{Transaction data} % (fold)
+\label{sub:transaction_data}
+
+% subsection transaction_data (end)
+
+\subsection{Human generated data} % (fold)
+\label{sub:human_generated_data}
+
+% subsection human_generated_data (end)
+
+\subsection{Biometric data} % (fold)
+\label{sub:biometric_data}
+
+
+
+% subsection biometric_data (end)
 
 % section big_data_types_background (end)
 
@@ -147,7 +193,7 @@ Much work has been done in the area of big data processing. As discussed in
 
 \newpage
 
-\bibliographystyle{apacite}
+\bibliographystyle{acm}
 \bibliography{litreview.bib}
 
 \end{document}
