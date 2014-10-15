@@ -173,60 +173,165 @@ at identifying the different data classes, or ``formats'' as they were labelled 
 encountered in big data. For each of these formats, what was identified was the underlying characteristics of the data,
 and it was noted that the type of processing needed would be dependent on those characteristics.
 
-The following subsections will highlight the different classes of data put forward by Mysore, Khupat, and Jain.
-Examples for the use of each data class in applications of big data processing will also be given, along with the
-identified characteristics of each data class.
+
+\subsubsection{Data characteristics, from Mysore et al.} % (fold)
+\label{ssub:data_charact}
+
+The characteristics of data, as put forward by Mysore et al., in~\cite{ibm_big_2013}, include the following:
+\par
+\textbf{Analysis type:}
+
+\begin{itemize}
+  \item Whether or not the data would be processed/analysed in realtime, or batched for later processing.
+  \item Often this data class characteristic is dependent on the application of the data (\eg{}The processing of social
+  media data for the analysis of currently occurring events would want to be processed in realtime, regardless of the
+  type of data that is involved).
+\end{itemize}
+
+\textbf{Processing methodology:}
+
+\begin{itemize}
+  \item This characteristic involves the approach used when processing the data.
+  \item Some examples of different processing methodologies include: predictive processing, analytical, ad-hoc queries,
+  and reporting.
+  \item Often the processing methodology for a particular class is determined by the business requirements or application
+  of the data.
+  \item Depending on the processing methodology used, many different combinations of big data technologies can be used.
+\end{itemize}
+
+\textbf{Data frequency and size:}
+
+\begin{itemize}
+  \item The amount of data expected to arrive to the processing system, along with the speed and regularity of the incoming data.
+  \item Knowing this characteristic beforehand can determine the methods for data storage and preprocessing, if needed.
+  \item Examples of data frequency includes: on-demand data (social media), continuous/realtime (weather data, transactions),
+  time-series (email).
+  \item Considering the four V's, the characteristic of data frequency and size directly relates back to velocity and volume.
+\end{itemize}
+
+\textbf{Content format:}
+
+\begin{itemize}
+  \item This characteristic relates back to the structure of the underlying data.
+  \item Examples of data content format include: structured (JSON, XML), unstructured (human-readable literature),
+  semi-structured (email).
+\end{itemize}
+
+\textbf{Data source:}
+
+\begin{itemize}
+  \item This characteristic relates back to where the data originated from.
+  \item As discussed previously in~\sectref{sub:four_v}, the origin of data can have a great effect on whether or not
+  that data is usable, as data often varies greatly, especially when many different sources are used which may or may
+  not conform to a specific content format.
+  \item Another thing that is dependent on the data source is whether or not the data can be trusted.
+  \item Considering the four V's, the characteristic of data source directly relates back to veracity and variety.
+\end{itemize}
+
+
+% subsubsection data_charact (end)
+
+ \subsubsection{Data classifications, from Mysore et al.} % (fold)
+ \label{ssub:data_classification}
+
+The following table will highlight the different classes of data put forward by Mysore, et al., in~\cite{ibm_big_2013}.
+The identified characteristics for each class of data will also be given.
 
 \hspace*{-3cm}
 \begingroup
-\fontsize{10pt}{10pt}\selectfont
+\fontsize{8pt}{10pt}\selectfont
 \begin{tabular}{ | p{1.5cm} | p{8cm} | p{8cm} | }
   \hline
-  \textbf{Data class}          &  \textbf{Explanation} & \textbf{Example}   \\ \hline
-  Machine generated data       &  As the name suggests, this class relates to data that is automatically generated as a
-  by-product of some interaction with a machine. The interaction could be performed by a human, or even another machine.
+  \textbf{Data class}          &  \textbf{Explanation} & \textbf{Characteristics}   \\ \hline
 
-  While Mysore et al.\ present this data class as being a distinct class in itself, it could be argued that this class
-  is an umbrella class which many other data classes can be categorised under. This will be touched upon again in later
-  sections. & test \\ \hline
+  Machine generated data
+  &
+  \begin{itemize}
+    \item Data that is automatically generated as a by-product of some interaction with a machine.
+    \item While Mysore et al.\ present this as being a distinct class in itself, it could be argued that this class
+    is an umbrella class which many other data classes presented in their paper fall under. This will be touched upon
+    further in later sections.
+  \end{itemize}
+  &
+  \begin{itemize}
+    \item Structured data (JSON, XML).
+    \item Frequency of data varies depending on application.
+  \end{itemize}
+  \\ \hline
 
+  Web and social data
+  &
+  \begin{itemize}
+    \item Data that is automatically generated through use of the Internet or social media, such as Facebook or Twitter.
+  \end{itemize}
+  &
+  \begin{itemize}
+    \item Unstructured text (long: blogs, short: microblogs, Facebook).
+    \item Miscellaneous multimedia (video, image, audio).
+    \item On-demand frequency.
+    \item Can be continuous feed of data in cases such as Twitter.
+  \end{itemize}
+  \\ \hline
+
+  Transaction data
+  &
+  \begin{itemize}
+    \item Data that is automatically generated as a by-product of transactions, such as money transactions or otherwise.
+  \end{itemize}
+  &
+  \begin{itemize}
+    \item Structured text (JSON, XML, logs).
+    \item Continuous feed.
+  \end{itemize}
+  \\ \hline
+
+  Human generated data
+  &
+  \begin{itemize}
+    \item Data that is solely produced by humans.
+    \item Examples of human generated data, as it is defined here, include such things as music, literature, recordings,
+    and emails.
+  \end{itemize}
+  &
+  \begin{itemize}
+    \item Unstructured text (mail, literature).
+    \item Miscellaneous multimedia (audio, video, images).
+    \item Semi-structured text (email, online messaging services).
+    \item On-demand frequency.
+  \end{itemize}
+  \\ \hline
+
+  Biometrics data
+  &
+  \begin{itemize}
+    \item Data that relates to human bioinformatics.
+  \end{itemize}
+  &
+  \begin{itemize}
+    \item Structured data.
+    \item On-demand frequency.
+    \item Continuous feeds of data in cases such as persistent health monitoring sensors (\ie{}hospital patients).
+  \end{itemize}
+  \\ \hline
 
 \end{tabular}
 \endgroup
 \hspace*{-3cm}
 
-\subsubsection{Machine generated data} % (fold)
-\label{sub:machine_generated_data}
+The classes and characteristics of data presented by Mysore et al., in~\cite{ibm_big_2013}, are highly oriented towards
+industry and business users, coming from an IBM-published paper. While this is not an issue as such, as noted earlier
+in this section, these characteristics and data classes are defined within the domain relevant to this paper. As such,
+they may not be as relevant or appropriate for usage in other, non-business domains.
 
-Machine generated data, as the name suggests, relates to data that is automatically generated as a by-product of some
-interaction. The interaction could be between a machine and a human, or even just between machines.
-
-
-
-
-% subsection machine_generated_data (end)
-
-\subsection{Web and social data} % (fold)
-\label{sub:web_and_social_data}
-
-% subsection web_and_social_data (end)
-
-\subsection{Transaction data} % (fold)
-\label{sub:transaction_data}
-
-% subsection transaction_data (end)
-
-\subsection{Human generated data} % (fold)
-\label{sub:human_generated_data}
-
-% subsection human_generated_data (end)
-
-\subsection{Biometric data} % (fold)
-\label{sub:biometric_data}
+% subsubsection data_classification (end)
 
 
+\subsubsection{Characteristics of data, from G\'eczy} % (fold)
+\label{ssub:characteristics_of_data_from_ge_czy}
 
-% subsection biometric_data (end)
+G\'eczy attempts to characterise
+
+% subsubsection characteristics_of_data_from_ge_czy (end)
 
 % subsection data_classification (end)
 
