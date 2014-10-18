@@ -6,10 +6,13 @@
 \usepackage{graphicx}               % This is used to load the crest in the title page
 \usepackage{poltakmacros}           % Personal macros included in file 'poltakmacros.sty'
 \usepackage{enumitem}               % For nested enum lists
+\usepackage{titlesec}
 \usepackage[font={small}]{caption}
 \usepackage[hidelinks]{hyperref}
 \usepackage{url}
 
+% Settings for titlesec package to have titles down to level of 4
+\setcounter{secnumdepth}{4}
 
 \author{Jonathan Poltak Samosir}
 \title{Honours Research Proposal}
@@ -128,28 +131,34 @@ These can be thought of as different ``dimensions'' of big data, and can be summ
   the data source/s. Veracity of data can widely differ between sources.
 \end{itemize}
 
-While the four V's are often described in terms of big data, they can also apply in general to more traditional data
-warehousing and processing, albeit on a far smaller scale. In the domain of big data processing, data will
+While the four V's are often described in terms of big data, they can also apply to more traditional data
+warehousing and processing in general, albeit on a far smaller scale. In the domain of big data processing, data will
 exhibit signs of high velocity, variety, and volume~\cite{beyer2011gartner}, and hence the veracity of the data may also fluctuate. Meanwhile,
 in more traditional data processing, the scope may be limited, especially in terms of factors such as variety and, as a
 consequence, there is less need of an emphasis on veracity due to limited variety in data sources.
 
+As will be made clear in the following sections, a lot of the identified classes and characteristics of data directly
+relate back to these four V's, whether or not it was intentional by the original authors. These can be considered the
+underlying features of many characteristics of data, both in the sense of big data and traditional data.
+
 % subsection velocity_variety_volume_and_veracity (end)
+
 
 \subsection{Classification of data} % (fold)
 \label{sub:data_classification}
 
 Data, in general, can be categorised into a number of different classes or types. In this paper, we will define the
-concept of a data class to mean the same as the terms of ``data type'', ``data category'', or ``data format'', as all terms were often
-used interchangeably in other literature.
+concept of a data class to mean the same as the terms of ``data type'', ``data category'', or ``data format'', as all
+terms were often used interchangeably in other literature.
 
 Each class of data can be further defined and categorised via the characteristics they exhibit. Furthermore, these
 characteristics exhibited by data classes can be exploited and it is often possible to optimise the processing of each
 class of data by processing it using a specific method depending on those characteristics.%TODO cite
-To give an example of this, data that is expected to have highly iterative
-processing applied to it would benefit from a data processor that does not have to unnecessarily write to disk after
-every single iteration. The elimination of this I/O overhead is an example of the optimisations that could be applied to
-the overall process from correctly identifying the data class beforehand, and processing it accordingly.
+To give an example
+of this, data that is expected to have highly iterative processing applied to it would benefit from a data processor
+that does not have to unnecessarily write to disk after every single iteration. The elimination of this I/O overhead is
+an example of the optimisations that could be applied to the overall process from correctly identifying the data class
+beforehand, and processing it accordingly.
 
 Furthermore, particular classes of data are generally only found in particular applications or use cases of data
 processing.%TODO cite
@@ -159,12 +168,19 @@ is being looked at. This will be elaborated on in later parts of this section.
 There is no concrete, universally accepted standard for the classification of data. While the study of big data processing
 could arguably be considered still in its infancy (or at least temperamental toddler stage), data handling and processing
 in general is relatively mature. From preliminary research on looking at past work and literature in this area,
-it must be noted that in the there is a significant lack of research on the classification of data. The literature that
+it must be noted that there is a significant lack of research on the classification of data.
+
+The literature that
 will be reviewed in this section is often not wholly focused on the idea of data classification, hence data classification
 is presented relative to whatever the overall topic of the literature is on. This is important to note, as one attempt
 at data classification may not be appropriate under a different context. This also explains the large variation in different
 classification attempts, although we will also highlight the recurring similarities between different data classification
 literature.
+
+
+
+\subsubsection{Characteristics of data, from Mysore et al.} % (fold)
+\label{ssub:data_charact}
 
 The main piece of literature that this section sources is a white paper from IBM Architects Mysore, Khupat, and Jain,
 published by IBM in 2013~\cite{ibm_big_2013}. The white paper is targeted towards beginners in the area of big data
@@ -173,13 +189,9 @@ at identifying the different data classes, or ``formats'' as they were labelled 
 encountered in big data. For each of these formats, what was identified was the underlying characteristics of the data,
 and it was noted that the type of processing needed would be dependent on those characteristics.
 
-
-\subsubsection{Data characteristics, from Mysore et al.} % (fold)
-\label{ssub:data_charact}
-
 The characteristics of data, as put forward by Mysore et al., in~\cite{ibm_big_2013}, include the following:
-\par
-\textbf{Analysis type:}
+
+\paragraph{Analysis type:}
 
 \begin{itemize}
   \item Whether or not the data would be processed/analysed in realtime, or batched for later processing.
@@ -188,7 +200,7 @@ The characteristics of data, as put forward by Mysore et al., in~\cite{ibm_big_2
   type of data that is involved).
 \end{itemize}
 
-\textbf{Processing methodology:}
+\paragraph{Processing methodology:}
 
 \begin{itemize}
   \item This characteristic involves the approach used when processing the data.
@@ -199,7 +211,7 @@ The characteristics of data, as put forward by Mysore et al., in~\cite{ibm_big_2
   \item Depending on the processing methodology used, many different combinations of big data technologies can be used.
 \end{itemize}
 
-\textbf{Data frequency and size:}
+\paragraph{Data frequency and size:}
 
 \begin{itemize}
   \item The amount of data expected to arrive to the processing system, along with the speed and regularity of the incoming data.
@@ -209,7 +221,7 @@ The characteristics of data, as put forward by Mysore et al., in~\cite{ibm_big_2
   \item Considering the four V's, the characteristic of data frequency and size directly relates back to velocity and volume.
 \end{itemize}
 
-\textbf{Content format:}
+\paragraph{Content format:}
 
 \begin{itemize}
   \item This characteristic relates back to the structure of the underlying data.
@@ -217,7 +229,7 @@ The characteristics of data, as put forward by Mysore et al., in~\cite{ibm_big_2
   semi-structured (email).
 \end{itemize}
 
-\textbf{Data source:}
+\paragraph{Data source:}
 
 \begin{itemize}
   \item This characteristic relates back to where the data originated from.
@@ -228,14 +240,17 @@ The characteristics of data, as put forward by Mysore et al., in~\cite{ibm_big_2
   \item Considering the four V's, the characteristic of data source directly relates back to veracity and variety.
 \end{itemize}
 
-
 % subsubsection data_charact (end)
 
- \subsubsection{Data classifications, from Mysore et al.} % (fold)
- \label{ssub:data_classification}
 
-The following table will highlight the different classes of data put forward by Mysore, et al., in~\cite{ibm_big_2013}.
-The identified characteristics for each class of data will also be given.
+
+\subsubsection{Classes of data, from Mysore et al.} % (fold)
+\label{ssub:data_classification}
+
+The following table highlights the different classes of data put forward by Mysore, et al., in~\cite{ibm_big_2013}.
+The table organises each class, along with giving a brief explanation of the class. Furthermore, each class is related
+back to the previously explained characteristics in an attempt to show the connections between class and underlying
+characteristics.
 
 \hspace*{-3cm}
 \begingroup
@@ -316,14 +331,24 @@ The identified characteristics for each class of data will also be given.
 
 \end{tabular}
 \endgroup
-\hspace*{-3cm}
+\hspace*{5cm}
 
 The classes and characteristics of data presented by Mysore et al., in~\cite{ibm_big_2013}, are highly oriented towards
 industry and business users, coming from an IBM-published paper. While this is not an issue as such, as noted earlier
 in this section, these characteristics and data classes are defined within the domain relevant to this paper. As such,
-they may not be as relevant or appropriate for usage in other, non-business domains.
+they may not be as relevant or appropriate for usage in other, non-business domains or even business domains with a
+different focus on data.
 
 % subsubsection data_classification (end)
+
+
+\subsubsection{Characteristics of data, from Chen et al.} % (fold)
+\label{ssub:characteristics_of_data_from_chen_et_al_}
+
+The second paper sourced is a paper from Chen, Chiang, and Storey, focusing on the impact of big data in the field of
+business intelligence and analytics~\cite{chen2012business}.
+
+% subsubsection characteristics_of_data_from_chen_et_al_ (end)
 
 
 \subsubsection{Characteristics of data, from G\'eczy} % (fold)
@@ -335,7 +360,7 @@ deciding characteristics of data, in terms of the way they should be processed a
 
 G\'eczy uses the following aspects to determine the different intrinsic characteristics of data:
 
-\textbf{Sensitivity:}
+\paragraph{Sensitivity:}
 
 \begin{itemize}
   \item Relates to whether or not given data contains sensitive information, \ie{}personally identifiable information,
@@ -345,7 +370,7 @@ G\'eczy uses the following aspects to determine the different intrinsic characte
 \end{itemize}
 
 
-\textbf{Diversity}
+\paragraph{Diversity:}
 
 \begin{itemize}
   \item Relates to the range of different data elements present within the data.
@@ -357,7 +382,7 @@ G\'eczy uses the following aspects to determine the different intrinsic characte
 \end{itemize}
 
 
-\textbf{Quality}
+\paragraph{Quality:}
 
 \begin{itemize}
   \item Quality characteristics of data are defined to be features that affect data quality; \eg{}completeness, accuracy,
@@ -367,7 +392,7 @@ G\'eczy uses the following aspects to determine the different intrinsic characte
 \end{itemize}
 
 
-\textbf{Volume}
+\paragraph{Volume:}
 
 \begin{itemize}
   \item Volume refers to the size of data in terms of its basic forms of measurement, bits and bytes.
@@ -377,7 +402,7 @@ G\'eczy uses the following aspects to determine the different intrinsic characte
 \end{itemize}
 
 
-\textbf{Speed}
+\paragraph{Speed:}
 
 \begin{itemize}
   \item Data speed refers to the inflow and outflow speeds; inflow being the data that is being acquired, while outflow
@@ -387,7 +412,7 @@ G\'eczy uses the following aspects to determine the different intrinsic characte
 \end{itemize}
 
 
-\textbf{Structure}
+\paragraph{Structure:}
 
 \begin{itemize}
   \item Structure relates to whether data are in structured or unstructured formats.
@@ -398,7 +423,26 @@ G\'eczy uses the following aspects to determine the different intrinsic characte
   will need some pre-processing or artificial intelligence to process.
 \end{itemize}
 
+G\'eczy later goes on to talk about the aspects of data that relate to data processing. This will be looked at further
+in~\sectref{} %TODO
+
+Overall, G\'eczy looks at data characteristics, not from any particular perspective, but from one that attempts to capture
+the interests and be relevant to a number of disciplines. This impartiality is a nice refreshment from most other literature
+available on the topic, which have been shown to have been looking at data classification from a certain point-of-view.
+However, this should not be misinterpreted as a criticism of the previous literature. It is simply that the classes of
+data identified in other author's literature was more appropriate for the topic on which the rest of their research was
+focussed on. Hence, the way they treated data changed accordingly. The paper presented by G\'eczy, simply titled
+\emph{BIG DATA CHARACTERISTICS}, was focussed on nothing other than characteristics of data, hence there was no reason
+to attempt to classify those characteristics based on any other domain-related biases. This is the important difference
+to note, especially as we revisit this paper in~\sectref{} %TODO.
+
 % subsubsection characteristics_of_data_from_ge_czy (end)
+
+
+\subsubsection{Criticisms of previously presented models} % (fold)
+\label{ssub:criticisms_of_previously_presented_models}
+
+% subsubsection criticisms_of_previously_presented_models (end)
 
 % subsection data_classification (end)
 
