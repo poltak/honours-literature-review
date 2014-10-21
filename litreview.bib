@@ -186,69 +186,37 @@
 }
 
 
-@inproceedings{shvachko_hadoop_2010,
-  title = {The Hadoop Distributed File System},
-  doi = {10.1109/MSST.2010.5496972},
-  abstract = {The Hadoop Distributed File System ({HDFS}) is designed to store very large data sets reliably, and to stream those data sets at high bandwidth to user applications. In a large cluster, thousands of servers both host directly attached storage and execute user application tasks. By distributing storage and computation across many servers, the resource can grow with demand while remaining economical at every size. We describe the architecture of {HDFS} and report on experience using {HDFS} to manage 25 petabytes of enterprise data at Yahoo!.},
-  booktitle = {2010 {IEEE} 26th Symposium on Mass Storage Systems and Technologies ({MSST})},
-  author = {Shvachko, K. and Kuang, Hairong and Radia, S. and Chansler, R.},
-  month = may,
-  year = {2010},
-  keywords = {Bandwidth, Clustering algorithms, Computer architecture, Concurrent computing, data storage, data stream, Distributed computing, distributed databases, distributed file system, enterprise data, Facebook, File servers, File systems, Hadoop, Hadoop distributed file system, {HDFS}, Internet, network operating systems, Protection, Protocols, Yahoo!},
-  pages = {1--10},
-  file = {IEEE Xplore Abstract Record:/Users/poltak/Library/Application Support/Zotero/Profiles/xrhso8df.default/zotero/storage/5NSM8DN7/login.html:text/html}
+@inproceedings{shvachko2010hadoop,
+  title={The hadoop distributed file system},
+  author={Shvachko, Konstantin and Kuang, Hairong and Radia, Sanjay and Chansler, Robert},
+  booktitle={Mass Storage Systems and Technologies (MSST), 2010 IEEE 26th Symposium on},
+  pages={1--10},
+  year={2010},
+  organization={IEEE}
 }
 
 
-@inproceedings{olston_pig_2008,
-  address = {New York, {NY}, {USA}},
-  series = {{SIGMOD} '08},
-  title = {Pig Latin: A Not-so-foreign Language for Data Processing},
-  isbn = {978-1-60558-102-6},
-  shorttitle = {Pig Latin},
-  url = {http://doi.acm.org.ezproxy.lib.monash.edu.au/10.1145/1376616.1376726},
-  doi = {10.1145/1376616.1376726},
-  abstract = {There is a growing need for ad-hoc analysis of extremely large data sets, especially at internet companies where innovation critically depends on being able to analyze terabytes of data collected every day. Parallel database products, e.g., Teradata, offer a solution, but are usually prohibitively expensive at this scale. Besides, many of the people who analyze this data are entrenched procedural programmers, who find the declarative, {SQL} style to be unnatural. The success of the more procedural map-reduce programming model, and its associated scalable implementations on commodity hardware, is evidence of the above. However, the map-reduce paradigm is too low-level and rigid, and leads to a great deal of custom user code that is hard to maintain, and reuse. We describe a new language called Pig Latin that we have designed to fit in a sweet spot between the declarative style of {SQL}, and the low-level, procedural style of map-reduce. The accompanying system, Pig, is fully implemented, and compiles Pig Latin into physical plans that are executed over Hadoop, an open-source, map-reduce implementation. We give a few examples of how engineers at Yahoo! are using Pig to dramatically reduce the time required for the development and execution of their data analysis tasks, compared to using Hadoop directly. We also report on a novel debugging environment that comes integrated with Pig, that can lead to even higher productivity gains. Pig is an open-source, Apache-incubator project, and available for general use.},
-  urldate = {2014-08-17},
-  booktitle = {Proceedings of the 2008 {ACM} {SIGMOD} International Conference on Management of Data},
-  publisher = {{ACM}},
-  author = {Olston, Christopher and Reed, Benjamin and Srivastava, Utkarsh and Kumar, Ravi and Tomkins, Andrew},
-  year = {2008},
-  keywords = {dataflow language, pig latin},
-  pages = {1099--1110}
+
+@inproceedings{thusoo2010hive,
+  title={Hive-a petabyte scale data warehouse using hadoop},
+  author={Thusoo, Ashish and Sarma, Joydeep Sen and Jain, Namit and Shao, Zheng and Chakka, Prasad and Zhang, Ning and Antony, Suresh and Liu, Hao and Murthy, Raghotham},
+  booktitle={Data Engineering (ICDE), 2010 IEEE 26th International Conference on},
+  pages={996--1005},
+  year={2010},
+  organization={IEEE}
 }
 
-
-@inproceedings{thusoo_hive_2010,
-  title = {Hive - a petabyte scale data warehouse using Hadoop},
-  doi = {10.1109/ICDE.2010.5447738},
-  abstract = {The size of data sets being collected and analyzed in the industry for business intelligence is growing rapidly, making traditional warehousing solutions prohibitively expensive. Hadoop is a popular open-source map-reduce implementation which is being used in companies like Yahoo, Facebook etc. to store and process extremely large data sets on commodity hardware. However, the map-reduce programming model is very low level and requires developers to write custom programs which are hard to maintain and reuse. In this paper, we present Hive, an open-source data warehousing solution built on top of Hadoop. Hive supports queries expressed in a {SQL}-like declarative language - {HiveQL}, which are compiled into map-reduce jobs that are executed using Hadoop. In addition, {HiveQL} enables users to plug in custom map-reduce scripts into queries. The language includes a type system with support for tables containing primitive types, collections like arrays and maps, and nested compositions of the same. The underlying {IO} libraries can be extended to query data in custom formats. Hive also includes a system catalog - Metastore - that contains schemas and statistics, which are useful in data exploration, query optimization and query compilation. In Facebook, the Hive warehouse contains tens of thousands of tables and stores over 700TB of data and is being used extensively for both reporting and ad-hoc analyses by more than 200 users per month.},
-  booktitle = {2010 {IEEE} 26th International Conference on Data Engineering ({ICDE})},
-  author = {Thusoo, A and Sarma, J.S. and Jain, N. and Shao, Zheng and Chakka, P. and Zhang, Ning and Antony, S. and Liu, Hao and Murthy, R.},
-  month = mar,
-  year = {2010},
-  keywords = {arrays, business intelligence, Companies, competitive intelligence, data exploration, data warehouses, Facebook, Hadoop software, Hardware, {HiveQL} language, Libraries, map-reduce jobs, maps, Metastore system catalog, nested compositions, open-source map-reduce implementation, Open source software, petabyte scale data warehouse, Plugs, primitive types, public domain software, query compilation, query optimization, query processing, {SQL}, {SQL}-like declarative language, Statistics, Warehousing},
-  pages = {996--1005},
-  file = {IEEE Xplore Abstract Record:/Users/poltak/Library/Application Support/Zotero/Profiles/xrhso8df.default/zotero/storage/JNB3RPAD/abs_all.html:text/html;IEEE Xplore Full Text PDF:/Users/poltak/Library/Application Support/Zotero/Profiles/xrhso8df.default/zotero/storage/E5VJFX8C/Thusoo et al. - 2010 - Hive - a petabyte scale data warehouse using Hadoo.pdf:application/pdf}
+@article{thusoo2009hive,
+  title={Hive: a warehousing solution over a map-reduce framework},
+  author={Thusoo, Ashish and Sarma, Joydeep Sen and Jain, Namit and Shao, Zheng and Chakka, Prasad and Anthony, Suresh and Liu, Hao and Wyckoff, Pete and Murthy, Raghotham},
+  journal={Proceedings of the VLDB Endowment},
+  volume={2},
+  number={2},
+  pages={1626--1629},
+  year={2009},
+  publisher={VLDB Endowment}
 }
 
-
-@article{gates_building_2009,
-  title = {Building a High-level Dataflow System on Top of Map-Reduce: The Pig Experience},
-  volume = {2},
-  issn = {2150-8097},
-  shorttitle = {Building a High-level Dataflow System on Top of Map-Reduce},
-  url = {http://dx.doi.org.ezproxy.lib.monash.edu.au/10.14778/1687553.1687568},
-  doi = {10.14778/1687553.1687568},
-  abstract = {Increasingly, organizations capture, transform and analyze enormous data sets. Prominent examples include internet companies and e-science. The Map-Reduce scalable dataflow paradigm has become popular for these applications. Its simple, explicit dataflow programming model is favored by some over the traditional high-level declarative approach: {SQL}. On the other hand, the extreme simplicity of Map-Reduce leads to much low-level hacking to deal with the many-step, branching dataflows that arise in practice. Moreover, users must repeatedly code standard operations such as join by hand. These practices waste time, introduce bugs, harm readability, and impede optimizations. Pig is a high-level dataflow system that aims at a sweet spot between {SQL} and Map-Reduce. Pig offers {SQL}-style high-level data manipulation constructs, which can be assembled in an explicit dataflow and interleaved with custom Map- and Reduce-style functions or executables. Pig programs are compiled into sequences of Map-Reduce jobs, and executed in the Hadoop Map-Reduce environment. Both Pig and Hadoop are open-source projects administered by the Apache Software Foundation. This paper describes the challenges we faced in developing Pig, and reports performance comparisons between Pig execution and raw Map-Reduce execution.},
-  number = {2},
-  urldate = {2014-08-31},
-  journal = {Proc. {VLDB} Endow.},
-  author = {Gates, Alan F. and Natkovich, Olga and Chopra, Shubham and Kamath, Pradeep and Narayanamurthy, Shravan M. and Olston, Christopher and Reed, Benjamin and Srinivasan, Santhosh and Srivastava, Utkarsh},
-  month = aug,
-  year = {2009},
-  pages = {1414--1425}
-}
 
 
 @inproceedings{vavilapalli_apache_2013,
@@ -379,6 +347,15 @@ Only the very largest Hadoop users are likely to benefit from {YARN}'s scalabili
   file = {arXiv\:1402.2394 PDF:/Users/poltak/Library/Application Support/Zotero/Profiles/xrhso8df.default/zotero/storage/4EBKWRIP/Xin et al. - 2014 - GraphX Unifying Data-Parallel and Graph-Parallel .pdf:application/pdf;arXiv.org Snapshot:/Users/poltak/Library/Application Support/Zotero/Profiles/xrhso8df.default/zotero/storage/HNUM9UTB/1402.html:text/html}
 }
 
+@inproceedings{gruenheid2011query,
+  title={Query optimization using column statistics in hive},
+  author={Gruenheid, Anja and Omiecinski, Edward and Mark, Leo},
+  booktitle={Proceedings of the 15th Symposium on International Database Engineering \& Applications},
+  pages={97--105},
+  year={2011},
+  organization={ACM}
+}
+
 @inproceedings{pang_sentimental_2004,
   address = {Stroudsburg, {PA}, {USA}},
   series = {{ACL} '04},
@@ -436,22 +413,6 @@ Only the very largest Hadoop users are likely to benefit from {YARN}'s scalabili
   author = {Wilson, Theresa and Wiebe, Janyce and Hoffmann, Paul},
   year = {2005},
   pages = {347--354}
-}
-
-@inproceedings{shvachko_hadoop_2010,
-  address = {Washington, {DC}, {USA}},
-  series = {{MSST} '10},
-  title = {The Hadoop Distributed File System},
-  isbn = {978-1-4244-7152-2},
-  url = {http://dx.doi.org.ezproxy.lib.monash.edu.au/10.1109/MSST.2010.5496972},
-  doi = {10.1109/MSST.2010.5496972},
-  abstract = {The Hadoop Distributed File System ({HDFS}) is designed to store very large data sets reliably, and to stream those data sets at high bandwidth to user applications. In a large cluster, thousands of servers both host directly attached storage and execute user application tasks. By distributing storage and computation across many servers, the resource can grow with demand while remaining economical at every size. We describe the architecture of {HDFS} and report on experience using {HDFS} to manage 25 petabytes of enterprise data at Yahoo!.},
-  urldate = {2014-08-17},
-  booktitle = {Proceedings of the 2010 {IEEE} 26th Symposium on Mass Storage Systems and Technologies ({MSST})},
-  publisher = {{IEEE} Computer Society},
-  author = {Shvachko, Konstantin and Kuang, Hairong and Radia, Sanjay and Chansler, Robert},
-  year = {2010},
-  pages = {1--10}
 }
 
 @article{kamburugamuve_survey_????,
@@ -590,22 +551,24 @@ Only the very largest Hadoop users are likely to benefit from {YARN}'s scalabili
   pages = {79--86}
 }
 
-@inproceedings{olston_pig_2008,
-  address = {New York, {NY}, {USA}},
-  series = {{SIGMOD} '08},
-  title = {Pig Latin: A Not-so-foreign Language for Data Processing},
-  isbn = {978-1-60558-102-6},
-  shorttitle = {Pig Latin},
-  url = {http://doi.acm.org.ezproxy.lib.monash.edu.au/10.1145/1376616.1376726},
-  doi = {10.1145/1376616.1376726},
-  abstract = {There is a growing need for ad-hoc analysis of extremely large data sets, especially at internet companies where innovation critically depends on being able to analyze terabytes of data collected every day. Parallel database products, e.g., Teradata, offer a solution, but are usually prohibitively expensive at this scale. Besides, many of the people who analyze this data are entrenched procedural programmers, who find the declarative, {SQL} style to be unnatural. The success of the more procedural map-reduce programming model, and its associated scalable implementations on commodity hardware, is evidence of the above. However, the map-reduce paradigm is too low-level and rigid, and leads to a great deal of custom user code that is hard to maintain, and reuse. We describe a new language called Pig Latin that we have designed to fit in a sweet spot between the declarative style of {SQL}, and the low-level, procedural style of map-reduce. The accompanying system, Pig, is fully implemented, and compiles Pig Latin into physical plans that are executed over Hadoop, an open-source, map-reduce implementation. We give a few examples of how engineers at Yahoo! are using Pig to dramatically reduce the time required for the development and execution of their data analysis tasks, compared to using Hadoop directly. We also report on a novel debugging environment that comes integrated with Pig, that can lead to even higher productivity gains. Pig is an open-source, Apache-incubator project, and available for general use.},
-  urldate = {2014-08-17},
-  booktitle = {Proceedings of the 2008 {ACM} {SIGMOD} International Conference on Management of Data},
-  publisher = {{ACM}},
-  author = {Olston, Christopher and Reed, Benjamin and Srivastava, Utkarsh and Kumar, Ravi and Tomkins, Andrew},
-  year = {2008},
-  keywords = {dataflow language, pig latin},
-  pages = {1099--1110}
+@inproceedings{olston2008pig,
+  title={Pig latin: a not-so-foreign language for data processing},
+  author={Olston, Christopher and Reed, Benjamin and Srivastava, Utkarsh and Kumar, Ravi and Tomkins, Andrew},
+  booktitle={Proceedings of the 2008 ACM SIGMOD international conference on Management of data},
+  pages={1099--1110},
+  year={2008},
+  organization={ACM}
+}
+
+@article{gates2009building,
+  title={Building a high-level dataflow system on top of Map-Reduce: the Pig experience},
+  author={Gates, Alan F and Natkovich, Olga and Chopra, Shubham and Kamath, Pradeep and Narayanamurthy, Shravan M and Olston, Christopher and Reed, Benjamin and Srinivasan, Santhosh and Srivastava, Utkarsh},
+  journal={Proceedings of the VLDB Endowment},
+  volume={2},
+  number={2},
+  pages={1414--1425},
+  year={2009},
+  publisher={VLDB Endowment}
 }
 
 @article{dean_mapreduce:_2008,
@@ -642,18 +605,6 @@ Only the very largest Hadoop users are likely to benefit from {YARN}'s scalabili
   pages = {168--177}
 }
 
-@inproceedings{thusoo_hive_2010,
-  title = {Hive - a petabyte scale data warehouse using Hadoop},
-  doi = {10.1109/ICDE.2010.5447738},
-  abstract = {The size of data sets being collected and analyzed in the industry for business intelligence is growing rapidly, making traditional warehousing solutions prohibitively expensive. Hadoop is a popular open-source map-reduce implementation which is being used in companies like Yahoo, Facebook etc. to store and process extremely large data sets on commodity hardware. However, the map-reduce programming model is very low level and requires developers to write custom programs which are hard to maintain and reuse. In this paper, we present Hive, an open-source data warehousing solution built on top of Hadoop. Hive supports queries expressed in a {SQL}-like declarative language - {HiveQL}, which are compiled into map-reduce jobs that are executed using Hadoop. In addition, {HiveQL} enables users to plug in custom map-reduce scripts into queries. The language includes a type system with support for tables containing primitive types, collections like arrays and maps, and nested compositions of the same. The underlying {IO} libraries can be extended to query data in custom formats. Hive also includes a system catalog - Metastore - that contains schemas and statistics, which are useful in data exploration, query optimization and query compilation. In Facebook, the Hive warehouse contains tens of thousands of tables and stores over 700TB of data and is being used extensively for both reporting and ad-hoc analyses by more than 200 users per month.},
-  booktitle = {2010 {IEEE} 26th International Conference on Data Engineering ({ICDE})},
-  author = {Thusoo, A and Sarma, J.S. and Jain, N. and Shao, Zheng and Chakka, P. and Zhang, Ning and Antony, S. and Liu, Hao and Murthy, R.},
-  month = mar,
-  year = {2010},
-  keywords = {arrays, business intelligence, Companies, competitive intelligence, data exploration, data warehouses, Facebook, Hadoop software, Hardware, {HiveQL} language, Libraries, map-reduce jobs, maps, Metastore system catalog, nested compositions, open-source map-reduce implementation, Open source software, petabyte scale data warehouse, Plugs, primitive types, public domain software, query compilation, query optimization, query processing, {SQL}, {SQL}-like declarative language, Statistics, Warehousing},
-  pages = {996--1005},
-  file = {IEEE Xplore Abstract Record:/Users/poltak/Library/Application Support/Zotero/Profiles/xrhso8df.default/zotero/storage/JNB3RPAD/abs_all.html:text/html;IEEE Xplore Full Text PDF:/Users/poltak/Library/Application Support/Zotero/Profiles/xrhso8df.default/zotero/storage/E5VJFX8C/Thusoo et al. - 2010 - Hive - a petabyte scale data warehouse using Hadoo.pdf:application/pdf}
-}
 
 @inproceedings{liu_survey_2014,
   address = {New York, {NY}, {USA}},
@@ -707,22 +658,6 @@ Only the very largest Hadoop users are likely to benefit from {YARN}'s scalabili
   pages = {39}
 }
 
-@article{gates_building_2009,
-  title = {Building a High-level Dataflow System on Top of Map-Reduce: The Pig Experience},
-  volume = {2},
-  issn = {2150-8097},
-  shorttitle = {Building a High-level Dataflow System on Top of Map-Reduce},
-  url = {http://dx.doi.org.ezproxy.lib.monash.edu.au/10.14778/1687553.1687568},
-  doi = {10.14778/1687553.1687568},
-  abstract = {Increasingly, organizations capture, transform and analyze enormous data sets. Prominent examples include internet companies and e-science. The Map-Reduce scalable dataflow paradigm has become popular for these applications. Its simple, explicit dataflow programming model is favored by some over the traditional high-level declarative approach: {SQL}. On the other hand, the extreme simplicity of Map-Reduce leads to much low-level hacking to deal with the many-step, branching dataflows that arise in practice. Moreover, users must repeatedly code standard operations such as join by hand. These practices waste time, introduce bugs, harm readability, and impede optimizations. Pig is a high-level dataflow system that aims at a sweet spot between {SQL} and Map-Reduce. Pig offers {SQL}-style high-level data manipulation constructs, which can be assembled in an explicit dataflow and interleaved with custom Map- and Reduce-style functions or executables. Pig programs are compiled into sequences of Map-Reduce jobs, and executed in the Hadoop Map-Reduce environment. Both Pig and Hadoop are open-source projects administered by the Apache Software Foundation. This paper describes the challenges we faced in developing Pig, and reports performance comparisons between Pig execution and raw Map-Reduce execution.},
-  number = {2},
-  urldate = {2014-08-31},
-  journal = {Proc. {VLDB} Endow.},
-  author = {Gates, Alan F. and Natkovich, Olga and Chopra, Shubham and Kamath, Pradeep and Narayanamurthy, Shravan M. and Olston, Christopher and Reed, Benjamin and Srinivasan, Santhosh and Srivastava, Utkarsh},
-  month = aug,
-  year = {2009},
-  pages = {1414--1425}
-}
 
 @article{hirzel_catalog_2014,
   title = {A catalog of stream processing optimizations},
@@ -769,19 +704,6 @@ Only the very largest Hadoop users are likely to benefit from {YARN}'s scalabili
   pages = {129--136}
 }
 
-@inproceedings{shvachko_hadoop_2010-1,
-  title = {The Hadoop Distributed File System},
-  doi = {10.1109/MSST.2010.5496972},
-  abstract = {The Hadoop Distributed File System ({HDFS}) is designed to store very large data sets reliably, and to stream those data sets at high bandwidth to user applications. In a large cluster, thousands of servers both host directly attached storage and execute user application tasks. By distributing storage and computation across many servers, the resource can grow with demand while remaining economical at every size. We describe the architecture of {HDFS} and report on experience using {HDFS} to manage 25 petabytes of enterprise data at Yahoo!.},
-  booktitle = {2010 {IEEE} 26th Symposium on Mass Storage Systems and Technologies ({MSST})},
-  author = {Shvachko, K. and Kuang, Hairong and Radia, S. and Chansler, R.},
-  month = may,
-  year = {2010},
-  keywords = {Bandwidth, Clustering algorithms, Computer architecture, Concurrent computing, data storage, data stream, Distributed computing, distributed databases, distributed file system, enterprise data, Facebook, File servers, File systems, Hadoop, Hadoop distributed file system, {HDFS}, Internet, network operating systems, Protection, Protocols, Yahoo!},
-  pages = {1--10},
-  file = {IEEE Xplore Abstract Record:/Users/poltak/Library/Application Support/Zotero/Profiles/xrhso8df.default/zotero/storage/5NSM8DN7/login.html:text/html}
-}
-
 @inproceedings{vavilapalli_apache_2013,
   address = {New York, {NY}, {USA}},
   series = {{SOCC} '13},
@@ -797,22 +719,6 @@ Only the very largest Hadoop users are likely to benefit from {YARN}'s scalabili
   author = {Vavilapalli, Vinod Kumar and Murthy, Arun C. and Douglas, Chris and Agarwal, Sharad and Konar, Mahadev and Evans, Robert and Graves, Thomas and Lowe, Jason and Shah, Hitesh and Seth, Siddharth and Saha, Bikas and Curino, Carlo and O'Malley, Owen and Radia, Sanjay and Reed, Benjamin and Baldeschwieler, Eric},
   year = {2013},
   pages = {5:1--5:16}
-}
-
-@article{bifet_mining_2013,
-  title = {Mining big data in real time},
-  volume = {37},
-  issn = {03505596},
-  url = {http://go.galegroup.com/ps/i.do?id=GALE%7CA329730435&v=2.1&u=monash&it=r&p=AONE&sw=w&asid=43dd70afff364e9b2d73c1537dfe198a},
-  language = {English},
-  number = {1},
-  urldate = {2014-08-11},
-  journal = {Informatica},
-  author = {Bifet, Albert},
-  month = mar,
-  year = {2013},
-  keywords = {big data, Data mining},
-  pages = {15+}
 }
 
 @book{mayer2013big,
@@ -927,4 +833,68 @@ Only the very largest Hadoop users are likely to benefit from {YARN}'s scalabili
   number={1},
   pages={39},
   year={2009}
+}
+
+@article{lammel2008google,
+  title={Google’s MapReduce programming model—Revisited},
+  author={L{\"a}mmel, Ralf},
+  journal={Science of computer programming},
+  volume={70},
+  number={1},
+  pages={1--30},
+  year={2008},
+  publisher={Elsevier}
+}
+@article{su2014changing,
+  title={Changing Engines in Midstream: A Java Stream Computational Model for Big Data Processing},
+  author={Su, Xueyuan and Swart, Garret and Goetz, Brian and Oliver, Brian and Sandoz, Paul},
+  journal={Proceedings of the VLDB Endowment},
+  volume={7},
+  number={13},
+  year={2014}
+}
+@inproceedings{yang2007map,
+  title={Map-reduce-merge: simplified relational data processing on large clusters},
+  author={Yang, Hung-chih and Dasdan, Ali and Hsiao, Ruey-Lung and Parker, D Stott},
+  booktitle={Proceedings of the 2007 ACM SIGMOD international conference on Management of data},
+  pages={1029--1040},
+  year={2007},
+  organization={ACM}
+}
+@article{grossman2009varieties,
+  title={On the Varieties of Clouds for Data Intensive Computing.},
+  author={Grossman, Robert L and Gu, Yunhong},
+  journal={IEEE Data Eng. Bull.},
+  volume={32},
+  number={1},
+  pages={44--50},
+  year={2009}
+}
+
+@misc{hadoop_committers,
+author={Hadoop.apache.org,},
+title={Who We Are},
+url={https://hadoop.apache.org/who.html#Hadoop+Committers},
+year={2014}
+}
+
+@article{mckusick2009gfs,
+  title={GFS: Evolution on Fast-forward.},
+  author={McKusick, Marshall K and Quinlan, Sean},
+  journal={ACM Queue},
+  volume={7},
+  number={7},
+  pages={10},
+  year={2009}
+}
+@article{borthakur2007hadoop,
+  title={The hadoop distributed file system: Architecture and design},
+  author={Borthakur, Dhruba},
+  year={2007}
+}
+@misc{hadoop_users,
+author={Wiki.apache.org,},
+title={PoweredBy - Hadoop Wiki},
+url={https://wiki.apache.org/hadoop/PoweredBy},
+year={2014}
 }
