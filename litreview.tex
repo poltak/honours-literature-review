@@ -555,10 +555,18 @@ terms of impartiality is the important difference to note with this paper, espec
 % subsubsection characteristics_of_data_from_ge_czy (end)
 
 
-\subsubsection{Criticisms of previously presented models} % (fold)
+\subsubsection{Criticisms of presented classification models} % (fold)
 \label{ssub:criticisms_of_previously_presented_models}
 
+From the literature presented previously in this section, there are a number of points to note. Firstly, they were all
+highly varied in the classifications and characteristics of data given. As previously stated, this can be attributed
+to the variety in sources for this literature; they were all published from quite different sources, and each of the
+authors from different fields with different intentions. Hence, it is not
+
+% TODO
+
 % subsubsection criticisms_of_previously_presented_models (end)
+
 
 % subsection data_classification (end)
 
@@ -568,7 +576,125 @@ terms of impartiality is the important difference to note with this paper, espec
 \section{Big data processing background} % (fold)
 \label{sec:big_data_processing_background}
 
-Much work has been done in the area of big data processing. As discussed in
+Much more work has been done in the area of data processing than the area related to classification of data; both in
+the areas of big data and traditional data processing. Unlike data classification, which was more aimed at the classifying
+of data in general, when looking at data processing, we are more interested in the relatively newer technologies which
+enable the processing of big data, both in batch mode and realtime. Note that in this paper, we will refer to realtime
+big data processing as just that; realtime data processing in the context of big data. Through use of this term, we encompass the meanings of
+``data stream processing'', ``realtime stream processing'', and all other related terms that essentially have the meaning of:
+
+% TODO: Place definition of realtime
+
+\subsection{Batch data processing} % (fold)
+\label{sub:batch_data_processing}
+
+Over the last decade, the main ``go-to'' solution for any sort of processing needed on datasets falling under the
+umbrella of big data has been the MapReduce programming model on top of some sort of scalable distributed storage
+system~\cite{bifet_mining_2013}. From a very simplified functionality standpoint, the MapReduce programming model essentially
+combines the common \textbf{Map} and \textbf{Reduce} functions (among others), found in the standard libraries of many functional
+programming languages, such as Haskell~\cite{lammel2008google} or even Java 8~\cite{su2014changing}, to apply a specified
+type of processing in a highly parallelised and distributed fashion~\cite{yang2007map}.
+
+\subsubsection{MapReduce and GFS} % (fold)
+\label{ssub:mapreduce_and_gfs}
+
+Dean and Ghemawat, in~\cite{dean_mapreduce:_2008}, originally presented MapReduce as a technology that had been
+developed internally at Google, Inc.\ to be an abstraction to simplify the various computations that engineers were
+trying to perform on their large datasets. The implementations of these computations, while not complicated functions
+themselves, were obscured by the fact of having to manually parallelise the computations, distribute the data, and
+handle faults all in an effective manner. The MapReduce model then enabled these computations to be expressed in a
+simple, high-level manner without the programmer needing to worry about optimising for available resources. Furthermore,
+the MapReduce abstraction provided high scalability to differently sized clusters.
+
+As previously stated, the MapReduce programming model is generally used on top of some sort of distributed storage
+system. In the previous case at Google, Inc., in the original MapReduce implementation, it was implemented on top of
+their own proprietary distributed file system, known as Google File System (GFS). Ghemawat et al.,
+in~\cite{ghemawat_google_2003}, define GFS to be a ``scalable distributed file system for large distributed data-intensive
+applications'', noting that can be run on ``inexpensive commodity hardware''. Note that GFS was designed and in-use
+at Google, Inc.\ years before they managed to develop their MapReduce abstraction, and the original paper on MapReduce
+from Dean and Ghemawat state that GFS was used to manage data and store data from MapReduce~\cite{dean_mapreduce:_2008}.
+Furthermore, McKusick and Quinlan, in~\cite{mckusick2009gfs}, state that, as of 2009, the majority of Google's data
+relating to their many web-oriented applications are rely on GFS.
+
+% subsubsection mapreduce_and_gfs (end)
+
+
+\subsubsection{Apache Hadoop MapReduce and HDFS} % (fold)
+\label{ssub:hadoop_mapreduce_and_hdfs}
+
+While MapReduce paired with GFS proved to be very successful solution for big data processing at Google, Inc., and
+there was notable research published on the technology, it was proprietary in-house software unique to Google, and
+availability elsewhere was often not an option~\cite{grossman2009varieties}. Hence, the open-source software community
+responded in turn with their own implementation of MapReduce and a distributed file system analogous to GFS, known as the
+Hadoop Distributed File System (HDFS). Both of these projects, along with others to date, make up the Apache Hadoop
+big data framework~\footnote{https://hadoop.apache.org}. The Apache Hadoop framework, being a top level Apache Software
+Foundation open source project, has been developed by a number of joint contributors from organisations and institutions
+such as Yahoo!, Inc., Intel, IBM, UC Berkeley, among others~\cite{hadoop_committers}.
+
+While Hadoop's MapReduce implementation very much was designed to be a functional replacements for Google's MapReduce,
+HDFS is an entirely separate project in its own right. In the original paper from Yahoo!~\cite{shvachko2010hadoop},
+Inc., Shvachko et al.\ present HDFS as ``the file system component of Hadoop'' with the intention of being similar to
+the UNIX file system, however they also state that ``faithfulness to standards was sacrificed in favour of improved
+performance''.
+
+While HDFS was designed with replicating GFS' functionality in mind, several low-level architectural and design decisions
+were made that substantially differ to those documented in GFS. For example, in~\cite{borthakur2007hadoop}, Borthakur
+documents the method HDFS uses when it comes to file deletion. Borthakur talks about how when a file is deleted in HDFS,
+it essentially gets moved to a \texttt{/trash} directory, much like what happens in a lot of modern operating systems.
+This \texttt{/trash} directory is then purged after a configurable amount of time, the default of which being six hours.
+To contrast with this, GFS is documented to have more primitive way of managing deleted files. Ghemawat, et al.,
+in~\cite{ghemawat_google_2003}, document GFS' garbage collection implementation. Instead of having a centralised
+\texttt{/trash} storage, deleted files get renamed to a hidden name. The GFS master then, during a regularly scheduled
+scan, will delete any of these hidden files that have remained deleted for a configurable amount of time, the default
+being three days. This is by far not the only difference between the two file systems, this is simply an example of a
+less low-level technical difference.
+
+% subsubsection hadoop_mapreduce_and_hdfs (end)
+
+
+\subsubsection{Pig and Hive} % (fold)
+\label{ssub:pig_and_hive}
+
+Given the popularity of Hadoop, there were several early attempts at building further abstractions on top of the
+MapReduce model, which were met with a high level of success. As highlighted earlier, MapReduce was originally designed
+to be a nice abstraction on top of the underlying hardware, however according to Thusoo et al., in~\cite{thusoo2009hive},
+MapReduce was still too low level resulting in programmers writing programs that are ``are hard to maintain and reuse''.
+Thus, Thusoo et al.\ built the Hive abstraction on top of MapReduce. Hive allows programmers to write queries in a
+similarly declarative language to SQL --- known affectionately as \emph{HiveQL} --- which then get compiled down into
+MapReduce jobs to run on Hadoop~\cite{thusoo2010hive}.
+
+Another common abstraction that was developed prior to Hive was what is known simply as Pig. Like Hive, Pig attempts to
+be a further higher level abstraction on top of MapReduce, which ultimately compiles down into MapReduce jobs, although
+what differentiates it from Hive is that instead of being a solely declarative SQL-like language, it is more of a mix of
+procedural programming languages while allowing for SQL-like constraints to be specified on the data set to define the
+result~\cite{olston2008pig}. Olston et al.\ describe Pig's language --- known as \emph{Pig Latin} --- to be what they
+define as a ``dataflow language'', rather than a strictly procedural or declarative language.
+
+Furthermore, note that Pig and Hive, being high level abstractions on top of MapReduce, also enable many of their own
+optimisations to be applied to the underlying MapReduce jobs during the compilation
+stage~\cite{gates2009building,thusoo2010hive} as well as having the benefit of being susceptible to manual query
+optimisations, familiar to programmers familiar with query optimisations from SQL~\cite{gruenheid2011query}.
+
+% subsubsection pig_and_hive (end)
+
+% subsection batch_data_processing (end)
+
+
+\subsection{Realtime data processing} % (fold)
+\label{sub:realtime_data_processing}
+
+With HDFS being an open source project with a large range of users~\cite{hadoop_users} and code
+contributors~\cite{hadoop_committers}, it has grown as a project in the last few years for uses beyond what it was
+originally intended for; a backend storage system for Hadoop MapReduce. HDFS is now not only used with Hadoop's
+MapReduce but a number of relatively more advanced big data technologies.
+
+\subsubsection{Apache Hadoop YARN} % (fold)
+\label{ssub:apache_hadoop_yarn_}
+
+% subsubsection apache_hadoop_yarn_ (end)
+
+% subsection realtime_data_processing (end)
+
 
 % section big_data_processing_background (end)
 
