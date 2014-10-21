@@ -538,8 +538,8 @@ G\'eczy uses the following aspects to determine the different intrinsic characte
   will need some pre-processing or artificial intelligence to process.
 \end{itemize}
 
-G\'eczy later goes on to talk about the aspects of data that relate to data processing. This will be looked at further
-in~\sectref{} %TODO
+G\'eczy later goes on to talk about the aspects of data that relate to data processing, similar to what will be talked
+about later in~\sectref{sec:big_data_processing_background}.
 
 Overall, G\'eczy looks at data characteristics, not from any particular perspective, but from one that attempts to capture
 the interests and be relevant to a number of disciplines. This impartiality is a nice refreshment from most other literature
@@ -550,7 +550,7 @@ focussed on. Hence, the way they treated data changed accordingly. The paper pre
 \emph{BIG DATA CHARACTERISTICS}, was focussed on nothing other than characteristics of data, hence there was no reason
 to attempt to classify those characteristics based on any other domain-related biases. Additionally, G\'eczy's paper was
 published in a notable interdisciplinary journal, rather than one aimed at a particular discipline. This difference in
-terms of impartiality is the important difference to note with this paper, especially as we revisit this paper in~\sectref{} %TODO.
+terms of impartiality is the important difference to note with this paper.
 
 % subsubsection characteristics_of_data_from_ge_czy (end)
 
@@ -595,6 +595,10 @@ combines the common \textbf{Map} and \textbf{Reduce} functions (among others), f
 programming languages, such as Haskell~\cite{lammel2008google} or even Java 8~\cite{su2014changing}, to apply a specified
 type of processing in a highly parallelised and distributed fashion~\cite{yang2007map}.
 
+The MapReduce data processing model specialises in batch mode processing. Batch data processing can be thought of where
+data needed to be processed is first queued up in batches before processing begins. Once ready, those batches get fed
+into the processing system and handled accordingly. %TODO: try get a reference
+
 \subsubsection{MapReduce and GFS} % (fold)
 \label{ssub:mapreduce_and_gfs}
 
@@ -619,7 +623,7 @@ relating to their many web-oriented applications are rely on GFS.
 % subsubsection mapreduce_and_gfs (end)
 
 
-\subsubsection{Apache Hadoop MapReduce and HDFS} % (fold)
+\subsubsection{Hadoop MapReduce and HDFS} % (fold)
 \label{ssub:hadoop_mapreduce_and_hdfs}
 
 While MapReduce paired with GFS proved to be very successful solution for big data processing at Google, Inc., and
@@ -686,15 +690,75 @@ optimisations, familiar to programmers familiar with query optimisations from SQ
 With HDFS being an open source project with a large range of users~\cite{hadoop_users} and code
 contributors~\cite{hadoop_committers}, it has grown as a project in the last few years for uses beyond what it was
 originally intended for; a backend storage system for Hadoop MapReduce. HDFS is now not only used with Hadoop's
-MapReduce but a number of relatively more advanced big data technologies.
+MapReduce but also with a variety of other technologies, a lot of which run as a part of the Hadoop ecosystem.
+Big data processing has moved on from the more ``traditional'' method of processing, involving MapReduce jobs, which
+were most suitable for batch processing of data, to those methods which specialise in the realtime processing of data.
+The main difference of which is that rather than waiting for all the data before processing can be started, in realtime
+data processing the data can be streamed into the processing system in realtime at any time in the whole process.
 
-\subsubsection{Apache Hadoop YARN} % (fold)
+Comparing batched data processing to realtime data processing, it is useful to relate back to the four V's
+identified in~\sectref{sub:four_v}. Velocity of data is often inconsistent with realtime processing, while in batch mode
+processing, where you are processing the data that has already arrived and is waiting in batches to be processed, the
+velocity can be considered consistent. Veracity of data is often not expected to be as consistent in realtime, as
+sometimes there might be times where data does not arrive or only certain parts of the data arrive at certain times.
+A realtime processing system, often called a data stream processing system (DSPS) in other literature, needs to be able
+to deal with these timeliness issues, while a batch data processing system may expect everything that needs to be there
+to be available.
+
+\subsubsection{Hadoop YARN} % (fold)
 \label{ssub:apache_hadoop_yarn_}
+
+As previously looked at, the focus of the MapReduce model was performing distributed and highly parallel computations
+on distributed batches of data. This suited a lot of the big data audience, and hence Hadoop became the dominant
+method of big data processing~\cite{liu_survey_2014}. However for some more specialised applications, such as
+the realtime monitoring of sensors, stock trading, and realtime web traffic analytics, the high latency between the data
+arriving and actual results being generated from the computations was not satisfactory~\cite{kamburugamuve_survey_2014}.
+
+A recent (2013) industry survey on European company use of big data technology by Bange, Grosser, and Janoschek, noted
+in~\cite{industry_bd_survey}, shows that over 70\% of responders show a need for realtime processing. In that time,
+there has certainly been a response from the open-source software community, responding with extensions to more
+traditional batch systems, such as Hadoop, along with complete standalone DSPS solutions.
+
+On the Hadoop front, the limitations of the MapReduce model were recognised, and a large effort was made in developing
+the ``next generation'' of Hadoop so that it could be extensible and used with other programming models, not locked into
+the rigidity of MapReduce. This became known officially known as YARN (Yet Another Resource Negotiator). According to
+the original developers of YARN, Vavilapalli et al.\ state that YARN enables Hadoop to become more modular, decoupling
+the resource management functionality of Hadoop from the programming model (traditionally, MapReduce)~\cite{vavilapalli2013apache}.
+This decoupling essentially allowed for non-MapReduce technologies to be built on top of Hadoop, still interacting with the
+overall ecosystem, allowing for much more flexible applications of big data processing on top of the existing robust
+framework Hadoop provides.
+
+Examples of such systems now built, or in some cases ported, to run on top of Hadoop, providing alternative processing
+applications and use cases include:
+
+\begin{itemize}
+  \item Dryad, a general-purpose distributed execution system from Microsoft Research~\cite{isard2007dryad}. Dryad is
+  aimed at being high level enough to make it ``easy'' for developers to write highly distributed and parallel applications.
+  \item Spark, a data processing system, from researchers at UC Berkeley, that focuses on computations that reuse the same working data set over multiple
+  parallel operations~\cite{zaharia2010spark}.
+  \item HBase, a layer on top of a distributed file system (such as HDFS, or GFS) allowing for the storing of huge
+  amounts of structured or semi-structured data~\cite{khetrapal2006hbase}.
+\end{itemize}
+
+These are just some of the more popular examples of applications built to interact with the Hadoop ecosystem via YARN.
 
 % subsubsection apache_hadoop_yarn_ (end)
 
-% subsection realtime_data_processing (end)
 
+\subsubsection{Storm} % (fold)
+\label{ssub:storm}
+
+One very notable DSPS technology developed independently of Hadoop, and that is gaining immense popularity and growth in
+user base, is the Storm project. Storm was originally developed by a team of engineers lead by Nathan Marz at
+BackType~\footnote{https://storm.apache.org/}. BackType has since been acquired by Twitter, Inc.\ where development has
+continued. Toshniwal et al.\ describe Storm, in the context of its use at Twitter, as ``a realtime distributed stream
+data processing engine'' that ``powers the real-time stream data management tasks that are crucial to provide Twitter
+services''~\cite{toshniwal2014storm}. Since the project's inception, Storm has seen massive adoption in industry,
+including among some of the biggest names, such as Twitter, Yahoo!, Alibaba, and Baidu~\cite{storm_users}.
+
+% subsubsection storm (end)
+
+% subsection realtime_data_processing (end)
 
 % section big_data_processing_background (end)
 
