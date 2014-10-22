@@ -7,7 +7,12 @@
 \usepackage{poltakmacros}           % Personal macros included in file 'poltakmacros.sty'
 \usepackage{enumitem}               % For nested enum lists
 \usepackage{titlesec}
+\edef\restoreparindent{\parindent=\the\parindent\relax}
+\usepackage{parskip}
+\restoreparindent
 \usepackage[font={small}]{caption}
+\usepackage[titletoc,toc,title]{appendix}
+\usepackage{float}
 \usepackage[hidelinks]{hyperref}
 \usepackage{url}
 
@@ -79,7 +84,7 @@ Supervisors: \parbox[t]{50mm}{\mbox{Dr Maria Indrawan-Santiago}\\Dr Pari Delir H
 The realtime processing of big data is of great importance to both academia and industry. Advancements and progress in
 modern society can be directly attributed back to data. The value of data has become more apparent, and data has become
 a sort of currency for the information economy~\cite{st2009examining}. Hence, those in society who realised the value of
-data early immense power over the entire economy and thus society overall~\cite{lievesley1993increasing}.
+data early hold immense power over the entire economy, and in turn society, overall~\cite{lievesley1993increasing}.
 From seemingly inconsequential gains at the macro level, such as the ability to more
 accurately predict the rise and fall of airline tickets~\cite{darlin2006airfares}, to those of utmost importance for
 society as a whole, such as predicting and tracking the spread of the Swine Flu Pandemic in 2009 more accurately that
@@ -88,26 +93,21 @@ example applications of big data processing like these that have been recognised
 industry alike, with the last decade seeing a major shift in research and development into new methods for the handling
 and processing of big data.
 
-This paper will give a background on the types and classes of big data, as well as the various methods employed to
+This review will give a background on the types and classes of big data, as well as the various methods employed to
 process those given classes of data. We will more specifically focussing on the methods that are involved with the
-analysis and processing of realtime data streams, as opposed to the batch processing of big data. This paper will look
+analysis and processing of realtime data streams, as opposed to the batch processing of big data. This review will look
 into detail at previous work that has been done in the field of big data, specifically those works that have had a
 greater influence on the field  as a whole. This includes both works looking specifically at the processing of streaming
 data, and works involving processed big data in batch mode, given that batch mode processing arguably led onto the
 current hot-topic of realtime stream processing.
 
-This paper will be structured in two main sections. In~\sectref{sec:big_data_types_background}, an overview of the different
+This review will be structured in three main sections. In~\sectref{sec:big_data_types_background}, an overview of the different
 classes and types of big data will be presented. This includes an overview of the big data classes presented through others' findings
 as well as our own proposed classes for big data, based on the criticisms of those prior findings. In~\sectref{sec:big_data_processing_background},
 an overview will be given of the major open-source big data processing systems. A special emphasis will be given on data stream processing
 systems (DSPSs), given that the main area of this research is focusing on realtime data processing, or data stream processing.
-
-\sectref{sec:relationships_between_big_data_classes_and_big_data_processing} will then give a discussion relating to future work
-we have planned to form data processing recommendations based on the classification of specific data classes. All of the
-sections will then be summarised in the conclusion in~\sectref{sec:conclusion}.
-
-As a an outcome of this paper, we will identify a gap in previous research and development in the big data processing
-field, upon which our future work will attempt to work towards filling.
+In~\sectref{sec:analysis_and_discussion} an analysis and discussion will be given on the content covered from the
+relevant literature. All of the sections will then be summarised in the conclusion in~\sectref{sec:conclusion}.
 
 % section introduction (end)
 
@@ -138,8 +138,8 @@ in more traditional data processing, the scope may be limited, especially in ter
 consequence, there is less need of an emphasis on veracity due to limited variety in data sources.
 
 As will be made clear in the following sections, a lot of the identified classes and characteristics of data directly
-relate back to these four V's, whether or not it was intentional by the original authors. These can be considered the
-underlying features of many characteristics of data, both in the sense of big data and traditional data.
+relate back to these four V's. These can be considered the underlying features of many characteristics of data, both in
+the sense of big data and traditional data.
 
 % subsection velocity_variety_volume_and_veracity (end)
 
@@ -147,197 +147,81 @@ underlying features of many characteristics of data, both in the sense of big da
 \subsection{Classification of data} % (fold)
 \label{sub:data_classification}
 
-Data, in general, can be categorised into a number of different classes or types. In this paper, we will define the
-concept of a data class to mean the same as the terms of ``data type'', ``data category'', or ``data format'', as all
-terms were often used interchangeably in other literature.
+Data, in general, can be categorised into a number of different classes or types. We define the concept of a data class
+to mean the same as the terms of ``data type'', ``data category'', or ``data format'', as all terms were often used
+interchangeably in other literature.
 
 Each class of data can be further defined and categorised via the characteristics they exhibit. Furthermore, these
 characteristics exhibited by data classes can be exploited and it is often possible to optimise the processing of each
-class of data by processing it using a specific method depending on those characteristics.%TODO cite
-To give an example
-of this, data that is expected to have highly iterative processing applied to it would benefit from a data processor
-that does not have to unnecessarily write to disk after every single iteration. The elimination of this I/O overhead is
-an example of the optimisations that could be applied to the overall process from correctly identifying the data class
-beforehand, and processing it accordingly.
+class of data by processing it using a specific method depending on those characteristics.
+
+To give an example of this, data that is expected to have highly iterative processing applied to it would benefit from a
+data processor that does not have to unnecessarily write to disk after every single iteration. The elimination of this
+I/O overhead is an example of the optimisations that could be applied to the overall process from correctly identifying
+the data class beforehand, and processing it accordingly.
 
 Furthermore, particular classes of data are generally only found in particular applications or use cases of data
-processing.%TODO cite
-As this is the case, it narrows down the amount of classification needed, depending on the application that
+processing. As this is the case, it narrows down the amount of classification needed, depending on the application that
 is being looked at. This will be elaborated on in later parts of this section.
 
-There is no concrete, universally accepted standard for the classification of data. While the study of big data processing
-could arguably be considered still in its infancy (or at least temperamental toddler stage), data handling and processing
-in general is relatively mature. From preliminary research on looking at past work and literature in this area,
-it must be noted that there is a significant lack of research on the classification of data.
+There is no concrete, universally accepted standard for the classification of data. While the study of big data
+processing can arguably be considered still in its infancy, data handling and processing in general is relatively
+mature. From preliminary research on looking at past work and literature in this area, it must be noted that there is a
+significant lack of research on the classification of data.
 
-The literature that
-will be reviewed in this section is often not wholly focused on the idea of data classification, hence data classification
-is presented relative to whatever the overall topic of the literature is on. This is important to note, as one attempt
-at data classification may not be appropriate under a different context. This also explains the large variation in different
-classification attempts, although we will also highlight the recurring similarities between different data classification
-literature.
-
+The literature that will be reviewed in this section is often not wholly focused on the idea of data classification,
+hence data classification is presented relative to whatever the overall topic of the literature is on. This is important
+to note, as one attempt at data classification may not be appropriate under a different context. This also explains the
+large variation in different classification attempts, although we will also highlight the recurring similarities between
+different data classification literature.
 
 
-\subsubsection{Characteristics of data, from Mysore et al.} % (fold)
+\subsubsection{IBM's classification of big data}
 \label{ssub:data_charact}
 
-The main piece of literature that this section sources is a white paper from IBM Architects Mysore, Khupat, and Jain,
-published by IBM in 2013~\cite{ibm_big_2013}. The white paper is targeted towards beginners in the area of big data
-processing; much like the set of recommendations that we intend to produce from this research project. The paper looks
-at identifying the different data classes, or ``formats'' as they were labelled in the paper, that are commonly
-encountered in big data. For each of these formats, what was identified was the underlying characteristics of the data,
-and it was noted that the type of processing needed would be dependent on those characteristics.
+This section looks at a classification of big data types, along with the key data characteristics, proposed by IBM
+Architects Mysore, Khupat, and Jain, published by IBM in 2013~\cite{ibm_big_2013}. The content is targeted towards
+beginners in the area of big data processing; much like the set of recommendations that we intend to produce from this
+research project. The different data classes, or ``formats'' as they were labelled, that are commonly encountered in big
+data are identified. For each of these formats, the underlying characteristics of the data was discussed, and it was
+noted that the type of processing needed would be dependent on those characteristics.
 
-The characteristics of data, as put forward by Mysore et al., in~\cite{ibm_big_2013}, include the following:
+\noindent The characteristics of data, as put forward by Mysore et al., in~\cite{ibm_big_2013}, include the following:
 
-\paragraph{Analysis type:}
+\noindent \textbf{Analysis type -} Whether or not the data would be processed/analysed in realtime, or batched for later
+processing. Often this data class characteristic is dependent on the application of the data, \eg{}the processing of
+social media data for the analysis of currently occurring events would want to be processed in realtime, regardless of
+the type of data that is involved.
 
-\begin{itemize}
-  \item Whether or not the data would be processed/analysed in realtime, or batched for later processing.
-  \item Often this data class characteristic is dependent on the application of the data (\eg{}The processing of social
-  media data for the analysis of currently occurring events would want to be processed in realtime, regardless of the
-  type of data that is involved).
-\end{itemize}
+\noindent \textbf{Processing methodology -} This characteristic involves the approach used when processing the data. Some examples
+of different processing methodologies include: predictive processing, analytical, ad-hoc queries, and reporting. Often
+the processing methodology for a particular class is determined by the business requirements or application of the
+data. Depending on the processing methodology used, many different combinations of big data technologies can be used.
 
-\paragraph{Processing methodology:}
+\noindent \textbf{Data frequency and size -} The amount of data expected to arrive to the processing system, along with the speed
+and regularity of the incoming data. Knowing this characteristic beforehand can determine the methods for data storage
+and preprocessing, if needed. Examples of data frequency includes: on-demand data (social media), continuous/realtime
+(weather data, transactions), time-series (email). Considering the four V's, the characteristic of data frequency and
+size directly relates back to velocity and volume.
 
-\begin{itemize}
-  \item This characteristic involves the approach used when processing the data.
-  \item Some examples of different processing methodologies include: predictive processing, analytical, ad-hoc queries,
-  and reporting.
-  \item Often the processing methodology for a particular class is determined by the business requirements or application
-  of the data.
-  \item Depending on the processing methodology used, many different combinations of big data technologies can be used.
-\end{itemize}
+\noindent \textbf{Content format -} This characteristic relates back to the structure of the underlying data. Examples of data
+content format include: structured (JSON, XML), unstructured (human-readable literature), semi-structured (email).
 
-\paragraph{Data frequency and size:}
+\noindent \textbf{Data source -} This characteristic relates back to where the data originated from. As discussed previously
+in~\sectref{sub:four_v}, the origin of data can have a great effect on whether or not that data is usable, as data often
+varies greatly, especially when many different sources are used which may or may  not conform to a specific content
+format. Another thing that is dependent on the data source is whether or not the data can be trusted. Considering the
+four V's, the characteristic of data source directly relates back to veracity and variety.
 
-\begin{itemize}
-  \item The amount of data expected to arrive to the processing system, along with the speed and regularity of the incoming data.
-  \item Knowing this characteristic beforehand can determine the methods for data storage and preprocessing, if needed.
-  \item Examples of data frequency includes: on-demand data (social media), continuous/realtime (weather data, transactions),
-  time-series (email).
-  \item Considering the four V's, the characteristic of data frequency and size directly relates back to velocity and volume.
-\end{itemize}
-
-\paragraph{Content format:}
-
-\begin{itemize}
-  \item This characteristic relates back to the structure of the underlying data.
-  \item Examples of data content format include: structured (JSON, XML), unstructured (human-readable literature),
-  semi-structured (email).
-\end{itemize}
-
-\paragraph{Data source:}
-
-\begin{itemize}
-  \item This characteristic relates back to where the data originated from.
-  \item As discussed previously in~\sectref{sub:four_v}, the origin of data can have a great effect on whether or not
-  that data is usable, as data often varies greatly, especially when many different sources are used which may or may
-  not conform to a specific content format.
-  \item Another thing that is dependent on the data source is whether or not the data can be trusted.
-  \item Considering the four V's, the characteristic of data source directly relates back to veracity and variety.
-\end{itemize}
-
-% subsubsection data_charact (end)
-
-
-
-\subsubsection{Classes of data, from Mysore et al.} % (fold)
-\label{ssub:data_classification}
-
-The following table highlights the different classes of data put forward by Mysore, et al., in~\cite{ibm_big_2013}.
-The table organises each class, along with giving a brief explanation of the class. Furthermore, each class is related
-back to the previously explained characteristics in an attempt to show the connections between class and underlying
-characteristics.
-
-\hspace*{-3cm}
-\begingroup
-\fontsize{8pt}{10pt}\selectfont
-\begin{tabular}{ | p{1.5cm} | p{8cm} | p{8cm} | }
-\hline
-\textbf{Data class}          &  \textbf{Explanation} & \textbf{Characteristics}   \\ \hline
-
-Machine generated data
-&
-\begin{itemize}
-  \item Data that is automatically generated as a by-product of some interaction with a machine.
-  \item While Mysore et al.\ present this as being a distinct class in itself, it could be argued that this class
-  is an umbrella class which many other data classes presented in their paper fall under. This will be touched upon
-  further in later sections.
-\end{itemize}
-&
-\begin{itemize}
-  \item Structured data (JSON, XML).
-  \item Frequency of data varies depending on application.
-\end{itemize}
-\\ \hline
-
-Web and social data
-&
-\begin{itemize}
-  \item Data that is automatically generated through use of the Internet or social media, such as Facebook or Twitter.
-\end{itemize}
-&
-\begin{itemize}
-  \item Unstructured text (long: blogs, short: microblogs, Facebook).
-  \item Miscellaneous multimedia (video, image, audio).
-  \item On-demand frequency.
-  \item Can be continuous feed of data in cases such as Twitter.
-\end{itemize}
-\\ \hline
-
-Transaction data
-&
-\begin{itemize}
-  \item Data that is automatically generated as a by-product of transactions, such as money transactions or otherwise.
-\end{itemize}
-&
-\begin{itemize}
-  \item Structured text (JSON, XML, logs).
-  \item Continuous feed.
-\end{itemize}
-\\ \hline
-
-Human generated data
-&
-\begin{itemize}
-  \item Data that is solely produced by humans.
-  \item Examples of human generated data, as it is defined here, include such things as music, literature, recordings,
-  and emails.
-\end{itemize}
-&
-\begin{itemize}
-  \item Unstructured text (mail, literature).
-  \item Miscellaneous multimedia (audio, video, images).
-  \item Semi-structured text (email, online messaging services).
-  \item On-demand frequency.
-\end{itemize}
-\\ \hline
-
- Biometrics data
- &
- \begin{itemize}
-   \item Data that relates to human bioinformatics.
- \end{itemize}
- &
- \begin{itemize}
-   \item Structured data.
-   \item On-demand frequency.
-   \item Continuous feeds of data in cases such as persistent health monitoring sensors (\ie{}hospital patients).
- \end{itemize}
- \\ \hline
-
-\end{tabular}
-\endgroup
-\hspace*{5cm}
+The table, found in \textbf{Appendix~\ref{app:ibm_data_classes}}, highlights the different classes of data put forward
+by Mysore, et al., in~\cite{ibm_big_2013}. The table organises each class, along with giving a brief explanation of the
+class. Furthermore, each class is related back to the previously explained characteristics in an attempt to show the
+connections between class and underlying characteristics.
 
 The classes and characteristics of data presented by Mysore et al., in~\cite{ibm_big_2013}, are highly oriented towards
-industry and business users, coming from an IBM-published paper. While this is not an issue as such, as noted earlier
-in this section, these characteristics and data classes are defined within the domain relevant to this paper. As such,
-they may not be as relevant or appropriate for usage in other, non-business domains or even business domains with a
-different focus on data.
+industry and business users. While this is not an issue as such, as noted earlier in this section, these characteristics
+and data classes may not be as relevant or appropriate for usage in other non-business domains, or even business domains
+with a different focus on data.
 
 % subsubsection data_classification (end)
 
@@ -763,10 +647,10 @@ including among some of the biggest names, such as Twitter, Yahoo!, Alibaba, and
 % section big_data_processing_background (end)
 
 
-\section{Relationships between big data classes and big data processing} % (fold)
-\label{sec:relationships_between_big_data_classes_and_big_data_processing}
+\section{Analysis and discussion} % (fold)
+\label{sec:analysis_and_discussion}
 
-% section relationships_between_big_data_classes_and_big_data_processing (end)
+% section analysis_and_discussion (end)
 
 
 \section{Conclusion} % (fold)
@@ -778,5 +662,99 @@ including among some of the biggest names, such as Twitter, Yahoo!, Alibaba, and
 
 \bibliographystyle{acm}
 \bibliography{litreview.bib}
+
+\newpage
+
+\begin{appendices}
+\renewcommand\thetable{\thesection\arabic{table}}
+\renewcommand\thefigure{\thesection\arabic{figure}}
+\section{IBM data classes} \label{app:ibm_data_classes}
+
+\begin{table}[H]
+\footnotesize
+\centering
+\hspace*{-2cm}
+\begin{tabular}{ | p{2cm} | p{8cm} | p{7.5cm} | }
+\hline
+\textbf{Data class}          &  \textbf{Explanation} & \textbf{Characteristics}   \\ \hline
+
+Machine generated data
+&
+\begin{itemize}[leftmargin=*]
+  \item Data that is automatically generated as a by-product of some interaction with a machine.
+  \item While Mysore et al.\ present this as being a distinct class in itself, it could be argued that this class
+  is an umbrella class which many other data classes presented in their paper fall under. This will be touched upon
+  further in later sections.
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item Structured data (JSON, XML).
+  \item Frequency of data varies depending on application.
+\end{itemize}
+\\ \hline
+
+Web and social data
+&
+\begin{itemize}[leftmargin=*]
+  \item Data that is automatically generated through use of the Internet or social media, such as Facebook or Twitter.
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item Unstructured text (long: blogs, short: microblogs, Facebook).
+  \item Miscellaneous multimedia (video, image, audio).
+  \item On-demand frequency.
+  \item Can be continuous feed of data in cases such as Twitter.
+\end{itemize}
+\\ \hline
+
+Transaction data
+&
+\begin{itemize}[leftmargin=*]
+  \item Data that is automatically generated as a by-product of transactions, such as money transactions or otherwise.
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item Structured text (JSON, XML, logs).
+  \item Continuous feed.
+\end{itemize}
+\\ \hline
+
+Human generated data
+&
+\begin{itemize}[leftmargin=*]
+  \item Data that is solely produced by humans.
+  \item Examples of human generated data, as it is defined here, include such things as music, literature, recordings,
+  and emails.
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item Unstructured text (mail, literature).
+  \item Miscellaneous multimedia (audio, video, images).
+  \item Semi-structured text (email, online messaging services).
+  \item On-demand frequency.
+\end{itemize}
+\\ \hline
+
+ Biometrics data
+ &
+ \begin{itemize}[leftmargin=*]
+   \item Data that relates to human bioinformatics.
+ \end{itemize}
+ &
+ \begin{itemize}[leftmargin=*]
+   \item Structured data.
+   \item On-demand frequency.
+   \item Continuous feeds of data in cases such as persistent health monitoring sensors (\ie{}hospital patients).
+ \end{itemize}
+ \\ \hline
+
+\end{tabular}
+\hspace*{5cm}
+\end{table}
+
+\newpage
+\section{Mauris euismod}
+
+\end{appendices}
 
 \end{document}
