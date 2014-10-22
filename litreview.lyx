@@ -1,0 +1,3446 @@
+#LyX file created by tex2lyx 2.1
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+
+
+% set up sensible margins (same as for cssethesis)
+% This is used in the title page
+% This is used to load the crest in the title page
+\usepackage{poltakmacros}% Personal macros included in file 'poltakmacros.sty'
+\usepackage{enumitem}% For nested enum lists
+\usepackage{titlesec}
+\usepackage[font={small}]{caption}
+\usepackage{url}
+
+
+% Settings for titlesec package to have titles down to level of 4
+
+
+\author{Jonathan Poltak Samosir}
+\title{Honours Research Proposal}
+
+
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 11
+\spacing single
+\use_hyperref true
+\pdf_bookmarks 0
+\pdf_bookmarksnumbered 0
+\pdf_bookmarksopen 0
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks 0
+\pdf_pdfborder 0
+\pdf_colorlinks 0
+\pdf_backref section
+\pdf_pdfusetitle 0
+\pdf_quoted_options "hidelinks"
+\papersize a4paperpaper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 4
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Set up a title page
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% no page number on very first page
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Use roman numerals for page numbers initially
+\end_layout
+
+\end_inset
+
+
+\begin_inset FormulaMacro
+\renewcommand{\thepage}{\roman{page}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 1.5
+ 
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 1.5
+\align center
+
+\size larger
+
+\series bold
+Clayton School of Information Technology
+\begin_inset Newline newline
+\end_inset
+
+ Monash University
+\size default
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 1.5
+\align center
+
+\begin_inset VSpace 30mm*
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 1.5
+\align center
+
+\begin_inset Graphics 
+	filename img/MonashCrest.pdf
+	width 5cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 1.5
+\align center
+
+\begin_inset VSpace 15mm*
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 1.5
+\align center
+
+\size large
+
+\series bold
+Honours Literature Review --- Semester 2, 2014 
+\size default
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 1.5
+\align center
+
+\begin_inset VSpace 10mm*
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 1.5
+\align center
+
+\size largest
+
+\series bold
+A study of the Hadoop ecosystem for pipelined realtime data stream processing 
+\size default
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 1.5
+\align center
+
+\begin_inset VSpace 20mm*
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 1.5
+\align center
+
+\size large
+
+\series bold
+Jonathan Poltak Samosir
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 1.5
+\align center
+
+\series bold
+
+\size large
+[2271 3603]
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 1.5
+\align center
+
+\series bold
+
+\size large
+
+\begin_inset VSpace 20mm*
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 1.5
+\align center
+
+\series bold
+
+\size large
+Supervisors: 
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 1
+use_makebox 0
+width "50mm"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 1
+width ""
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Standard
+Dr Maria Indrawan-Santiago
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Dr Pari Delir Haghighi
+\end_layout
+
+\end_inset
+
+ 
+\size default
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+setcounter{page}{1}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\renewcommand{\thepage}{\arabic{page}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Start of content
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% (fold)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:introduction"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The realtime processing of big data is of great importance to both academia and industry. Advancements and progress in modern society can be directly attributed back to data. The value of data has become more apparent, and data has become a sort of currency for the information economy
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "st2009examining"
+
+\end_inset
+
+. Hence, those in society who realised the value of data early immense power over the entire economy and thus society overall
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "lievesley1993increasing"
+
+\end_inset
+
+. From seemingly inconsequential gains at the macro level, such as the ability to more accurately predict the rise and fall of airline tickets
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "darlin2006airfares"
+
+\end_inset
+
+, to those of utmost importance for society as a whole, such as predicting and tracking the spread of the Swine Flu Pandemic in 2009 more accurately that the United States Centers for Disease Control and Prevention could
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "ritterman2009using"
+
+\end_inset
+
+
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "mayer2013big"
+
+\end_inset
+
+. It is example applications of big data processing like these that have been recognised by academics and organisations in industry alike, with the last decade seeing a major shift in research and development into new methods for the handling and processing of big data.
+\end_layout
+
+\begin_layout Standard
+This paper will give a background on the types and classes of big data, as well as the various methods employed to process those given classes of data. We will more specifically focussing on the methods that are involved with the analysis and processing of realtime data streams, as opposed to the batch processing of big data. This paper will look into detail at previous work that has been done in the field of big data, specifically those works that have had a greater influence on the field as a whole. This includes both works looking specifically at the processing of streaming data, and works involving processed big data in batch mode, given that batch mode processing arguably led onto the current hot-topic of realtime stream processing.
+\end_layout
+
+\begin_layout Standard
+This paper will be structured in two main sections. In
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+sectref
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+sec:bigdatatypesbackground
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+, an overview of the different classes and types of big data will be presented. This includes an overview of the big data classes presented through others' findings as well as our own proposed classes for big data, based on the criticisms of those prior findings. In
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+sectref
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+sec:bigdataprocessingbackground
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+, an overview will be given of the major open-source big data processing systems. A special emphasis will be given on data stream processing systems (DSPSs), given that the main area of this research is focusing on realtime data processing, or data stream processing.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+sectref
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+sec:relationshipsbetweenbigdataclassesandbigdataprocessing
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ will then give a discussion relating to future work we have planned to form data processing recommendations based on the classification of specific data classes. All of the sections will then be summarised in the conclusion in
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+sectref
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+sec:conclusion
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+As a an outcome of this paper, we will identify a gap in previous research and development in the big data processing field, upon which our future work will attempt to work towards filling.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% section introduction (end)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Data types and characteristics background
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% (fold)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:big_data_types_background"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Velocity, variety, volume, and veracity
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% (fold)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:four_v"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Data, and more specifically, big data, are often characterised into what is known as the 
+\begin_inset Quotes eld
+\end_inset
+
+four V's
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "wang2014bigdatabench"
+
+\end_inset
+
+. These can be thought of as different 
+\begin_inset Quotes eld
+\end_inset
+
+dimensions
+\begin_inset Quotes erd
+\end_inset
+
+ of big data, and can be summarised as follows
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "dong2013big"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Velocity:
+\emph default
+ The rate at which data is being collected and made available to the data consumers. 
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Variety:
+\emph default
+ The heterogeneity of data. Big data often exhibits substantial variations in both the structural level and the instance level (representations of real-world entities). This is often highlighted by data systems that depend on acquiring of data from a number of non-conforming, and sometimes unrelated, data sources. 
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Volume:
+\emph default
+ The amount of data that is obtained by the data consumer from the data source/s. 
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Veracity:
+\emph default
+ The quality, in terms of accuracy, coverage, and timeliness, of data that is consumed from the data source/s. Veracity of data can widely differ between sources. 
+\end_layout
+
+\begin_layout Standard
+While the four V's are often described in terms of big data, they can also apply to more traditional data warehousing and processing in general, albeit on a far smaller scale. In the domain of big data processing, data will exhibit signs of high velocity, variety, and volume
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "beyer2011gartner"
+
+\end_inset
+
+, and hence the veracity of the data may also fluctuate. Meanwhile, in more traditional data processing, the scope may be limited, especially in terms of factors such as variety and, as a consequence, there is less need of an emphasis on veracity due to limited variety in data sources.
+\end_layout
+
+\begin_layout Standard
+As will be made clear in the following sections, a lot of the identified classes and characteristics of data directly relate back to these four V's, whether or not it was intentional by the original authors. These can be considered the underlying features of many characteristics of data, both in the sense of big data and traditional data.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% subsection velocity_variety_volume_and_veracity (end)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Classification of data
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% (fold)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:data_classification"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Data, in general, can be categorised into a number of different classes or types. In this paper, we will define the concept of a data class to mean the same as the terms of 
+\begin_inset Quotes eld
+\end_inset
+
+data type
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+data category
+\begin_inset Quotes erd
+\end_inset
+
+, or 
+\begin_inset Quotes eld
+\end_inset
+
+data format
+\begin_inset Quotes erd
+\end_inset
+
+, as all terms were often used interchangeably in other literature.
+\end_layout
+
+\begin_layout Standard
+Each class of data can be further defined and categorised via the characteristics they exhibit. Furthermore, these characteristics exhibited by data classes can be exploited and it is often possible to optimise the processing of each class of data by processing it using a specific method depending on those characteristics.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%TODO cite
+\end_layout
+
+\end_inset
+
+To give an example of this, data that is expected to have highly iterative processing applied to it would benefit from a data processor that does not have to unnecessarily write to disk after every single iteration. The elimination of this I/O overhead is an example of the optimisations that could be applied to the overall process from correctly identifying the data class beforehand, and processing it accordingly.
+\end_layout
+
+\begin_layout Standard
+Furthermore, particular classes of data are generally only found in particular applications or use cases of data processing.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%TODO cite
+\end_layout
+
+\end_inset
+
+As this is the case, it narrows down the amount of classification needed, depending on the application that is being looked at. This will be elaborated on in later parts of this section.
+\end_layout
+
+\begin_layout Standard
+There is no concrete, universally accepted standard for the classification of data. While the study of big data processing could arguably be considered still in its infancy (or at least temperamental toddler stage), data handling and processing in general is relatively mature. From preliminary research on looking at past work and literature in this area, it must be noted that there is a significant lack of research on the classification of data.
+\end_layout
+
+\begin_layout Standard
+The literature that will be reviewed in this section is often not wholly focused on the idea of data classification, hence data classification is presented relative to whatever the overall topic of the literature is on. This is important to note, as one attempt at data classification may not be appropriate under a different context. This also explains the large variation in different classification attempts, although we will also highlight the recurring similarities between different data classification literature.
+\end_layout
+
+\begin_layout Subsubsection
+Characteristics of data, from Mysore et al.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% (fold)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "ssub:data_charact"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The main piece of literature that this section sources is a white paper from IBM Architects Mysore, Khupat, and Jain, published by IBM in 2013
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "ibm_big_2013"
+
+\end_inset
+
+. The white paper is targeted towards beginners in the area of big data processing; much like the set of recommendations that we intend to produce from this research project. The paper looks at identifying the different data classes, or 
+\begin_inset Quotes eld
+\end_inset
+
+formats
+\begin_inset Quotes erd
+\end_inset
+
+ as they were labelled in the paper, that are commonly encountered in big data. For each of these formats, what was identified was the underlying characteristics of the data, and it was noted that the type of processing needed would be dependent on those characteristics.
+\end_layout
+
+\begin_layout Standard
+The characteristics of data, as put forward by Mysore et al., in
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "ibm_big_2013"
+
+\end_inset
+
+, include the following:
+\end_layout
+
+\begin_layout Paragraph
+Analysis type:
+\end_layout
+
+\begin_layout Itemize
+Whether or not the data would be processed/analysed in realtime, or batched for later processing. 
+\end_layout
+
+\begin_layout Itemize
+Often this data class characteristic is dependent on the application of the data (
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+eg
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{}
+\end_layout
+
+\end_inset
+
+The processing of social media data for the analysis of currently occurring events would want to be processed in realtime, regardless of the type of data that is involved). 
+\end_layout
+
+\begin_layout Paragraph
+Processing methodology:
+\end_layout
+
+\begin_layout Itemize
+This characteristic involves the approach used when processing the data. 
+\end_layout
+
+\begin_layout Itemize
+Some examples of different processing methodologies include: predictive processing, analytical, ad-hoc queries, and reporting. 
+\end_layout
+
+\begin_layout Itemize
+Often the processing methodology for a particular class is determined by the business requirements or application of the data. 
+\end_layout
+
+\begin_layout Itemize
+Depending on the processing methodology used, many different combinations of big data technologies can be used. 
+\end_layout
+
+\begin_layout Paragraph
+Data frequency and size:
+\end_layout
+
+\begin_layout Itemize
+The amount of data expected to arrive to the processing system, along with the speed and regularity of the incoming data. 
+\end_layout
+
+\begin_layout Itemize
+Knowing this characteristic beforehand can determine the methods for data storage and preprocessing, if needed. 
+\end_layout
+
+\begin_layout Itemize
+Examples of data frequency includes: on-demand data (social media), continuous/realtime (weather data, transactions), time-series (email). 
+\end_layout
+
+\begin_layout Itemize
+Considering the four V's, the characteristic of data frequency and size directly relates back to velocity and volume. 
+\end_layout
+
+\begin_layout Paragraph
+Content format:
+\end_layout
+
+\begin_layout Itemize
+This characteristic relates back to the structure of the underlying data. 
+\end_layout
+
+\begin_layout Itemize
+Examples of data content format include: structured (JSON, XML), unstructured (human-readable literature), semi-structured (email). 
+\end_layout
+
+\begin_layout Paragraph
+Data source:
+\end_layout
+
+\begin_layout Itemize
+This characteristic relates back to where the data originated from. 
+\end_layout
+
+\begin_layout Itemize
+As discussed previously in
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+sectref
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+sub:fourv
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+, the origin of data can have a great effect on whether or not that data is usable, as data often varies greatly, especially when many different sources are used which may or may not conform to a specific content format. 
+\end_layout
+
+\begin_layout Itemize
+Another thing that is dependent on the data source is whether or not the data can be trusted. 
+\end_layout
+
+\begin_layout Itemize
+Considering the four V's, the characteristic of data source directly relates back to veracity and variety. 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% subsubsection data_charact (end)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Classes of data, from Mysore et al.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% (fold)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "ssub:data_classification"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The following table highlights the different classes of data put forward by Mysore, et al., in
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "ibm_big_2013"
+
+\end_inset
+
+. The table organises each class, along with giving a brief explanation of the class. Furthermore, each class is related back to the previously explained characteristics in an attempt to show the connections between class and underlying characteristics.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset space \hspace*{}
+\length -3cm
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+begingroup
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+fontsize{8pt}{10pt}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+selectfont
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Tabular 
+<lyxtabular version="3" rows="6" columns="3">
+<features rotate="0" tabularvalignment="middle" tabularwidth="0pt">
+<column alignment="none" valignment="top" width="1.5cm">
+<column alignment="none" valignment="top" width="8cm">
+<column alignment="none" valignment="top" width="8cm">
+<row>
+<cell alignment="none" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+Data class
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+Explanation
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+
+\series bold
+Characteristics
+\series default
+ 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Machine generated data 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+Data that is automatically generated as a by-product of some interaction with a machine. 
+\end_layout
+
+\begin_layout Itemize
+While Mysore et al.
+\begin_inset space \space{}
+
+\end_inset
+
+present this as being a distinct class in itself, it could be argued that this class is an umbrella class which many other data classes presented in their paper fall under. This will be touched upon further in later sections. 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+Structured data (JSON, XML). 
+\end_layout
+
+\begin_layout Itemize
+Frequency of data varies depending on application. 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Web and social data 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+Data that is automatically generated through use of the Internet or social media, such as Facebook or Twitter. 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+Unstructured text (long: blogs, short: microblogs, Facebook). 
+\end_layout
+
+\begin_layout Itemize
+Miscellaneous multimedia (video, image, audio). 
+\end_layout
+
+\begin_layout Itemize
+On-demand frequency. 
+\end_layout
+
+\begin_layout Itemize
+Can be continuous feed of data in cases such as Twitter. 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Transaction data 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+Data that is automatically generated as a by-product of transactions, such as money transactions or otherwise. 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+Structured text (JSON, XML, logs). 
+\end_layout
+
+\begin_layout Itemize
+Continuous feed. 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Human generated data 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+Data that is solely produced by humans. 
+\end_layout
+
+\begin_layout Itemize
+Examples of human generated data, as it is defined here, include such things as music, literature, recordings, and emails. 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+Unstructured text (mail, literature). 
+\end_layout
+
+\begin_layout Itemize
+Miscellaneous multimedia (audio, video, images). 
+\end_layout
+
+\begin_layout Itemize
+Semi-structured text (email, online messaging services). 
+\end_layout
+
+\begin_layout Itemize
+On-demand frequency. 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="none" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Standard
+Biometrics data 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+Data that relates to human bioinformatics. 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="none" valignment="top" topline="true" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+Structured data. 
+\end_layout
+
+\begin_layout Itemize
+On-demand frequency. 
+\end_layout
+
+\begin_layout Itemize
+Continuous feeds of data in cases such as persistent health monitoring sensors (
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ie
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{}
+\end_layout
+
+\end_inset
+
+hospital patients). 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+endgroup
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset space \hspace*{}
+\length 5cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The classes and characteristics of data presented by Mysore et al., in
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "ibm_big_2013"
+
+\end_inset
+
+, are highly oriented towards industry and business users, coming from an IBM-published paper. While this is not an issue as such, as noted earlier in this section, these characteristics and data classes are defined within the domain relevant to this paper. As such, they may not be as relevant or appropriate for usage in other, non-business domains or even business domains with a different focus on data.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% subsubsection data_classification (end)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Characteristics of data, from Chen et al.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% (fold)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "ssub:characteristics_of_data_from_chen_et_al_"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The second paper sourced is a paper from Chen, Chiang, and Storey, focusing on the impact of big data in the field of business intelligence and analytics
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "chen2012business"
+
+\end_inset
+
+. Similarly to the paper looked at in
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+sectref
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ssub:datacharact
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+, there is an emphasis on data classes and how they relate to the area of business and organisations. However, this paper has more of an explicit focus on business, being in published in the area of business intelligence and analytics (BI&A). BI&A in itself is a highly data driven field, where data is gathered and analysed to help make informed business decisions
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "watson2009tutorial"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In the paper, Chen et al., discuss the evolution of the field of BI&A, which they categorise into three distinct stages. BI&A 1.0, being the first of the three, focuses on more traditional data processing and analysis. This includes highly structured and relational data. BI&A 2.0 involves more unstructured, web-based content with the rise of 
+\begin_inset Quotes eld
+\end_inset
+
+Web 2.0
+\begin_inset Quotes erd
+\end_inset
+
+ technologies, including social networks and opinion pieces, such as blogs. BI&A 3.0 looks at more mobile and sensor-based data. This data differentiates itself mostly to do with characteristics such as location-based data and data that is highly context dependent.
+\end_layout
+
+\begin_layout Standard
+Chen et al., elaborate on these different stages of BI&A evolution through showing the major BI&A applications for the previously mentioned evolutionary stages. For each of the BI&A applications presented, they attempt to show the classes of data which are important for the particular application, and subsequently the characteristics associated which each class. The classes and characteristics of data, shown by Chen et al., in relation to BI&A will be presented here. They will be presented in terms of the BI&A application of which they are categorised under.
+\end_layout
+
+\begin_layout Paragraph
+E-Commerce and Market Intelligence:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Types of data include:
+\end_layout
+
+\begin_layout Itemize
+Website logs and analytics data. 
+\end_layout
+
+\begin_layout Itemize
+User activity logs for e-commerce websites. 
+\end_layout
+
+\begin_layout Itemize
+User transaction records. 
+\end_layout
+
+\begin_layout Itemize
+User-generated content, such as reviews, feedback. 
+\end_layout
+
+\begin_layout Standard
+Characteristics of the data include:
+\end_layout
+
+\begin_layout Itemize
+Structured web-based data (transactions records, logs, network information). 
+\end_layout
+
+\begin_layout Itemize
+Unstructured user-generated content (reviews, feedback). 
+\end_layout
+
+\begin_layout Paragraph
+E-Government and Politics 2.0:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Types of data include:
+\end_layout
+
+\begin_layout Itemize
+Government information, such as statistics. 
+\end_layout
+
+\begin_layout Itemize
+Rules and regulations. 
+\end_layout
+
+\begin_layout Itemize
+Citizen-generated content, such as feedback, comments, and requests. 
+\end_layout
+
+\begin_layout Standard
+Characteristics of the data include:
+\end_layout
+
+\begin_layout Itemize
+Fragmented data sources (think high data variety). 
+\end_layout
+
+\begin_layout Itemize
+Unstructured data (citizen-generated content). 
+\end_layout
+
+\begin_layout Itemize
+Rich textual content. 
+\end_layout
+
+\begin_layout Paragraph
+Science & Technology:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Types of data include:
+\end_layout
+
+\begin_layout Itemize
+Machine-generated data from tools and instruments. 
+\end_layout
+
+\begin_layout Itemize
+Sensor data. 
+\end_layout
+
+\begin_layout Itemize
+Network data. 
+\end_layout
+
+\begin_layout Standard
+Types of characteristics include:
+\end_layout
+
+\begin_layout Itemize
+High velocity data collection from instruments and tools and sensors. 
+\end_layout
+
+\begin_layout Itemize
+Structured data, often formatted in uncommon structures. 
+\end_layout
+
+\begin_layout Paragraph
+Smart Health and Wellbeing:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Types of data include:
+\end_layout
+
+\begin_layout Itemize
+Genomics and sequence data (DNA sequences). 
+\end_layout
+
+\begin_layout Itemize
+Electronic health records. 
+\end_layout
+
+\begin_layout Itemize
+Health and patient social media. 
+\end_layout
+
+\begin_layout Standard
+Types of characteristics include:
+\end_layout
+
+\begin_layout Itemize
+Varying, but interrelated, data. 
+\end_layout
+
+\begin_layout Itemize
+Data specific to individual patients. 
+\end_layout
+
+\begin_layout Paragraph
+Security and Public Safety:
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Types of data include:
+\end_layout
+
+\begin_layout Itemize
+Criminal record data. 
+\end_layout
+
+\begin_layout Itemize
+Statistical data (crime maps). 
+\end_layout
+
+\begin_layout Itemize
+Media content relating to crime (news articles). 
+\end_layout
+
+\begin_layout Itemize
+Cyber-crime data (computer viruses, botnet data). 
+\end_layout
+
+\begin_layout Standard
+Types of characteristics include:
+\end_layout
+
+\begin_layout Itemize
+Highly sensitive information (identity data). 
+\end_layout
+
+\begin_layout Itemize
+Incomplete and deceptive content (speculative media content). 
+\end_layout
+
+\begin_layout Itemize
+Multilingual content. 
+\end_layout
+
+\begin_layout Standard
+As can be seen from the data classes and characteristics identified by Chen et al., in
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "chen2012business"
+
+\end_inset
+
+, there is a far greater variation to those previously presented by Mysore et al., in
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "bifet_mining_2013"
+
+\end_inset
+
+. As explained earlier, this is mainly because of the more domain specific content of this piece of literature, while the paper from Mysore et al., while still having underlying tones of business and industry, had a less explicit focus on their particular domain.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% subsubsection characteristics_of_data_from_chen_et_al_ (end)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Characteristics of data, from Géczy
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% (fold)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "ssub:characteristics_of_data_from_ge_czy"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Coming away from the business point-of-view, Géczy attempts to characterise data, and more specifically big data, in a more generic way
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "geczy_big_2014"
+
+\end_inset
+
+. He uses what he labels as 
+\begin_inset Quotes eld
+\end_inset
+
+aspects
+\begin_inset Quotes erd
+\end_inset
+
+ to determine what he believes to be the deciding characteristics of data, in terms of the way they should be processed and also simply their intrinsic traits.
+\end_layout
+
+\begin_layout Standard
+Géczy uses the following aspects to determine the different intrinsic characteristics of data:
+\end_layout
+
+\begin_layout Paragraph
+Sensitivity:
+\end_layout
+
+\begin_layout Itemize
+Relates to whether or not given data contains sensitive information, 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+ie
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{}
+\end_layout
+
+\end_inset
+
+personally identifiable information, confidential information, etc. 
+\end_layout
+
+\begin_layout Itemize
+The sentivity of the data determines the requirements relating to how it should be handled. 
+\end_layout
+
+\begin_layout Itemize
+Often it is either a legal requirement, or in the owners' interest, to keep protected the handled data deemed sensitive. 
+\end_layout
+
+\begin_layout Paragraph
+Diversity:
+\end_layout
+
+\begin_layout Itemize
+Relates to the range of different data elements present within the data. 
+\end_layout
+
+\begin_layout Itemize
+The example given explains the ability of smart phones to produce highly diverse data; 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+eg
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{}
+\end_layout
+
+\end_inset
+
+audio, video, location data, gyroscopic data, etc. 
+\end_layout
+
+\begin_layout Itemize
+Having high diversity in data can both be beneficial and detrimental; diversity can add factors of complexity, although also makes for a more rich dataset. 
+\end_layout
+
+\begin_layout Itemize
+Note that this data characteristic relates directly back to the 
+\emph on
+Variety
+\emph default
+ dimension, of the four V's. 
+\end_layout
+
+\begin_layout Paragraph
+Quality:
+\end_layout
+
+\begin_layout Itemize
+Quality characteristics of data are defined to be features that affect data quality; 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+eg
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{}
+\end_layout
+
+\end_inset
+
+completeness, accuracy, timeliness. 
+\end_layout
+
+\begin_layout Itemize
+Often the quality of data may be subject to the qualitative metrics of an organisation, or predefined standards. 
+\end_layout
+
+\begin_layout Itemize
+The quality of data relates back to the 
+\emph on
+Veracity
+\emph default
+ dimension, of the four V's. 
+\end_layout
+
+\begin_layout Paragraph
+Volume:
+\end_layout
+
+\begin_layout Itemize
+Volume refers to the size of data in terms of its basic forms of measurement, bits and bytes. 
+\end_layout
+
+\begin_layout Itemize
+Volume is an important characteristic to take into consideration when it comes to determining the type of processing needed. 
+\end_layout
+
+\begin_layout Itemize
+Volume, as the name suggests, directly relates back to the Volume dimension of the four V's. 
+\end_layout
+
+\begin_layout Paragraph
+Speed:
+\end_layout
+
+\begin_layout Itemize
+Data speed refers to the inflow and outflow speeds; inflow being the data that is being acquired, while outflow being the data leaving the system (often results of computations). 
+\end_layout
+
+\begin_layout Itemize
+Different classes of data often require different data speeds. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+eg
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{}
+\end_layout
+
+\end_inset
+
+audio is often streamed at a far lesser speed than video, due to the relatively low amount of data in audio when compared with video. 
+\end_layout
+
+\begin_layout Paragraph
+Structure:
+\end_layout
+
+\begin_layout Itemize
+Structure relates to whether data are in structured or unstructured formats. 
+\end_layout
+
+\begin_layout Itemize
+Generally unstructured data is more suitable for human consumption, such as literature or music. 
+\end_layout
+
+\begin_layout Itemize
+Structured data is usually structured in such a way that it is easily able to be parsed by an algorithm, often automated by computers. 
+\end_layout
+
+\begin_layout Itemize
+The structure of data directly relates to the difficulty of processing that data, as unstructured data usually will need some pre-processing or artificial intelligence to process. 
+\end_layout
+
+\begin_layout Standard
+Géczy later goes on to talk about the aspects of data that relate to data processing, similar to what will be talked about later in
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+sectref
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+sec:bigdataprocessingbackground
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Overall, Géczy looks at data characteristics, not from any particular perspective, but from one that attempts to capture the interests and be relevant to a number of disciplines. This impartiality is a nice refreshment from most other literature available on the topic, which have been shown to have been looking at data classification from a certain point-of-view. However, this should not be misinterpreted as a criticism of the previous literature. It is simply that the classes of data identified in other author's literature was more appropriate for the topic on which the rest of their research was focussed on. Hence, the way they treated data changed accordingly. The paper presented by Géczy, simply titled 
+\emph on
+BIG DATA CHARACTERISTICS
+\emph default
+, was focussed on nothing other than characteristics of data, hence there was no reason to attempt to classify those characteristics based on any other domain-related biases. Additionally, Géczy's paper was published in a notable interdisciplinary journal, rather than one aimed at a particular discipline. This difference in terms of impartiality is the important difference to note with this paper.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% subsubsection characteristics_of_data_from_ge_czy (end)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Criticisms of presented classification models
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% (fold)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "ssub:criticisms_of_previously_presented_models"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From the literature presented previously in this section, there are a number of points to note. Firstly, they were all highly varied in the classifications and characteristics of data given. As previously stated, this can be attributed to the variety in sources for this literature; they were all published from quite different sources, and each of the authors from different fields with different intentions. Hence, it is not
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% TODO
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% subsubsection criticisms_of_previously_presented_models (end)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% subsection data_classification (end)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% section big_data_types_background (end)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Big data processing background
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% (fold)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:big_data_processing_background"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Much more work has been done in the area of data processing than the area related to classification of data; both in the areas of big data and traditional data processing. Unlike data classification, which was more aimed at the classifying of data in general, when looking at data processing, we are more interested in the relatively newer technologies which enable the processing of big data, both in batch mode and realtime. Note that in this paper, we will refer to realtime big data processing as just that; realtime data processing in the context of big data. Through use of this term, we encompass the meanings of 
+\begin_inset Quotes eld
+\end_inset
+
+data stream processing
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+realtime stream processing
+\begin_inset Quotes erd
+\end_inset
+
+, and all other related terms that essentially have the meaning of:
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% TODO: Place definition of realtime
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Batch data processing
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% (fold)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:batch_data_processing"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Over the last decade, the main 
+\begin_inset Quotes eld
+\end_inset
+
+go-to
+\begin_inset Quotes erd
+\end_inset
+
+ solution for any sort of processing needed on datasets falling under the umbrella of big data has been the MapReduce programming model on top of some sort of scalable distributed storage system
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "bifet_mining_2013"
+
+\end_inset
+
+. From a very simplified functionality standpoint, the MapReduce programming model essentially combines the common 
+\series bold
+Map
+\series default
+ and 
+\series bold
+Reduce
+\series default
+ functions (among others), found in the standard libraries of many functional programming languages, such as Haskell
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "lammel2008google"
+
+\end_inset
+
+ or even Java 8
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "su2014changing"
+
+\end_inset
+
+, to apply a specified type of processing in a highly parallelised and distributed fashion
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "yang2007map"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The MapReduce data processing model specialises in batch mode processing. Batch data processing can be thought of where data needed to be processed is first queued up in batches before processing begins. Once ready, those batches get fed into the processing system and handled accordingly. 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%TODO: try get a reference
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+MapReduce and GFS
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% (fold)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "ssub:mapreduce_and_gfs"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dean and Ghemawat, in
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "dean_mapreduce:_2008"
+
+\end_inset
+
+, originally presented MapReduce as a technology that had been developed internally at Google, Inc.
+\begin_inset space \space{}
+
+\end_inset
+
+to be an abstraction to simplify the various computations that engineers were trying to perform on their large datasets. The implementations of these computations, while not complicated functions themselves, were obscured by the fact of having to manually parallelise the computations, distribute the data, and handle faults all in an effective manner. The MapReduce model then enabled these computations to be expressed in a simple, high-level manner without the programmer needing to worry about optimising for available resources. Furthermore, the MapReduce abstraction provided high scalability to differently sized clusters.
+\end_layout
+
+\begin_layout Standard
+As previously stated, the MapReduce programming model is generally used on top of some sort of distributed storage system. In the previous case at Google, Inc., in the original MapReduce implementation, it was implemented on top of their own proprietary distributed file system, known as Google File System (GFS). Ghemawat et al., in
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "ghemawat_google_2003"
+
+\end_inset
+
+, define GFS to be a 
+\begin_inset Quotes eld
+\end_inset
+
+scalable distributed file system for large distributed data-intensive applications
+\begin_inset Quotes erd
+\end_inset
+
+, noting that can be run on 
+\begin_inset Quotes eld
+\end_inset
+
+inexpensive commodity hardware
+\begin_inset Quotes erd
+\end_inset
+
+. Note that GFS was designed and in-use at Google, Inc.
+\begin_inset space \space{}
+
+\end_inset
+
+years before they managed to develop their MapReduce abstraction, and the original paper on MapReduce from Dean and Ghemawat state that GFS was used to manage data and store data from MapReduce
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "dean_mapreduce:_2008"
+
+\end_inset
+
+. Furthermore, McKusick and Quinlan, in
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "mckusick2009gfs"
+
+\end_inset
+
+, state that, as of 2009, the majority of Google's data relating to their many web-oriented applications are rely on GFS.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% subsubsection mapreduce_and_gfs (end)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Hadoop MapReduce and HDFS
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% (fold)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "ssub:hadoop_mapreduce_and_hdfs"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+While MapReduce paired with GFS proved to be very successful solution for big data processing at Google, Inc., and there was notable research published on the technology, it was proprietary in-house software unique to Google, and availability elsewhere was often not an option
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "grossman2009varieties"
+
+\end_inset
+
+. Hence, the open-source software community responded in turn with their own implementation of MapReduce and a distributed file system analogous to GFS, known as the Hadoop Distributed File System (HDFS). Both of these projects, along with others to date, make up the Apache Hadoop big data framework
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+
+\begin_layout Standard
+https://hadoop.apache.org
+\end_layout
+
+\end_inset
+
+. The Apache Hadoop framework, being a top level Apache Software Foundation open source project, has been developed by a number of joint contributors from organisations and institutions such as Yahoo!, Inc., Intel, IBM, UC Berkeley, among others
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "hadoop_committers"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+While Hadoop's MapReduce implementation very much was designed to be a functional replacements for Google's MapReduce, HDFS is an entirely separate project in its own right. In the original paper from Yahoo!
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "shvachko2010hadoop"
+
+\end_inset
+
+, Inc., Shvachko et al.
+\begin_inset space \space{}
+
+\end_inset
+
+present HDFS as 
+\begin_inset Quotes eld
+\end_inset
+
+the file system component of Hadoop
+\begin_inset Quotes erd
+\end_inset
+
+ with the intention of being similar to the UNIX file system, however they also state that 
+\begin_inset Quotes eld
+\end_inset
+
+faithfulness to standards was sacrificed in favour of improved performance
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+While HDFS was designed with replicating GFS' functionality in mind, several low-level architectural and design decisions were made that substantially differ to those documented in GFS. For example, in
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "borthakur2007hadoop"
+
+\end_inset
+
+, Borthakur documents the method HDFS uses when it comes to file deletion. Borthakur talks about how when a file is deleted in HDFS, it essentially gets moved to a 
+\family typewriter
+/trash
+\family default
+ directory, much like what happens in a lot of modern operating systems. This 
+\family typewriter
+/trash
+\family default
+ directory is then purged after a configurable amount of time, the default of which being six hours. To contrast with this, GFS is documented to have more primitive way of managing deleted files. Ghemawat, et al., in
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "ghemawat_google_2003"
+
+\end_inset
+
+, document GFS' garbage collection implementation. Instead of having a centralised 
+\family typewriter
+/trash
+\family default
+ storage, deleted files get renamed to a hidden name. The GFS master then, during a regularly scheduled scan, will delete any of these hidden files that have remained deleted for a configurable amount of time, the default being three days. This is by far not the only difference between the two file systems, this is simply an example of a less low-level technical difference.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% subsubsection hadoop_mapreduce_and_hdfs (end)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Pig and Hive
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% (fold)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "ssub:pig_and_hive"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Given the popularity of Hadoop, there were several early attempts at building further abstractions on top of the MapReduce model, which were met with a high level of success. As highlighted earlier, MapReduce was originally designed to be a nice abstraction on top of the underlying hardware, however according to Thusoo et al., in
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "thusoo2009hive"
+
+\end_inset
+
+, MapReduce was still too low level resulting in programmers writing programs that are 
+\begin_inset Quotes eld
+\end_inset
+
+are hard to maintain and reuse
+\begin_inset Quotes erd
+\end_inset
+
+. Thus, Thusoo et al.
+\begin_inset space \space{}
+
+\end_inset
+
+built the Hive abstraction on top of MapReduce. Hive allows programmers to write queries in a similarly declarative language to SQL --- known affectionately as 
+\emph on
+HiveQL
+\emph default
+ --- which then get compiled down into MapReduce jobs to run on Hadoop
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "thusoo2010hive"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Another common abstraction that was developed prior to Hive was what is known simply as Pig. Like Hive, Pig attempts to be a further higher level abstraction on top of MapReduce, which ultimately compiles down into MapReduce jobs, although what differentiates it from Hive is that instead of being a solely declarative SQL-like language, it is more of a mix of procedural programming languages while allowing for SQL-like constraints to be specified on the data set to define the result
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "olston2008pig"
+
+\end_inset
+
+. Olston et al.
+\begin_inset space \space{}
+
+\end_inset
+
+describe Pig's language --- known as 
+\emph on
+Pig Latin
+\emph default
+ --- to be what they define as a 
+\begin_inset Quotes eld
+\end_inset
+
+dataflow language
+\begin_inset Quotes erd
+\end_inset
+
+, rather than a strictly procedural or declarative language.
+\end_layout
+
+\begin_layout Standard
+Furthermore, note that Pig and Hive, being high level abstractions on top of MapReduce, also enable many of their own optimisations to be applied to the underlying MapReduce jobs during the compilation stage
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "gates2009building,thusoo2010hive"
+
+\end_inset
+
+ as well as having the benefit of being susceptible to manual query optimisations, familiar to programmers familiar with query optimisations from SQL
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "gruenheid2011query"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% subsubsection pig_and_hive (end)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% subsection batch_data_processing (end)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Realtime data processing
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% (fold)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:realtime_data_processing"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With HDFS being an open source project with a large range of users
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "hadoop_users"
+
+\end_inset
+
+ and code contributors
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "hadoop_committers"
+
+\end_inset
+
+, it has grown as a project in the last few years for uses beyond what it was originally intended for; a backend storage system for Hadoop MapReduce. HDFS is now not only used with Hadoop's MapReduce but also with a variety of other technologies, a lot of which run as a part of the Hadoop ecosystem. Big data processing has moved on from the more 
+\begin_inset Quotes eld
+\end_inset
+
+traditional
+\begin_inset Quotes erd
+\end_inset
+
+ method of processing, involving MapReduce jobs, which were most suitable for batch processing of data, to those methods which specialise in the realtime processing of data. The main difference of which is that rather than waiting for all the data before processing can be started, in realtime data processing the data can be streamed into the processing system in realtime at any time in the whole process.
+\end_layout
+
+\begin_layout Standard
+Comparing batched data processing to realtime data processing, it is useful to relate back to the four V's identified in
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+sectref
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+sub:fourv
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+. Velocity of data is often inconsistent with realtime processing, while in batch mode processing, where you are processing the data that has already arrived and is waiting in batches to be processed, the velocity can be considered consistent. Veracity of data is often not expected to be as consistent in realtime, as sometimes there might be times where data does not arrive or only certain parts of the data arrive at certain times. A realtime processing system, often called a data stream processing system (DSPS) in other literature, needs to be able to deal with these timeliness issues, while a batch data processing system may expect everything that needs to be there to be available.
+\end_layout
+
+\begin_layout Subsubsection
+Hadoop YARN
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% (fold)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "ssub:apache_hadoop_yarn_"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As previously looked at, the focus of the MapReduce model was performing distributed and highly parallel computations on distributed batches of data. This suited a lot of the big data audience, and hence Hadoop became the dominant method of big data processing
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "liu_survey_2014"
+
+\end_inset
+
+. However for some more specialised applications, such as the realtime monitoring of sensors, stock trading, and realtime web traffic analytics, the high latency between the data arriving and actual results being generated from the computations was not satisfactory
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "kamburugamuve_survey_2014"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A recent (2013) industry survey on European company use of big data technology by Bange, Grosser, and Janoschek, noted in
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "industry_bd_survey"
+
+\end_inset
+
+, shows that over 70% of responders show a need for realtime processing. In that time, there has certainly been a response from the open-source software community, responding with extensions to more traditional batch systems, such as Hadoop, along with complete standalone DSPS solutions.
+\end_layout
+
+\begin_layout Standard
+On the Hadoop front, the limitations of the MapReduce model were recognised, and a large effort was made in developing the 
+\begin_inset Quotes eld
+\end_inset
+
+next generation
+\begin_inset Quotes erd
+\end_inset
+
+ of Hadoop so that it could be extensible and used with other programming models, not locked into the rigidity of MapReduce. This became known officially known as YARN (Yet Another Resource Negotiator). According to the original developers of YARN, Vavilapalli et al.
+\begin_inset space \space{}
+
+\end_inset
+
+state that YARN enables Hadoop to become more modular, decoupling the resource management functionality of Hadoop from the programming model (traditionally, MapReduce)
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "vavilapalli2013apache"
+
+\end_inset
+
+. This decoupling essentially allowed for non-MapReduce technologies to be built on top of Hadoop, still interacting with the overall ecosystem, allowing for much more flexible applications of big data processing on top of the existing robust framework Hadoop provides.
+\end_layout
+
+\begin_layout Standard
+Examples of such systems now built, or in some cases ported, to run on top of Hadoop, providing alternative processing applications and use cases include:
+\end_layout
+
+\begin_layout Itemize
+Dryad, a general-purpose distributed execution system from Microsoft Research
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "isard2007dryad"
+
+\end_inset
+
+. Dryad is aimed at being high level enough to make it 
+\begin_inset Quotes eld
+\end_inset
+
+easy
+\begin_inset Quotes erd
+\end_inset
+
+ for developers to write highly distributed and parallel applications. 
+\end_layout
+
+\begin_layout Itemize
+Spark, a data processing system, from researchers at UC Berkeley, that focuses on computations that reuse the same working data set over multiple parallel operations
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "zaharia2010spark"
+
+\end_inset
+
+. 
+\end_layout
+
+\begin_layout Itemize
+HBase, a layer on top of a distributed file system (such as HDFS, or GFS) allowing for the storing of huge amounts of structured or semi-structured data
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "khetrapal2006hbase"
+
+\end_inset
+
+. 
+\end_layout
+
+\begin_layout Standard
+These are just some of the more popular examples of applications built to interact with the Hadoop ecosystem via YARN.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% subsubsection apache_hadoop_yarn_ (end)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Storm
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% (fold)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "ssub:storm"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+One very notable DSPS technology developed independently of Hadoop, and that is gaining immense popularity and growth in user base, is the Storm project. Storm was originally developed by a team of engineers lead by Nathan Marz at BackType
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+
+\begin_layout Standard
+https://storm.apache.org/
+\end_layout
+
+\end_inset
+
+. BackType has since been acquired by Twitter, Inc.
+\begin_inset space \space{}
+
+\end_inset
+
+where development has continued. Toshniwal et al.
+\begin_inset space \space{}
+
+\end_inset
+
+describe Storm, in the context of its use at Twitter, as 
+\begin_inset Quotes eld
+\end_inset
+
+a realtime distributed stream data processing engine
+\begin_inset Quotes erd
+\end_inset
+
+ that 
+\begin_inset Quotes eld
+\end_inset
+
+powers the real-time stream data management tasks that are crucial to provide Twitter services
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "toshniwal2014storm"
+
+\end_inset
+
+. Since the project's inception, Storm has seen massive adoption in industry, including among some of the biggest names, such as Twitter, Yahoo!, Alibaba, and Baidu
+\begin_inset space ~
+
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after ""
+key "storm_users"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% subsubsection storm (end)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% subsection realtime_data_processing (end)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% section big_data_processing_background (end)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Relationships between big data classes and big data processing
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% (fold)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:relationships_between_big_data_classes_and_big_data_processing"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% section relationships_between_big_data_classes_and_big_data_processing (end)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% (fold)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:conclusion"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% section conclusion (end)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ 
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "litreview.bib"
+options "acm"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

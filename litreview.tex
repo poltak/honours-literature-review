@@ -10,6 +10,7 @@
 \edef\restoreparindent{\parindent=\the\parindent\relax}
 \usepackage{parskip}
 \restoreparindent
+\usepackage{pdflscape}
 \usepackage[font={small}]{caption}
 \usepackage[titletoc,toc,title]{appendix}
 \usepackage{float}
@@ -111,6 +112,7 @@ relevant literature. All of the sections will then be summarised in the conclusi
 
 % section introduction (end)
 
+\newpage
 
 \section{Data types and characteristics background} % (fold)
 \label{sec:big_data_types_background}
@@ -226,207 +228,95 @@ with a different focus on data.
 % subsubsection data_classification (end)
 
 
-\subsubsection{Characteristics of data, from Chen et al.} % (fold)
-\label{ssub:characteristics_of_data_from_chen_et_al_}
+\subsubsection{Big data classification in BI\&A} % (fold)
+\label{ssub:big_data_BIA}
 
-The second paper sourced is a paper from Chen, Chiang, and Storey, focusing on the impact of big data in the field of
-business intelligence and analytics~\cite{chen2012business}. Similarly to the paper looked at in~\sectref{ssub:data_charact},
-there is an emphasis on data classes and how they relate to the area of business and organisations. However, this paper
-has more of an explicit focus on business, being in published in the area of business intelligence and analytics (BI\&A).
-BI\&A in itself is a highly data driven field, where data is gathered and analysed to help make informed business
-decisions~\cite{watson2009tutorial}.
+Another major contribution to big data classification is a paper from Chen, Chiang, and Storey, focusing on the impact
+of big data in the field of business intelligence and analytics~\cite{chen2012business}. Similarly to the paper looked
+at in~\sectref{ssub:data_charact}, there is an emphasis on data classes and how they relate to the area of business and
+organisations. However, this paper has more of an explicit focus on business, being in published in the area of business
+intelligence and analytics (BI\&A). BI\&A in itself is a highly data driven field, where data is gathered and analysed
+to help make informed business decisions~\cite{watson2009tutorial}.
 
-In the paper, Chen et al., discuss the evolution of the field of BI\&A, which they categorise into three distinct stages.
-BI\&A 1.0, being the first of the three, focuses on more traditional data processing and analysis. This includes
-highly structured and relational data. BI\&A 2.0 involves more unstructured, web-based content with the rise of ``Web 2.0''
-technologies, including social networks and opinion pieces, such as blogs. BI\&A 3.0 looks at more mobile and sensor-based
-data. This data differentiates itself mostly to do with characteristics such as location-based data and data that is
-highly context dependent.
+In the paper, Chen et al.~\cite{chen2012business}, discuss the evolution of the field of BI\&A, while elaborating on
+each identified stage of the evolution through highlighting of the major BI\&A applications present. For each of the
+BI\&A applications presented, they attempt to show the classes of data which are deemed important, and subsequently the
+characteristics associated which each class.
 
-Chen et al., elaborate on these different stages of BI\&A evolution through showing the major BI\&A applications for the
-previously mentioned evolutionary stages. For each of the BI\&A applications presented, they attempt to show the classes
-of data which are important for the particular application, and subsequently the characteristics associated which each
-class. The classes and characteristics of data, shown by Chen et al., in relation to BI\&A will be presented here. They
-will be presented in terms of the BI\&A application of which they are categorised under.
+In \textbf{Appendix~\ref{app:bia_data_classes}}, the classes and characteristics of data, given by Chen et
+al.~\cite{chen2012business}, are presented. They are presented in terms of the BI\&A application of which they
+are categorised under.
 
-\paragraph{E-Commerce and Market Intelligence:\\}
-
-Types of data include:
-
-\begin{itemize}
-  \item Website logs and analytics data.
-  \item User activity logs for e-commerce websites.
-  \item User transaction records.
-  \item User-generated content, such as reviews, feedback.
-\end{itemize}
-
-Characteristics of the data include:
-
-\begin{itemize}
-  \item Structured web-based data (transactions records, logs, network information).
-  \item Unstructured user-generated content (reviews, feedback).
-\end{itemize}
-
-
-\paragraph{E-Government and Politics 2.0:\\}
-
-Types of data include:
-
-\begin{itemize}
-  \item Government information, such as statistics.
-  \item Rules and regulations.
-  \item Citizen-generated content, such as feedback, comments, and requests.
-\end{itemize}
-
-Characteristics of the data include:
-
-\begin{itemize}
-  \item Fragmented data sources (think high data variety).
-  \item Unstructured data (citizen-generated content).
-  \item Rich textual content.
-\end{itemize}
-
-
-\paragraph{Science \& Technology:\\}
-
-Types of data include:
-
-\begin{itemize}
-  \item Machine-generated data from tools and instruments.
-  \item Sensor data.
-  \item Network data.
-\end{itemize}
-
-Types of characteristics include:
-
-\begin{itemize}
-  \item High velocity data collection from instruments and tools and sensors.
-  \item Structured data, often formatted in uncommon structures.
-\end{itemize}
-
-
-\paragraph{Smart Health and Wellbeing:\\}
-
-Types of data include:
-
-\begin{itemize}
-  \item Genomics and sequence data (DNA sequences).
-  \item Electronic health records.
-  \item Health and patient social media.
-\end{itemize}
-
-Types of characteristics include:
-
-\begin{itemize}
-  \item Varying, but interrelated, data.
-  \item Data specific to individual patients.
-\end{itemize}
-
-
-\paragraph{Security and Public Safety:\\}
-
-Types of data include:
-
-\begin{itemize}
-  \item Criminal record data.
-  \item Statistical data (crime maps).
-  \item Media content relating to crime (news articles).
-  \item Cyber-crime data (computer viruses, botnet data).
-\end{itemize}
-
-Types of characteristics include:
-
-\begin{itemize}
-  \item Highly sensitive information (identity data).
-  \item Incomplete and deceptive content (speculative media content).
-  \item Multilingual content.
-\end{itemize}
-
-As can be seen from the data classes and characteristics identified by Chen et al., in~\cite{chen2012business}, there is
-a far greater variation to those previously presented by Mysore et al., in~\cite{bifet_mining_2013}. As explained earlier,
+As can be seen from the data classes and characteristics identified by Chen et al.~\cite{chen2012business}, there is a
+far greater variation to those previously presented by Mysore et al., in~\cite{bifet_mining_2013}. As explained earlier,
 this is mainly because of the more domain specific content of this piece of literature, while the paper from Mysore et
-al., while still having underlying tones of business and industry, had a less explicit focus on their particular domain.
+al.~\cite{bifet_mining_2013}, while still having underlying tones of business and industry, had a less explicit focus on
+their particular domain.
 
 % subsubsection characteristics_of_data_from_chen_et_al_ (end)
 
 
-\subsubsection{Characteristics of data, from G\'eczy} % (fold)
-\label{ssub:characteristics_of_data_from_ge_czy}
+\subsubsection{Big data classification in contemporary organisations} % (fold)
+\label{ssub:big_data_contemp}
 
-Coming away from the business point-of-view, G\'eczy attempts to characterise data, and more specifically big data,  in
-a more generic way~\cite{geczy_big_2014}. He uses what he labels as ``aspects'' to determine what he believes to be the
-deciding characteristics of data, in terms of the way they should be processed and also simply their intrinsic traits.
+Coming away from the business point-of-view, G\'eczy~\cite{geczy_big_2014} attempts to characterise big data in a more
+generic way. He uses what he labels as ``aspects'' to determine what he believes to be the deciding characteristics of
+data, in terms of the way they should be processed and also simply their intrinsic traits.
 
-G\'eczy uses the following aspects to determine the different intrinsic characteristics of data:
+\noindent G\'eczy uses the following aspects to determine the different intrinsic characteristics of data:
 
-\paragraph{Sensitivity:}
+\noindent \textbf{Sensitivity -} Relates to whether or not given data contains sensitive information, ie{}personally
+identifiable information, confidential information, etc. The sentivity of the data determines the requirements relating
+to how it should be handled. Often it is either a legal requirement, or in the owners' interest, to keep protected the
+handled data deemed sensitive.
 
-\begin{itemize}
-  \item Relates to whether or not given data contains sensitive information, \ie{}personally identifiable information,
-  confidential information, etc.
-  \item The sentivity of the data determines the requirements relating to how it should be handled.
-  \item Often it is either a legal requirement, or in the owners' interest, to keep protected the handled data deemed sensitive.
-\end{itemize}
+\noindent \textbf{Diversity -} Relates to the range of different data elements present within the data. The example given
+explains the ability of smart phones to produce highly diverse data; eg{}audio, video, location data, gyroscopic data,
+etc. Having high diversity in data can both be beneficial and detrimental; diversity can add factors of complexity,
+although also makes for a more rich dataset. Note that this data characteristic relates directly back to the
+emph{Variety} dimension, of the four V's.
 
+\noindent \textbf{Quality -} Quality characteristics of data are defined to be features that affect data quality;
+\eg{}completeness, accuracy, timeliness. Often the quality of data may be subject to the qualitative metrics of an
+organisation, or predefined standards. The quality of data relates back to the emph{Veracity} dimension, of the four
+V's.
 
-\paragraph{Diversity:}
+\noindent \textbf{Volume -} Volume refers to the size of data in terms of its basic forms of measurement, bits and bytes.
+Volume is an important characteristic to take into consideration when it comes to determining the type of processing
+needed. Volume, as the name suggests, directly relates back to the Volume dimension of the four V's.
 
-\begin{itemize}
-  \item Relates to the range of different data elements present within the data.
-  \item The example given explains the ability of smart phones to produce highly diverse data; \eg{}audio, video, location
-  data, gyroscopic data, etc.
-  \item Having high diversity in data can both be beneficial and detrimental; diversity can add factors of complexity,
-  although also makes for a more rich dataset.
-  \item Note that this data characteristic relates directly back to the \emph{Variety} dimension, of the four V's.
-\end{itemize}
+\noindent \textbf{Speed -} Data speed refers to the inflow and outflow speeds; inflow being the data that is being
+acquired, while outflow being the data leaving the system (often results of computations). Different classes of data
+often require different data speeds. eg{}audio is often streamed at a far lesser speed than video, due to the
+relatively low amount of data in audio when compared with video.
 
-
-\paragraph{Quality:}
-
-\begin{itemize}
-  \item Quality characteristics of data are defined to be features that affect data quality; \eg{}completeness, accuracy,
-  timeliness.
-  \item Often the quality of data may be subject to the qualitative metrics of an organisation, or predefined standards.
-  \item The quality of data relates back to the \emph{Veracity} dimension, of the four V's.
-\end{itemize}
-
-
-\paragraph{Volume:}
-
-\begin{itemize}
-  \item Volume refers to the size of data in terms of its basic forms of measurement, bits and bytes.
-  \item Volume is an important characteristic to take into consideration when it comes to determining the type of
-  processing needed.
-  \item Volume, as the name suggests, directly relates back to the Volume dimension of the four V's.
-\end{itemize}
-
-
-\paragraph{Speed:}
-
-\begin{itemize}
-  \item Data speed refers to the inflow and outflow speeds; inflow being the data that is being acquired, while outflow
-  being the data leaving the system (often results of computations).
-  \item Different classes of data often require different data speeds. \eg{}audio is often streamed at a far lesser speed
-  than video, due to the relatively low amount of data in audio when compared with video.
-\end{itemize}
-
-
-\paragraph{Structure:}
-
-\begin{itemize}
-  \item Structure relates to whether data are in structured or unstructured formats.
-  \item Generally unstructured data is more suitable for human consumption, such as literature or music.
-  \item Structured data is usually structured in such a way that it is easily able to be parsed by an algorithm, often
-  automated by computers.
-  \item The structure of data directly relates to the difficulty of processing that data, as unstructured data usually
-  will need some pre-processing or artificial intelligence to process.
-\end{itemize}
+\noindent \textbf{Structure -} Structure relates to whether data are in structured or unstructured formats. Generally
+unstructured data is more suitable for human consumption, such as literature or music. Structured data is usually
+structured in such a way that it is easily able to be parsed by an algorithm, often automated by computers. The
+structure of data directly relates to the difficulty of processing that data, as unstructured data usually will need
+some pre-processing or artificial intelligence to process.
 
 G\'eczy later goes on to talk about the aspects of data that relate to data processing, similar to what will be talked
 about later in~\sectref{sec:big_data_processing_background}.
 
 Overall, G\'eczy looks at data characteristics, not from any particular perspective, but from one that attempts to capture
-the interests and be relevant to a number of disciplines. This impartiality is a nice refreshment from most other literature
+the interests and be relevant to a number of disciplines.
+
+% subsubsection characteristics_of_data_from_ge_czy (end)
+
+% subsection data_classification (end)
+
+\subsection{Conclusion} % (fold)
+\label{sub:classification_conclusion}
+
+TO BE CHANGED
+
+From the literature presented previously in this section, there are a number of points to note. Firstly, they were all
+highly varied in the classifications and characteristics of data given. As previously stated, this can be attributed
+to the variety in sources for this literature; they were all published from quite different sources, and each of the
+authors from different fields with different intentions. Hence, it is not
+This impartiality is a nice refreshment from most other literature
+
 available on the topic, which have been shown to have been looking at data classification from a certain point-of-view.
 However, this should not be misinterpreted as a criticism of the previous literature. It is simply that the classes of
 data identified in other author's literature was more appropriate for the topic on which the rest of their research was
@@ -436,38 +326,22 @@ to attempt to classify those characteristics based on any other domain-related b
 published in a notable interdisciplinary journal, rather than one aimed at a particular discipline. This difference in
 terms of impartiality is the important difference to note with this paper.
 
-% subsubsection characteristics_of_data_from_ge_czy (end)
-
-
-\subsubsection{Criticisms of presented classification models} % (fold)
-\label{ssub:criticisms_of_previously_presented_models}
-
-From the literature presented previously in this section, there are a number of points to note. Firstly, they were all
-highly varied in the classifications and characteristics of data given. As previously stated, this can be attributed
-to the variety in sources for this literature; they were all published from quite different sources, and each of the
-authors from different fields with different intentions. Hence, it is not
-
-% TODO
-
-% subsubsection criticisms_of_previously_presented_models (end)
-
-
-% subsection data_classification (end)
+% subsection conclusion (end)
 
 % section big_data_types_background (end)
 
+\newpage
 
 \section{Big data processing background} % (fold)
 \label{sec:big_data_processing_background}
 
-Much more work has been done in the area of data processing than the area related to classification of data; both in
-the areas of big data and traditional data processing. Unlike data classification, which was more aimed at the classifying
+Much more work has been done in the area of data processing than the area related to classification of data; both in the
+areas of big data and traditional data processing. Unlike data classification, which was more aimed at the classifying
 of data in general, when looking at data processing, we are more interested in the relatively newer technologies which
-enable the processing of big data, both in batch mode and realtime. Note that in this paper, we will refer to realtime
-big data processing as just that; realtime data processing in the context of big data. Through use of this term, we encompass the meanings of
-``data stream processing'', ``realtime stream processing'', and all other related terms that essentially have the meaning of:
-
-% TODO: Place definition of realtime
+enable the processing of big data, both in batch mode and realtime. Note that in this review, we will refer to the
+processing of data in realtime as simply ``realtime data processing''. This term should be assumed to encompass the
+meaning that is also often represented as ``data stream processing'', ``realtime stream processing'', and ``stream
+processing''.
 
 \subsection{Batch data processing} % (fold)
 \label{sub:batch_data_processing}
@@ -635,14 +509,20 @@ These are just some of the more popular examples of applications built to intera
 One very notable DSPS technology developed independently of Hadoop, and that is gaining immense popularity and growth in
 user base, is the Storm project. Storm was originally developed by a team of engineers lead by Nathan Marz at
 BackType~\footnote{https://storm.apache.org/}. BackType has since been acquired by Twitter, Inc.\ where development has
-continued. Toshniwal et al.\ describe Storm, in the context of its use at Twitter, as ``a realtime distributed stream
-data processing engine'' that ``powers the real-time stream data management tasks that are crucial to provide Twitter
-services''~\cite{toshniwal2014storm}. Since the project's inception, Storm has seen massive adoption in industry,
-including among some of the biggest names, such as Twitter, Yahoo!, Alibaba, and Baidu~\cite{storm_users}.
+continued. Toshniwal et al.~\cite{toshniwal2014storm}\ describe Storm, in the context of its use at Twitter, as ``a
+realtime distributed stream data processing engine'' that ``powers the real-time stream data management tasks that are
+crucial to provide Twitter services''~\cite[p.\ 147]{toshniwal2014storm}. Since the project's inception, Storm has seen massive
+adoption in industry, including among some of the biggest names, such as Twitter, Yahoo!, Alibaba, and
+Baidu~\cite{storm_users}.
 
 % subsubsection storm (end)
 
 % subsection realtime_data_processing (end)
+
+\subsection{Conclusion} % (fold)
+\label{sub:processing_conclusion}
+
+% subsection conclusion (end)
 
 % section big_data_processing_background (end)
 
@@ -663,18 +543,18 @@ including among some of the biggest names, such as Twitter, Yahoo!, Alibaba, and
 \bibliographystyle{acm}
 \bibliography{litreview.bib}
 
-\newpage
-
+\begin{landscape}
 \begin{appendices}
 \renewcommand\thetable{\thesection\arabic{table}}
 \renewcommand\thefigure{\thesection\arabic{figure}}
+
 \section{IBM data classes} \label{app:ibm_data_classes}
 
 \begin{table}[H]
 \footnotesize
 \centering
-\hspace*{-2cm}
-\begin{tabular}{ | p{2cm} | p{8cm} | p{7.5cm} | }
+\begin{tabular}{ | p{4cm} | p{10cm} | p{10cm} | }
+
 \hline
 \textbf{Data class}          &  \textbf{Explanation} & \textbf{Characteristics}   \\ \hline
 
@@ -747,14 +627,98 @@ Human generated data
    \item Continuous feeds of data in cases such as persistent health monitoring sensors (\ie{}hospital patients).
  \end{itemize}
  \\ \hline
-
 \end{tabular}
-\hspace*{5cm}
 \end{table}
 
 \newpage
-\section{Mauris euismod}
+\section{BI\&A data classes} \label{app:bia_data_classes}
+
+\begin{table}[H]
+\footnotesize
+\centering
+\begin{tabular}{ | p{4cm} | p{10cm} | p{10cm} | }
+
+\hline
+\textbf{BI\&A Application} & \textbf{Data types} & \textbf{Data characteristics} \\ \hline
+E-Commerce and Market Intelligence
+&
+\begin{itemize}[leftmargin=*]
+  \item Website logs and analytics data.
+  \item User activity logs for e-commerce websites.
+  \item User transaction records.
+  \item User-generated content, such as reviews, feedback.
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item Structured web-based data (transactions records, logs, network information).
+  \item Unstructured user-generated content (reviews, feedback).
+\end{itemize}
+\\ \hline
+
+E-Government and Politics 2.0
+&
+\begin{itemize}[leftmargin=*]
+  \item Government information, such as statistics.
+  \item Rules and regulations.
+  \item Citizen-generated content, such as feedback, comments, and requests.
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item Fragmented data sources (think high data variety).
+  \item Unstructured data (citizen-generated content).
+  \item Rich textual content.
+\end{itemize}
+\\ \hline
+
+Science \& Technology
+&
+\begin{itemize}[leftmargin=*]
+  \item Machine-generated data from tools and instruments.
+  \item Sensor data.
+  \item Network data.
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item High velocity data collection from instruments and tools and sensors.
+  \item Structured data, often formatted in uncommon structures.
+\end{itemize}
+\\ \hline
+
+Smart Health and Wellbeing
+&
+\begin{itemize}[leftmargin=*]
+  \item Genomics and sequence data (DNA sequences).
+  \item Electronic health records.
+  \item Health and patient social media.
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item Varying, but interrelated, data.
+  \item Data specific to individual patients.
+\end{itemize}
+\\ \hline
+
+Security and Public Safety
+&
+\begin{itemize}[leftmargin=*]
+  \item Criminal record data.
+  \item Statistical data (crime maps).
+  \item Media content relating to crime (news articles).
+  \item Cyber-crime data (computer viruses, botnet data).
+\end{itemize}
+&
+\begin{itemize}[leftmargin=*]
+  \item Highly sensitive information (identity data).
+  \item Incomplete and deceptive content (speculative media content).
+  \item Multilingual content.
+\end{itemize}
+\\ \hline
+
+\end{tabular}
+\end{table}
+
 
 \end{appendices}
+\end{landscape}
 
 \end{document}
