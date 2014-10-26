@@ -6,76 +6,19 @@
 \usepackage{graphicx}               % This is used to load the crest in the title page
 \usepackage{poltakmacros}           % Personal macros included in file 'poltakmacros.sty'
 \usepackage{enumitem}               % For nested enum lists
-\usepackage{titlesec}
 \edef\restoreparindent{\parindent=\the\parindent\relax}
 \usepackage{parskip}
 \restoreparindent
 \usepackage{pdflscape}
-\usepackage[font={small}]{caption}
-\usepackage[titletoc,toc,title]{appendix}
 \usepackage{float}
 \usepackage[hidelinks]{hyperref}
 \usepackage{url}
 
-% Settings for titlesec package to have titles down to level of 4
-\setcounter{secnumdepth}{4}
-
-\author{Jonathan Poltak Samosir}
-\title{Honours Research Proposal}
 
 \begin{document}
 
-% Set up a title page
-\thispagestyle{empty} % no page number on very first page
-% Use roman numerals for page numbers initially
-\renewcommand{\thepage}{\roman{page}}
-
-\begin{spacing}{1.5}
-\begin{center}
-{\Large \bfseries
-Clayton School of Information Technology\\
-Monash University}
-
-\vspace*{30mm}
-
-\includegraphics[width=5cm]{img/MonashCrest.pdf}
-
-\vspace*{15mm}
-
-{\large \bfseries
-Honours Literature Review --- Semester 2, 2014
-}
-
-\vspace*{10mm}
-
-{\LARGE \bfseries
-A study of the Hadoop ecosystem for pipelined realtime data stream processing
-}
-
-\vspace*{20mm}
-
-{\large \bfseries
-Jonathan Poltak Samosir
-
-[2271 3603]
-
-\vspace*{20mm}
-
-Supervisors: \parbox[t]{50mm}{\mbox{Dr Maria Indrawan-Santiago}\\Dr Pari Delir Haghighi}
-}
-
-\end{center}
-\end{spacing}
-
-\newpage
-
-\tableofcontents
-
-\newpage
-% Now reset page number counter,and switch to arabic numerals for remaining page numbers
-\setcounter{page}{1}
-\renewcommand{\thepage}{\arabic{page}}
-
+% Cover page + TOC
+\include{cover}
 
 % Start of content
 
@@ -113,6 +56,7 @@ relevant literature. All of the sections will then be summarised in the conclusi
 % section introduction (end)
 
 \newpage
+
 
 \section{Data types and characteristics background} % (fold)
 \label{sec:big_data_types_background}
@@ -215,15 +159,17 @@ varies greatly, especially when many different sources are used which may or may
 format. Another thing that is dependent on the data source is whether or not the data can be trusted. Considering the
 four V's, the characteristic of data source directly relates back to veracity and variety.
 
-The table, found in \textbf{Appendix~\ref{app:ibm_data_classes}}, highlights the different classes of data put forward
-by Mysore, et al., in~\cite{ibm_big_2013}. The table organises each class, along with giving a brief explanation of the
-class. Furthermore, each class is related back to the previously explained characteristics in an attempt to show the
-connections between class and underlying characteristics.
+Table~\ref{tab:ibm_data_tab}, highlights the different classes of data put forward by Mysore, et al.,
+in~\cite{ibm_big_2013}. The table organises each class, along with giving a brief explanation of the class. Furthermore,
+each class is related back to the previously explained characteristics in an attempt to show the connections between
+class and underlying characteristics.
 
 The classes and characteristics of data presented by Mysore et al., in~\cite{ibm_big_2013}, are highly oriented towards
 industry and business users. While this is not an issue as such, as noted earlier in this section, these characteristics
 and data classes may not be as relevant or appropriate for usage in other non-business domains, or even business domains
 with a different focus on data.
+
+\include{ibm_data_classes}
 
 % subsubsection data_classification (end)
 
@@ -243,7 +189,7 @@ each identified stage of the evolution through highlighting of the major BI\&A a
 BI\&A applications presented, they attempt to show the classes of data which are deemed important, and subsequently the
 characteristics associated which each class.
 
-In \textbf{Appendix~\ref{app:bia_data_classes}}, the classes and characteristics of data, given by Chen et
+In Table~\ref{tab:bia_data_tab}, the classes and characteristics of data, given by Chen et
 al.~\cite{chen2012business}, are presented. They are presented in terms of the BI\&A application of which they
 are categorised under.
 
@@ -252,6 +198,8 @@ far greater variation to those previously presented by Mysore et al., in~\cite{b
 this is mainly because of the more domain specific content of this piece of literature, while the paper from Mysore et
 al.~\cite{bifet_mining_2013}, while still having underlying tones of business and industry, had a less explicit focus on
 their particular domain.
+
+\include{bia_data_classes}
 
 % subsubsection characteristics_of_data_from_chen_et_al_ (end)
 
@@ -265,20 +213,20 @@ data, in terms of the way they should be processed and also simply their intrins
 
 \noindent G\'eczy uses the following aspects to determine the different intrinsic characteristics of data:
 
-\noindent \textbf{Sensitivity -} Relates to whether or not given data contains sensitive information, ie{}personally
-identifiable information, confidential information, etc. The sentivity of the data determines the requirements relating
+\noindent \textbf{Sensitivity -} Relates to whether or not given data contains sensitive information, \ie{}personally
+identifiable information, confidential information, etc. The sensitivity of the data determines the requirements relating
 to how it should be handled. Often it is either a legal requirement, or in the owners' interest, to keep protected the
 handled data deemed sensitive.
 
 \noindent \textbf{Diversity -} Relates to the range of different data elements present within the data. The example given
-explains the ability of smart phones to produce highly diverse data; eg{}audio, video, location data, gyroscopic data,
+explains the ability of smart phones to produce highly diverse data; \eg{}audio, video, location data, gyroscopic data,
 etc. Having high diversity in data can both be beneficial and detrimental; diversity can add factors of complexity,
 although also makes for a more rich dataset. Note that this data characteristic relates directly back to the
-emph{Variety} dimension, of the four V's.
+\emph{Variety} dimension, of the four V's.
 
 \noindent \textbf{Quality -} Quality characteristics of data are defined to be features that affect data quality;
 \eg{}completeness, accuracy, timeliness. Often the quality of data may be subject to the qualitative metrics of an
-organisation, or predefined standards. The quality of data relates back to the emph{Veracity} dimension, of the four
+organisation, or predefined standards. The quality of data relates back to the \emph{Veracity} dimension, of the four
 V's.
 
 \noindent \textbf{Volume -} Volume refers to the size of data in terms of its basic forms of measurement, bits and bytes.
@@ -287,7 +235,7 @@ needed. Volume, as the name suggests, directly relates back to the Volume dimens
 
 \noindent \textbf{Speed -} Data speed refers to the inflow and outflow speeds; inflow being the data that is being
 acquired, while outflow being the data leaving the system (often results of computations). Different classes of data
-often require different data speeds. eg{}audio is often streamed at a far lesser speed than video, due to the
+often require different data speeds. \eg{}audio is often streamed at a far lesser speed than video, due to the
 relatively low amount of data in audio when compared with video.
 
 \noindent \textbf{Structure -} Structure relates to whether data are in structured or unstructured formats. Generally
@@ -543,182 +491,5 @@ Baidu~\cite{storm_users}.
 \bibliographystyle{acm}
 \bibliography{litreview.bib}
 
-\begin{landscape}
-\begin{appendices}
-\renewcommand\thetable{\thesection\arabic{table}}
-\renewcommand\thefigure{\thesection\arabic{figure}}
-
-\section{IBM data classes} \label{app:ibm_data_classes}
-
-\begin{table}[H]
-\footnotesize
-\centering
-\begin{tabular}{ | p{4cm} | p{10cm} | p{10cm} | }
-
-\hline
-\textbf{Data class}          &  \textbf{Explanation} & \textbf{Characteristics}   \\ \hline
-
-Machine generated data
-&
-\begin{itemize}[leftmargin=*]
-  \item Data that is automatically generated as a by-product of some interaction with a machine.
-  \item While Mysore et al.\ present this as being a distinct class in itself, it could be argued that this class
-  is an umbrella class which many other data classes presented in their paper fall under. This will be touched upon
-  further in later sections.
-\end{itemize}
-&
-\begin{itemize}[leftmargin=*]
-  \item Structured data (JSON, XML).
-  \item Frequency of data varies depending on application.
-\end{itemize}
-\\ \hline
-
-Web and social data
-&
-\begin{itemize}[leftmargin=*]
-  \item Data that is automatically generated through use of the Internet or social media, such as Facebook or Twitter.
-\end{itemize}
-&
-\begin{itemize}[leftmargin=*]
-  \item Unstructured text (long: blogs, short: microblogs, Facebook).
-  \item Miscellaneous multimedia (video, image, audio).
-  \item On-demand frequency.
-  \item Can be continuous feed of data in cases such as Twitter.
-\end{itemize}
-\\ \hline
-
-Transaction data
-&
-\begin{itemize}[leftmargin=*]
-  \item Data that is automatically generated as a by-product of transactions, such as money transactions or otherwise.
-\end{itemize}
-&
-\begin{itemize}[leftmargin=*]
-  \item Structured text (JSON, XML, logs).
-  \item Continuous feed.
-\end{itemize}
-\\ \hline
-
-Human generated data
-&
-\begin{itemize}[leftmargin=*]
-  \item Data that is solely produced by humans.
-  \item Examples of human generated data, as it is defined here, include such things as music, literature, recordings,
-  and emails.
-\end{itemize}
-&
-\begin{itemize}[leftmargin=*]
-  \item Unstructured text (mail, literature).
-  \item Miscellaneous multimedia (audio, video, images).
-  \item Semi-structured text (email, online messaging services).
-  \item On-demand frequency.
-\end{itemize}
-\\ \hline
-
- Biometrics data
- &
- \begin{itemize}[leftmargin=*]
-   \item Data that relates to human bioinformatics.
- \end{itemize}
- &
- \begin{itemize}[leftmargin=*]
-   \item Structured data.
-   \item On-demand frequency.
-   \item Continuous feeds of data in cases such as persistent health monitoring sensors (\ie{}hospital patients).
- \end{itemize}
- \\ \hline
-\end{tabular}
-\end{table}
-
-\newpage
-\section{BI\&A data classes} \label{app:bia_data_classes}
-
-\begin{table}[H]
-\footnotesize
-\centering
-\begin{tabular}{ | p{4cm} | p{10cm} | p{10cm} | }
-
-\hline
-\textbf{BI\&A Application} & \textbf{Data types} & \textbf{Data characteristics} \\ \hline
-E-Commerce and Market Intelligence
-&
-\begin{itemize}[leftmargin=*]
-  \item Website logs and analytics data.
-  \item User activity logs for e-commerce websites.
-  \item User transaction records.
-  \item User-generated content, such as reviews, feedback.
-\end{itemize}
-&
-\begin{itemize}[leftmargin=*]
-  \item Structured web-based data (transactions records, logs, network information).
-  \item Unstructured user-generated content (reviews, feedback).
-\end{itemize}
-\\ \hline
-
-E-Government and Politics 2.0
-&
-\begin{itemize}[leftmargin=*]
-  \item Government information, such as statistics.
-  \item Rules and regulations.
-  \item Citizen-generated content, such as feedback, comments, and requests.
-\end{itemize}
-&
-\begin{itemize}[leftmargin=*]
-  \item Fragmented data sources (think high data variety).
-  \item Unstructured data (citizen-generated content).
-  \item Rich textual content.
-\end{itemize}
-\\ \hline
-
-Science \& Technology
-&
-\begin{itemize}[leftmargin=*]
-  \item Machine-generated data from tools and instruments.
-  \item Sensor data.
-  \item Network data.
-\end{itemize}
-&
-\begin{itemize}[leftmargin=*]
-  \item High velocity data collection from instruments and tools and sensors.
-  \item Structured data, often formatted in uncommon structures.
-\end{itemize}
-\\ \hline
-
-Smart Health and Wellbeing
-&
-\begin{itemize}[leftmargin=*]
-  \item Genomics and sequence data (DNA sequences).
-  \item Electronic health records.
-  \item Health and patient social media.
-\end{itemize}
-&
-\begin{itemize}[leftmargin=*]
-  \item Varying, but interrelated, data.
-  \item Data specific to individual patients.
-\end{itemize}
-\\ \hline
-
-Security and Public Safety
-&
-\begin{itemize}[leftmargin=*]
-  \item Criminal record data.
-  \item Statistical data (crime maps).
-  \item Media content relating to crime (news articles).
-  \item Cyber-crime data (computer viruses, botnet data).
-\end{itemize}
-&
-\begin{itemize}[leftmargin=*]
-  \item Highly sensitive information (identity data).
-  \item Incomplete and deceptive content (speculative media content).
-  \item Multilingual content.
-\end{itemize}
-\\ \hline
-
-\end{tabular}
-\end{table}
-
-
-\end{appendices}
-\end{landscape}
 
 \end{document}

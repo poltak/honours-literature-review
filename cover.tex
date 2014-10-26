@@ -1,3 +1,8 @@
+% Set up a title page
+\thispagestyle{empty} % no page number on very first page
+% Use roman numerals for page numbers initially
+\renewcommand{\thepage}{\roman{page}}
+
 \author{Jonathan Poltak Samosir}
 \title{Honours Research Proposal}
 
@@ -39,3 +44,11 @@ Supervisors: \parbox[t]{50mm}{\mbox{Dr Maria Indrawan-Santiago}\\Dr Pari Delir H
 \end{spacing}
 
 \newpage
+
+
+\tableofcontents
+
+\newpage
+% Now reset page number counter,and switch to arabic numerals for remaining page numbers
+\setcounter{page}{1}
+\renewcommand{\thepage}{\arabic{page}}
