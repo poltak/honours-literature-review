@@ -441,9 +441,12 @@ applications and use cases include:
   \item Dryad, a general-purpose distributed execution system from Microsoft Research~\cite{isard2007dryad}. Dryad is
   aimed at being high level enough to make it ``easy'' for developers to write highly distributed and parallel applications.
   \item Spark, a data processing system, from researchers at UC Berkeley, that focuses on computations that reuse the same working data set over multiple
-  parallel operations~\cite{zaharia2010spark}.
-  \item HBase, a layer on top of a distributed file system (such as HDFS, or GFS) allowing for the storing of huge
-  amounts of structured or semi-structured data~\cite{khetrapal2006hbase}.
+  parallel operations~\cite{zaharia2010spark}. Spark, and in particular Spark Streaming, will be looked at further in~\sectref{ssub:spark_streaming}.
+  \item Storm, a realtime stream processing system~\cite[p.\ 244]{murthy2013apache}. Performs specified processing on an
+  incoming stream of data indefinitely, until stopped. Storm will be looked at further in\~sectref{ssub:storm}.
+  \item Tez, an extensible framework which allows for the building of batch and interactive Hadoop applications~\cite{web_tez}.
+  \item REEF, a YARN-based runtime environment framework~\cite{chun2013reef}. REEF is essentially a further abstraction
+  on top of YARN, with the intention of making a unified big data application server.
 \end{itemize}
 
 These are just some of the more popular examples of applications built to interact with the Hadoop ecosystem via YARN.
@@ -454,16 +457,53 @@ These are just some of the more popular examples of applications built to intera
 \subsubsection{Storm} % (fold)
 \label{ssub:storm}
 
-One very notable DSPS technology developed independently of Hadoop, and that is gaining immense popularity and growth in
+One very notable DSPS technology developed independently of Hadoop, and that is gaining immense popularity and growth in its
 user base, is the Storm project. Storm was originally developed by a team of engineers lead by Nathan Marz at
 BackType~\footnote{https://storm.apache.org/}. BackType has since been acquired by Twitter, Inc.\ where development has
 continued. Toshniwal et al.~\cite{toshniwal2014storm}\ describe Storm, in the context of its use at Twitter, as ``a
 realtime distributed stream data processing engine'' that ``powers the real-time stream data management tasks that are
-crucial to provide Twitter services''~\cite[p.\ 147]{toshniwal2014storm}. Since the project's inception, Storm has seen massive
+crucial to provide Twitter services''~\cite[p.\ 147]{toshniwal2014storm}. Since the project's inception, Storm has seen mass
 adoption in industry, including among some of the biggest names, such as Twitter, Yahoo!, Alibaba, and
 Baidu~\cite{storm_users}.
 
+While Storm does not run on top of YARN, there is currently a large effort from engineers at Yahoo!, Inc.\ being put
+into a YARN port for Storm, named ``storm-yarn''~\footnote{https://github.com/yahoo/storm-yarn}. This YARN port will
+allow applications written for Storm to take advantage of the resources managed in a Hadoop cluster by YARN. While still
+in early stages of development, ``storm-yarn'' has begun to gain attention in the developer community, through focus from
+channels such as the Yahoo Developer Network~\cite{web_yahoo_blog} and Hortonworks~\cite{web_hortonworks_blog}.
+
 % subsubsection storm (end)
+
+
+\subsubsection{Spark Streaming} % (fold)
+\label{ssub:spark_streaming}
+
+Spark is another popular big data distributed processing framework, offering of both realtime data processing
+and more traditional batch mode processing, running on top of YARN~\cite{zaharia2010spark}. Spark was developed at UC
+Berkeley, and is notable for its novel approach to in-memory computation, through Spark's main data abstraction which is
+termed a \emph{resilient distributed dataset} (RDD). An RDD is a set of data on which computations will be performed,
+which can be specified to be cached in the memory across multiple machines. What this then allows is multiple distributed
+operations being performed on this same dataset in parallel. A further benefit from the design of Spark is the reduce of
+overhead from IO operations. Spark is designed with highly iterative computations in-mind, where the intermediate data
+at each iteration stays in memory without being written and read to the underlying storage system (\eg{}HDFS).
+
+As stated earlier, Spark allows the processing of data in realtime and batch mode. Originally, Spark was released as a
+project that simply focused on batch processing, however after the need for realtime processing became apparent, an
+extension project, Spark Streaming, was initiated. Spark Streaming uses a different programming model that involves what
+is labelled as ``D-Streams'' (discretised streams), which essentially lets a series of deterministic batch computations
+be treated as a realtime data stream~\cite{zaharia2012discretized}.The D-Stream model is specific to the Spark Streaming
+system --- the original batch mode Spark system continues to use the previously mentioned RDD abstraction --- and the
+creators claim performance improvements of being $2-5\times$ faster than  other realtime data processing systems, such as S4
+and Storm~\cite{zaharia2013discretized}.
+
+Both Spark and Spark Streaming have started to gain notable usage in both industry and research projects in academia in
+the last few years. Online video distribution company, Conviva Inc., report to be using Spark for the processing of
+analytics reports, such as viewer geographical distribution reports~\cite{web_spark_conviva,zaharia2012fast}. The Mobile
+Millennium project at UC Berkeley~\cite{web_spark_mmp}, a traffic monitoring system that uses GPS through users'
+cellular phones for traffic monitoring in the San Francisco Bay Area, has been using Spark for scaling the main algorithm
+in use for the project: an expectation maximisation (EM) algorithm that has been parallelised by being run on Spark~\cite{hunter2011scaling}.
+
+% subsubsection spark_streaming (end)
 
 % subsection realtime_data_processing (end)
 
