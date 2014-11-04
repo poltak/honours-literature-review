@@ -468,6 +468,7 @@ applications and use cases include:
   \item Tez, an extensible framework which allows for the building of batch and interactive Hadoop applications~\cite{web_tez}.
   \item REEF, a YARN-based runtime environment framework~\cite{chun2013reef}. REEF is essentially a further abstraction
   on top of YARN, with the intention of making a unified big data application server.
+  \item Samza, a relatively new realtime data processing framework from LinkedIn. Discussed further in~\sectref{ssub:samza}.
 \end{itemize}
 
 These are just some of the more popular examples of applications built to interact with the Hadoop ecosystem via YARN.
@@ -521,8 +522,9 @@ Both Spark and Spark Streaming have started to gain notable usage in both indust
 the last few years. Online video distribution company, Conviva Inc., report to be using Spark for the processing of
 analytics reports, such as viewer geographical distribution reports~\cite{web_spark_conviva,zaharia2012fast}. The Mobile
 Millennium project at UC Berkeley~\cite{web_spark_mmp}, a traffic monitoring system that uses GPS through users'
-cellular phones for traffic monitoring in the San Francisco Bay Area, has been using Spark for scaling the main algorithm
-in use for the project: an expectation maximisation (EM) algorithm that has been parallelised by being run on Spark~\cite{hunter2011scaling}.
+cellular phones for traffic monitoring in the San Francisco Bay Area, has been using Spark for scaling the main
+algorithm in use for the project: an expectation maximisation (EM) algorithm that has been parallelised by being run on
+Spark~\cite{hunter2011scaling}.
 
 % subsubsection spark_streaming (end)
 
@@ -567,17 +569,57 @@ coordination of distributed processes inside distributed applications~\cite{hunt
 \subsection{Discussion and analysis} % (fold)
 \label{sub:processing_conclusion}
 
+From the previously covered literature, it is rather difficult to provide a reasonable comparison for all the different
+realtime data processing projects. A lot of the claims made in original literature relating to the projects cannot be
+quantified fairly, as comparisons or tests have not been carried out relating to other projects. Instead, Stonebraker,
+\c{C}\~entintemel, and Zdonik proposed what they claim to be the 8 requirements for realtime data processing systems~\cite{stonebraker_8_2005},
+which can be used to given an impartial comparison of the previously covered projects. The requirements were defined a
+number of years prior to (2005) the creation of the four main realtime systems that were covered, however are highly
+cited as being the defining features that the current generation of realtime data processing systems have strived to meet.
+The requirements put forward by Stonebraker et al.\ are summarised as follows:
 
+\noindent \textbf{1: Keep the data moving -} This requirement relates to the high mobility of data and importance of low
+latency in the overall processing. Hence, processing should happen as data moves, rather than storing it first, then
+processing what is stored.
+
+\noindent \textbf{2: SQL on streams -} This requirement states that a high-level SQL-like query language should be
+available for performing on-the-fly queries on data streams. SQL is given as an example, however it is noted the language's
+operators should be more oriented to data streams.
+
+\noindent \textbf{3: Handle stream imperfections -} Given the high degree of imperfections in data streams, including
+factors such as missing and out-of-order data, this requirement states that processing systems need to be able to handle
+these issues. Simply waiting for all data to arrive if some is missing is not acceptable.
+
+\noindent \textbf{4: Generate predictable outcomes -} This requirement relates to the determinism associated with the
+outcomes of specified processes to be applied to data. A realtime processing system should have predictable and repeatable
+outcomes.
+
+\noindent \textbf{5: Integrate stored and streamed data -} This requirement states that a realtime processing system
+should provide the capabilities to be able to process both data that is already stored and data that is being delivered
+in realtime. This should happen seamlessly and provide the same programming interface for either source of data.
+
+\noindent \textbf{6: Guarantee data safety and availability -} This requirement states that realtime processing systems
+should ensure that they have a high level of availability for processing data, and in any cases of failures, the integrity
+of data should remain consistent.
+
+\noindent \textbf{7: Partition and scale applications automatically -} This requirement states that the partitioning of
+and processing of data should be performed transparently and automatically over the hardware on which it is running on.
+It should also scale to more different levels of hardware without user intervention.
+
+\noindent \textbf{8: Process and respond instantaneously -} This requirement relates to delivering highly responsive
+feedback to end-users, even for high-volume applications.
+
+The previously covered literature has been used to determine whether or not the before-mentioned realtime data processing
+systems adhere to these requirements. The outcome of this is shown in~\tabref{tab:processing_systems_compare}.
+
+Note that in~\tabref{tab:processing_systems_compare}, those cells with ``N/A'' as the value simply mean that the literature
+is inconclusive on whether or not they adhere to the particular requirement. Further investigation is required.
+
+\include{data_processing_compare}
 
 % subsection conclusion (end)
 
 % section big_data_processing_background (end)
-
-
-\section{Analysis and discussion} % (fold)
-\label{sec:analysis_and_discussion}
-
-% section analysis_and_discussion (end)
 
 
 \section{Conclusion} % (fold)
