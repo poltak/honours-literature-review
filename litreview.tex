@@ -480,7 +480,7 @@ These are just some of the more popular examples of applications built to intera
 
 One very notable DSPS technology developed independently of Hadoop, and that is gaining immense popularity and growth in its
 user base, is the Storm project. Storm was originally developed by a team of engineers lead by Nathan Marz at
-BackType~\footnote{https://storm.apache.org/}. BackType has since been acquired by Twitter, Inc.\ where development has
+BackType~\cite{web_storm} BackType has since been acquired by Twitter, Inc.\ where development has
 continued. Toshniwal et al.~\cite{toshniwal2014storm}\ describe Storm, in the context of its use at Twitter, as ``a
 realtime distributed stream data processing engine'' that ``powers the real-time stream data management tasks that are
 crucial to provide Twitter services''~\cite[p.\ 147]{toshniwal2014storm}. Since the project's inception, Storm has seen mass
@@ -488,7 +488,7 @@ adoption in industry, including among some of the biggest names, such as Twitter
 Baidu~\cite{storm_users}.
 
 While Storm does not run on top of YARN, there is currently a large effort from engineers at Yahoo!, Inc.\ being put
-into a YARN port for Storm, named ``storm-yarn''~\footnote{https://github.com/yahoo/storm-yarn}. This YARN port will
+into a YARN port for Storm, named ``storm-yarn''~\cite{web_storm_yarn}. This YARN port will
 allow applications written for Storm to take advantage of the resources managed in a Hadoop cluster by YARN. While still
 in early stages of development, ``storm-yarn'' has begun to gain attention in the developer community, through focus from
 channels such as the Yahoo Developer Network~\cite{web_yahoo_blog} and Hortonworks~\cite{web_hortonworks_blog}.
@@ -526,10 +526,48 @@ in use for the project: an expectation maximisation (EM) algorithm that has been
 
 % subsubsection spark_streaming (end)
 
+\subsubsection{Samza} % (fold)
+\label{ssub:samza}
+
+Samza is a relatively new realtime big data processing framework originally developed at LinkedIn, which has since been
+open-sourced at the Apache Software Foundation~\cite{web_samza}. Samza offers much similar functionality to that of
+Storm, however instead the running of Samza is highly coupled with the Kafka message broker, which handles the input
+and output of data streams. Essentially, Kafka is a highly distributed messaging system that focusses on the handling
+of log data~\cite{kreps2011kafka}, integrating with the Hadoop ecosystem.
+
+While Samza is lacking in maturity and adoption rates, as compared to project such as Storm, it is built on mature
+components, such as YARN and Kafka, and thus a lot of crucial features are offloaded onto these platforms. For example,
+the archiving of data, and stream persistence and imperfection handling is offloaded to Kafka~\cite{bockermann2014survey}.
+Likewise, YARN is used for ensuring fault tolerance through the handling of restarting machines that have failed in a
+cluster~\cite{bockermann2014survey}.
+
+% subsubsection samza (end)
+
+\subsubsection{S4} % (fold)
+\label{ssub:s4}
+
+S4 (Simple Scalable Streaming System) is another realtime big data processing framework that originated at Yahoo!, Inc.\
+that has since been open-sourced~\cite{neumeyer2010s4}. It is a relatively old project compared to the before-mentioned projects,
+with development becoming less of a priority in the last few years. S4 was highly influenced by the MapReduce programming
+model that was discussed in~\sectref{ssub:mapreduce_and_gfs}.
+
+Much like what was said about Samza in~\sectref{ssub:samza}, S4 attempts offload several lower level tasks to more
+mature and established systems specialising in those areas. The logical architecture of S4 lays out its jobs in a
+network of processing elements (PEs) which are arranged as a directed acyclic graph. Each of these PEs entail the type
+of processing to be done on the data at that point in the network. Each of the PEs are assigned to a processing node, a
+logical host in the cluster. The management and coordination of these processing nodes is offloaded by S4 to
+ZooKeeper~\cite{kamburugamuve_survey_2014}. Much like the before-mentioned Kafka, ZooKeeper in itself is its own complex
+service used as a part of many different big data infrastructures, including Samza. ZooKeeper specialises in the high-performance
+coordination of distributed processes inside distributed applications~\cite{hunt2010zookeeper}.
+
+% subsubsection s4 (end)
+
 % subsection realtime_data_processing (end)
 
-\subsection{Conclusion} % (fold)
+\subsection{Discussion and analysis} % (fold)
 \label{sub:processing_conclusion}
+
+
 
 % subsection conclusion (end)
 
