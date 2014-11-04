@@ -231,7 +231,7 @@ V's.
 
 \noindent \textbf{Volume -} Volume refers to the size of data in terms of its basic forms of measurement, bits and bytes.
 Volume is an important characteristic to take into consideration when it comes to determining the type of processing
-needed. Volume, as the name suggests, directly relates back to the Volume dimension of the four V's.
+needed. Volume, as the name suggests, directly relates back to the \emph{Volume} dimension of the four V's.
 
 \noindent \textbf{Speed -} Data speed refers to the inflow and outflow speeds; inflow being the data that is being
 acquired, while outflow being the data leaving the system (often results of computations). Different classes of data
@@ -254,25 +254,46 @@ the interests and be relevant to a number of disciplines.
 
 % subsection data_classification (end)
 
-\subsection{Conclusion} % (fold)
+\subsection{Discussion and analysis} % (fold)
 \label{sub:classification_conclusion}
 
-TO BE CHANGED
-
-From the literature presented previously in this section, there are a number of points to note. Firstly, they were all
+From the literature presented previously in this section, there are a number of notable points. Firstly, they were all
 highly varied in the classifications and characteristics of data given. As previously stated, this can be attributed
-to the variety in sources for this literature; they were all published from quite different sources, and each of the
-authors from different fields with different intentions. Hence, it is not
-This impartiality is a nice refreshment from most other literature
+to the variety in sources for this literature; they were all produced in the context of quite different domains, aiming
+the content for most relevance in those domains. However, while there is much disconnect between the identified classes and
+characteristics of data presented in the papers, there are also some similarities which show the connections
+between data in different research domains.
 
-available on the topic, which have been shown to have been looking at data classification from a certain point-of-view.
-However, this should not be misinterpreted as a criticism of the previous literature. It is simply that the classes of
-data identified in other author's literature was more appropriate for the topic on which the rest of their research was
-focussed on. Hence, the way they treated data changed accordingly. The paper presented by G\'eczy, simply titled
-\emph{BIG DATA CHARACTERISTICS}, was focussed on nothing other than characteristics of data, hence there was no reason
-to attempt to classify those characteristics based on any other domain-related biases. Additionally, G\'eczy's paper was
-published in a notable interdisciplinary journal, rather than one aimed at a particular discipline. This difference in
-terms of impartiality is the important difference to note with this paper.
+For example, Biometrics Data, as shown in~\tabref{tab:ibm_data_tab} by Mysore et al.\cite{ibm_big_2013}, can be seen as
+being related to that of data under the BI\&A application of Smart Health \& Wellbeing, as presented
+in~\tabref{tab:bia_data_tab} from Chen et al.\cite{chen2012business}. By ``related'', what is meant is that the
+characteristics of data underlying these classes will be similar. For example, data relating to a hospital patient's
+vital signs may fall under both of these identified classes. These relations between data classes extend to G\'eczy's
+classifications as well, with certain data that would fall under the class of Transaction Data, from Mysore et
+al.\cite{ibm_big_2013}, also falling under the classification of being highly sensitive data, as put forward by
+G\'eczy~\cite{geczy_big_2014}.
+
+Given G\'eczy's contribution of big data classification in terms of characteristics intrinsic to
+data~\cite{geczy_big_2014}, shown in~\sectref{ssub:big_data_contemp}, a lot of these characteristics can be related back
+to the big data classifications given by Mysore et al.\cite{ibm_big_2013} and Chen et al.\cite{chen2012business}
+in~\tabref{tab:ibm_data_tab} and~\tabref{tab:bia_data_tab}, respectively. This has been attempted to be shown
+in~\tabref{tab:data_class_compare}, where the classes of big data from Mysore et al., and Chen et al., are shown in
+relation to each of G\'eczy's characteristics, and whether or not they show high or low levels of those characteristics.
+
+Note that certain data classes fall under both high and low variations of a given characteristic, and sometimes are
+not present under either. This is mainly due to displaying high or low levels of a characteristic under different
+contexts, or there being inconclusive information relating to the data classes' characteristics.
+
+Also note that the data classes of machine and human generated data, as put forward by Mysore et al.\cite{ibm_big_2013},
+have been emitted. In the classification given by Mysore et al., the classes of machine and
+human generated data are presented as two discrete classes of data. The distinction between the two is very clear,
+however it could very much be argued that these two classes should be considered super classes of which other presented
+data classes could be classified under, rather than being presented as equal classes. The examples given for types of
+data that fall under the classes of human generated and
+machine generated data are also very vague in the way that they are presented, and could very easily fall under other
+identified classes as well.
+
+\include{data_classes_compared}
 
 % subsection conclusion (end)
 
