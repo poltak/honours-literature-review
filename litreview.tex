@@ -10,6 +10,8 @@
 \usepackage{parskip}
 \restoreparindent
 \usepackage{pdflscape}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
 \usepackage{float}
 \usepackage[hidelinks]{hyperref}
 \usepackage{url}
@@ -32,7 +34,7 @@ data early hold immense power over the entire economy, and in turn society, over
 From seemingly inconsequential gains at the macro level, such as the ability to more
 accurately predict the rise and fall of airline tickets~\cite{darlin2006airfares}, to those of utmost importance for
 society as a whole, such as predicting and tracking the spread of the Swine Flu Pandemic in 2009 more accurately that
-the United States Centers for Disease Control and Prevention could~\cite{ritterman2009using}~\cite{mayer2013big}. It is
+the United States Centers for Disease Control and Prevention could~\cite{ritterman2009using,mayer2013big}. It is
 example applications of big data processing like these that have been recognised by academics and organisations in
 industry alike, with the last decade seeing a major shift in research and development into new methods for the handling
 and processing of big data.
@@ -45,13 +47,16 @@ greater influence on the field  as a whole. This includes both works looking spe
 data, and works involving processed big data in batch mode, given that batch mode processing arguably led onto the
 current hot-topic of realtime stream processing.
 
-This review will be structured in three main sections. In~\sectref{sec:big_data_types_background}, an overview of the different
-classes and types of big data will be presented. This includes an overview of the big data classes presented through others' findings
-as well as our own proposed classes for big data, based on the criticisms of those prior findings. In~\sectref{sec:big_data_processing_background},
-an overview will be given of the major open-source big data processing systems. A special emphasis will be given on data stream processing
-systems (DSPSs), given that the main area of this research is focusing on realtime data processing, or data stream processing.
-In~\sectref{sec:analysis_and_discussion} an analysis and discussion will be given on the content covered from the
-relevant literature. All of the sections will then be summarised in the conclusion in~\sectref{sec:conclusion}.
+This review will be structured in three main sections. In~\sectref{sec:big_data_types_background}, an overview of the
+different classes and types of big data will be presented. This section will be concluded with a discussion on the
+literature that has been reviewed, along with a comparison of the different classifications.
+In~\sectref{sec:big_data_processing_background}, an overview will be given of the major open-source big data processing
+systems, in the scope of the Hadoop ecosystem. A special emphasis will be given to realtime data processing systems,
+otherwise known as data stream processing systems (DSPSs), given that the main area of this research is focusing on
+realtime data processing. This section will also be concluded with a brief comparison of the presented systems.
+In~\sectref{sec:conclusion} an analysis and discussion will be given on the content covered from the relevant
+literature, as well as identifying how the research contributions of this project will address the gaps found in the
+relevant literature.
 
 % section introduction (end)
 
@@ -64,8 +69,9 @@ relevant literature. All of the sections will then be summarised in the conclusi
 \subsection{Velocity, variety, volume, and veracity} % (fold)
 \label{sub:four_v}
 
-Data, and more specifically, big data, are often characterised into what is known as the ``four V's''~\cite{wang2014bigdatabench}.
-These can be thought of as different ``dimensions'' of big data, and can be summarised as follows~\cite{dong2013big}:
+Data, and more specifically, big data, are often characterised into what is known as the ``four
+V's''~\cite{wang2014bigdatabench}. These can be thought of as different ``dimensions'' of big data, and can be
+summarised as follows~\cite{dong2013big}:
 
 \begin{itemize}
   \item \emph{Velocity:} The rate at which data is being collected and made available to the data consumers.
@@ -77,11 +83,11 @@ These can be thought of as different ``dimensions'' of big data, and can be summ
   the data source/s. Veracity of data can widely differ between sources.
 \end{itemize}
 
-While the four V's are often described in terms of big data, they can also apply to more traditional data
-warehousing and processing in general, albeit on a far smaller scale. In the domain of big data processing, data will
-exhibit signs of high velocity, variety, and volume~\cite{beyer2011gartner}, and hence the veracity of the data may also fluctuate. Meanwhile,
-in more traditional data processing, the scope may be limited, especially in terms of factors such as variety and, as a
-consequence, there is less need of an emphasis on veracity due to limited variety in data sources.
+While the four V's are often described in terms of big data, they can also apply to more traditional data warehousing
+and processing in general, albeit on a far smaller scale. In the domain of big data processing, data will exhibit signs
+of high velocity, variety, and volume~\cite{beyer2011gartner}, and hence the veracity of the data may also fluctuate.
+Meanwhile, in more traditional data processing, the scope may be limited, especially in terms of factors such as variety
+and, as a consequence, there is less need of an emphasis on veracity due to limited variety in data sources.
 
 As will be made clear in the following sections, a lot of the identified classes and characteristics of data directly
 relate back to these four V's. These can be considered the underlying features of many characteristics of data, both in
@@ -139,27 +145,29 @@ processing. Often this data class characteristic is dependent on the application
 social media data for the analysis of currently occurring events would want to be processed in realtime, regardless of
 the type of data that is involved.
 
-\noindent \textbf{Processing methodology -} This characteristic involves the approach used when processing the data. Some examples
-of different processing methodologies include: predictive processing, analytical, ad-hoc queries, and reporting. Often
-the processing methodology for a particular class is determined by the business requirements or application of the
-data. Depending on the processing methodology used, many different combinations of big data technologies can be used.
+\noindent \textbf{Processing methodology -} This characteristic involves the approach used when processing the data.
+Some examples of different processing methodologies include: predictive processing, analytical, ad-hoc queries, and
+reporting. Often the processing methodology for a particular class is determined by the business requirements or
+application of the data. Depending on the processing methodology used, many different combinations of big data
+technologies can be used.
 
-\noindent \textbf{Data frequency and size -} The amount of data expected to arrive to the processing system, along with the speed
-and regularity of the incoming data. Knowing this characteristic beforehand can determine the methods for data storage
-and preprocessing, if needed. Examples of data frequency includes: on-demand data (social media), continuous/realtime
-(weather data, transactions), time-series (email). Considering the four V's, the characteristic of data frequency and
-size directly relates back to velocity and volume.
+\noindent \textbf{Data frequency and size -} The amount of data expected to arrive to the processing system, along with
+the speed and regularity of the incoming data. Knowing this characteristic beforehand can determine the methods for data
+storage and preprocessing, if needed. Examples of data frequency includes: on-demand data (social media),
+continuous/realtime (weather data, transactions), time-series (email). Considering the four V's, the characteristic of
+data frequency and size directly relates back to velocity and volume.
 
-\noindent \textbf{Content format -} This characteristic relates back to the structure of the underlying data. Examples of data
-content format include: structured (JSON, XML), unstructured (human-readable literature), semi-structured (email).
+\noindent \textbf{Content format -} This characteristic relates back to the structure of the underlying data. Examples
+of data content format include: structured (JSON, XML), unstructured (human-readable literature), semi-structured
+(email).
 
-\noindent \textbf{Data source -} This characteristic relates back to where the data originated from. As discussed previously
-in~\sectref{sub:four_v}, the origin of data can have a great effect on whether or not that data is usable, as data often
-varies greatly, especially when many different sources are used which may or may  not conform to a specific content
-format. Another thing that is dependent on the data source is whether or not the data can be trusted. Considering the
-four V's, the characteristic of data source directly relates back to veracity and variety.
+\noindent \textbf{Data source -} This characteristic relates back to where the data originated from. As discussed
+previously in~\sectref{sub:four_v}, the origin of data can have a great effect on whether or not that data is usable, as
+data often varies greatly, especially when many different sources are used which may or may  not conform to a specific
+content format. Another thing that is dependent on the data source is whether or not the data can be trusted.
+Considering the four V's, the characteristic of data source directly relates back to veracity and variety.
 
-Table~\ref{tab:ibm_data_tab}, highlights the different classes of data put forward by Mysore, et al.,
+\tabref{tab:ibm_data_tab}, highlights the different classes of data put forward by Mysore, et al.,
 in~\cite{ibm_big_2013}. The table organises each class, along with giving a brief explanation of the class. Furthermore,
 each class is related back to the previously explained characteristics in an attempt to show the connections between
 class and underlying characteristics.
@@ -592,7 +600,8 @@ these issues. Simply waiting for all data to arrive if some is missing is not ac
 
 \noindent \textbf{4: Generate predictable outcomes -} This requirement relates to the determinism associated with the
 outcomes of specified processes to be applied to data. A realtime processing system should have predictable and repeatable
-outcomes.
+outcomes. Note that this requirement is rather hard to satisfy as in practice data streams are, by character, rather
+unpredictable. However, the operations performed on given data are required to be predictable.
 
 \noindent \textbf{5: Integrate stored and streamed data -} This requirement states that a realtime processing system
 should provide the capabilities to be able to process both data that is already stored and data that is being delivered
@@ -624,6 +633,27 @@ is inconclusive on whether or not they adhere to the particular requirement. Fur
 
 \section{Conclusion} % (fold)
 \label{sec:conclusion}
+
+The choosing of appropriate realtime data processing frameworks for the processing of a given application and dataset
+is an important, and often confusing, problem. Most frameworks compare themselves in terms of performance with other
+frameworks, often which are disputed by members in other framework ``camps''~\cite{web_slideshare_b,web_slideshare_a}.
+Hence, providing an informed recommendation based on processing requirements and the class into which the dataset
+falls is a much needed and important contribution to address the gap shown to exist in current systems.
+
+As has been noted early in~\sectref{sub:data_classification}, there is a significant lack of research in terms of the
+classification of data, and thus there is no standard metric that can be used to easily classify different data. We have
+presented a comparison of existing data classification methods in~\tabref{tab:data_class_compare} that we will work with
+to provide our own taxonomy of data  which can be used for the appropriate classification of data under several domains.
+The main sources, presented in~\sectref{sub:data_classification}, have been chosen as the basis for the development of
+the data taxonomy to address this gap in existing research.
+
+Furthermore, from the literature relating to the realtime data processing frameworks, as presented
+in~\sectref{sub:realtime_data_processing}, a taxonomy of realtime data processing technologies will be created. This
+taxonomy will be used along with the created taxonomy of data classes to develop the previously stated processing
+recommendations.
+
+This research will further the field of realtime big data processing in addressing the shown gaps, and making the
+decision process far more streamlined for researchers and developers alike.
 
 % section conclusion (end)
 
