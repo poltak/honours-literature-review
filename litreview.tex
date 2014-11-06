@@ -33,14 +33,14 @@ a sort of currency for the information economy~\cite{st2009examining}. Hence, th
 data early hold immense power over the entire economy, and in turn society, overall~\cite{lievesley1993increasing}.
 From seemingly inconsequential gains at the macro level, such as the ability to more
 accurately predict the rise and fall of airline tickets~\cite{darlin2006airfares}, to those of utmost importance for
-society as a whole, such as predicting and tracking the spread of the Swine Flu Pandemic in 2009 more accurately that
+society as a whole, such as predicting and tracking the spread of the Swine Flu Pandemic in 2009 more accurately than
 the United States Centers for Disease Control and Prevention could~\cite{ritterman2009using,mayer2013big}. It is
-example applications of big data processing like these that have been recognised by academics and organisations in
+applications of big data processing like these that have been recognised by academics and organisations in
 industry alike, with the last decade seeing a major shift in research and development into new methods for the handling
 and processing of big data.
 
 This review will give a background on the types and classes of big data, as well as the various methods employed to
-process those given classes of data. We will more specifically focussing on the methods that are involved with the
+process those given classes of data. We will more specifically be focusing on the methods that are involved with the
 analysis and processing of realtime data streams, as opposed to the batch processing of big data. This review will look
 into detail at previous work that has been done in the field of big data, specifically those works that have had a
 greater influence on the field  as a whole. This includes both works looking specifically at the processing of streaming
@@ -51,7 +51,7 @@ This review will be structured in three main sections. In~\sectref{sec:big_data_
 different classes and types of big data will be presented. This section will be concluded with a discussion on the
 literature that has been reviewed, along with a comparison of the different classifications.
 In~\sectref{sec:big_data_processing_background}, an overview will be given of the major open-source big data processing
-systems, in the scope of the Hadoop ecosystem. A special emphasis will be given to realtime data processing systems,
+systems in the scope of the Hadoop ecosystem. A special emphasis will be given to realtime data processing systems,
 otherwise known as data stream processing systems (DSPSs), given that the main area of this research is focusing on
 realtime data processing. This section will also be concluded with a brief comparison of the presented systems.
 In~\sectref{sec:conclusion} an analysis and discussion will be given on the content covered from the relevant
@@ -353,7 +353,7 @@ applications'', noting that can be run on ``inexpensive commodity hardware''. No
 at Google, Inc.\ years before they managed to develop their MapReduce abstraction, and the original paper on MapReduce
 from Dean and Ghemawat state that GFS was used to manage data and store data from MapReduce~\cite{dean_mapreduce:_2008}.
 Furthermore, McKusick and Quinlan, in~\cite{mckusick2009gfs}, state that, as of 2009, the majority of Google's data
-relating to their many web-oriented applications are rely on GFS.
+relating to their many web-oriented applications rely on GFS.
 
 % subsubsection mapreduce_and_gfs (end)
 
@@ -366,7 +366,7 @@ there was notable research published on the technology, it was proprietary in-ho
 availability elsewhere was often not an option~\cite{grossman2009varieties}. Hence, the open-source software community
 responded in turn with their own implementation of MapReduce and a distributed file system analogous to GFS, known as the
 Hadoop Distributed File System (HDFS). Both of these projects, along with others to date, make up the Apache Hadoop
-big data framework~\footnote{https://hadoop.apache.org}. The Apache Hadoop framework, being a top level Apache Software
+big data ecosystem~\footnote{https://hadoop.apache.org}. The Apache Hadoop ecosystem, being a top level Apache Software
 Foundation open source project, has been developed by a number of joint contributors from organisations and institutions
 such as Yahoo!, Inc., Intel, IBM, UC Berkeley, among others~\cite{hadoop_committers}.
 
@@ -472,7 +472,7 @@ applications and use cases include:
   \item Spark, a data processing system, from researchers at UC Berkeley, that focuses on computations that reuse the same working data set over multiple
   parallel operations~\cite{zaharia2010spark}. Spark, and in particular Spark Streaming, will be looked at further in~\sectref{ssub:spark_streaming}.
   \item Storm, a realtime stream processing system~\cite[p.\ 244]{murthy2013apache}. Performs specified processing on an
-  incoming stream of data indefinitely, until stopped. Storm will be looked at further in\~sectref{ssub:storm}.
+  incoming stream of data indefinitely, until stopped. Storm will be looked at further in~\sectref{ssub:storm}.
   \item Tez, an extensible framework which allows for the building of batch and interactive Hadoop applications~\cite{web_tez}.
   \item REEF, a YARN-based runtime environment framework~\cite{chun2013reef}. REEF is essentially a further abstraction
   on top of YARN, with the intention of making a unified big data application server.
@@ -489,7 +489,7 @@ These are just some of the more popular examples of applications built to intera
 
 One very notable DSPS technology developed independently of Hadoop, and that is gaining immense popularity and growth in its
 user base, is the Storm project. Storm was originally developed by a team of engineers lead by Nathan Marz at
-BackType~\cite{web_storm} BackType has since been acquired by Twitter, Inc.\ where development has
+BackType~\cite{web_storm}. BackType has since been acquired by Twitter, Inc.\ where development has
 continued. Toshniwal et al.~\cite{toshniwal2014storm}\ describe Storm, in the context of its use at Twitter, as ``a
 realtime distributed stream data processing engine'' that ``powers the real-time stream data management tasks that are
 crucial to provide Twitter services''~\cite[p.\ 147]{toshniwal2014storm}. Since the project's inception, Storm has seen mass
@@ -521,10 +521,10 @@ As stated earlier, Spark allows the processing of data in realtime and batch mod
 project that simply focused on batch processing, however after the need for realtime processing became apparent, an
 extension project, Spark Streaming, was initiated. Spark Streaming uses a different programming model that involves what
 is labelled as ``D-Streams'' (discretised streams), which essentially lets a series of deterministic batch computations
-be treated as a realtime data stream~\cite{zaharia2012discretized}.The D-Stream model is specific to the Spark Streaming
+be treated as a realtime data stream~\cite{zaharia2012discretized}. The D-Stream model is specific to the Spark Streaming
 system --- the original batch mode Spark system continues to use the previously mentioned RDD abstraction --- and the
 creators claim performance improvements of being $2-5\times$ faster than  other realtime data processing systems, such as S4
-and Storm~\cite{zaharia2013discretized}.
+and Storm~\cite{zaharia2013discretized}. However, this has since been disputed~\cite{web_slideshare_b}.
 
 Both Spark and Spark Streaming have started to gain notable usage in both industry and research projects in academia in
 the last few years. Online video distribution company, Conviva Inc., report to be using Spark for the processing of
@@ -545,9 +545,9 @@ Storm, however instead the running of Samza is highly coupled with the Kafka mes
 and output of data streams. Essentially, Kafka is a highly distributed messaging system that focusses on the handling
 of log data~\cite{kreps2011kafka}, integrating with the Hadoop ecosystem.
 
-While Samza is lacking in maturity and adoption rates, as compared to project such as Storm, it is built on mature
+While Samza is lacking in maturity and adoption rates, as compared to projects such as Storm, it is built on mature
 components, such as YARN and Kafka, and thus a lot of crucial features are offloaded onto these platforms. For example,
-the archiving of data, and stream persistence and imperfection handling is offloaded to Kafka~\cite{bockermann2014survey}.
+the archiving of data, stream persistence, and imperfection handling is offloaded to Kafka~\cite{bockermann2014survey}.
 Likewise, YARN is used for ensuring fault tolerance through the handling of restarting machines that have failed in a
 cluster~\cite{bockermann2014survey}.
 
@@ -582,7 +582,7 @@ realtime data processing projects. A lot of the claims made in original literatu
 quantified fairly, as comparisons or tests have not been carried out relating to other projects. Instead, Stonebraker,
 \c{C}\~entintemel, and Zdonik proposed what they claim to be the 8 requirements for realtime data processing systems~\cite{stonebraker_8_2005},
 which can be used to given an impartial comparison of the previously covered projects. The requirements were defined a
-number of years prior to (2005) the creation of the four main realtime systems that were covered, however are highly
+number of years prior to the creation of the four main realtime data processing systems that were covered (2005), however are highly
 cited as being the defining features that the current generation of realtime data processing systems have strived to meet.
 The requirements put forward by Stonebraker et al.\ are summarised as follows:
 
